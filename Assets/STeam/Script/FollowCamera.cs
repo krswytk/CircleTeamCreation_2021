@@ -7,6 +7,8 @@ public class FollowCamera : MonoBehaviour
 
     //寿司を格納する変数
     public GameObject sushi;
+    [SerializeField]
+    float y=0.8f, z=-3.3f;
 
     // Use this for initialization
     void Start()
@@ -21,6 +23,6 @@ public class FollowCamera : MonoBehaviour
         Vector3 sushiPos = sushi.transform.position;
 
         //カメラとプレイヤーの位置を同じにする
-        transform.position = new Vector3(sushiPos.x, 0.8f, -3.3f);
+        transform.position = new Vector3(sushiPos.x, y, z);
     }
 }
