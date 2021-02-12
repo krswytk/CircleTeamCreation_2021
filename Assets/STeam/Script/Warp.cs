@@ -19,9 +19,29 @@ public class Warp : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (other.gameObject.name == "A-1")
         {
-            SceneManager.LoadScene("STeam/Scenes/Main_S");
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                SceneManager.LoadScene("STeam/Scenes/A-1");
+            }
         }
+
+        if (other.gameObject.name == "A-2")
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                SceneManager.LoadScene("STeam/Scenes/A-2");
+            }
+        }
+
+        if (other.gameObject.name == "B-1")
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                SceneManager.LoadScene("STeam/Scenes/B-1");
+            }
+        }
+
     }
 }
