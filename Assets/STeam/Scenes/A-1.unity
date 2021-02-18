@@ -1987,8 +1987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sushi: {fileID: 1074480048}
-  y: 0.8
-  z: -3.3
+  y: 6.6
+  z: -6.4
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
