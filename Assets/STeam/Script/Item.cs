@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+public class Item : MonoBehaviour
 {
+    //アイテムを取得したかどうか
+    public bool getflag=false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,14 @@ public class Title : MonoBehaviour
         
     }
 
-    public void SceneGame()//ゲームシーンに移動
+    public void OnItem()
     {
-        SceneManager.LoadScene("STeam/Scenes/rouka");
+        this.enabled = true;
+    }
+
+    public void OffItem()
+    {
+        this.enabled = false;
     }
 
 }
