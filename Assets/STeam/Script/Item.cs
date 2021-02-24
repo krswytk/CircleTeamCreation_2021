@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
     //アイテムを取得したかどうか
     public bool getflag=false;
+    public Sprite s;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +19,6 @@ public class Item : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void OnItem()
-    {
-        this.enabled = true;
-    }
-
-    public void OffItem()
-    {
-        this.enabled = false;
     }
 
 }
