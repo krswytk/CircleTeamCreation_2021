@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class play2d : MonoBehaviour
 {
-  
-    public float speed;//移動速度
-    public float jumpSpeed;//ジャンプ力
-    public float gravity; //重力　
-    public GroundCheck ground; //接地判定
-    public float jumpHeight;//高さ制限
-    public float jumpLimitTime;//ジャンプ制限時間 
-    public GroundCheck head;//頭ぶつけた判定 
+    [SerializeField]
+    private GameObject bullet;
+
+    [Header("移動速度")]public float speed;
+    [Header("ジャンプ速度")]public float jumpSpeed;
+    [Header("重力")]public float gravity; 　
+    [Header("接地判定")]public GroundCheck ground; 
+    [Header("ジャンプする高さの制限")]public float jumpHeight;
+    [Header("ジャンプ制限時間")]public float jumpLimitTime;
+    [Header("頭をぶつけた判定")] public GroundCheck head;
 
     private Rigidbody2D rb = null;
     private bool isGround = false;//地面についているかどうか
@@ -19,6 +21,7 @@ public class play2d : MonoBehaviour
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
+    private string enemyTag = "enemy";
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +32,13 @@ public class play2d : MonoBehaviour
     void FixedUpdate()
     {
         move();
+        ShotAction();
     }
 
 
+    /// <summary> 
+    /// プレイヤーの動き
+    /// </summary> 
     void move()
     {
         isGround = ground.IsGround();
@@ -95,6 +102,20 @@ public class play2d : MonoBehaviour
             xSpeed = 0.0f;
         }
         rb.velocity = new Vector2(xSpeed, ySpeed); //移動の力加え
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == enemyTag)
+        {
+            Debug.Log("敵と接触した！");
+        }
+    }
+    void ShotAction()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
     }
 }
 
