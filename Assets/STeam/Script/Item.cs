@@ -7,18 +7,26 @@ public class Item : MonoBehaviour
 {
     //アイテムを取得したかどうか
     public bool getflag=false;
+    //使った後なくなるかどうか
+    public bool itemlost = false;
+    //アイテムの画像
     public Sprite s;
 
-    // Start is called before the first frame update
+    //アイテム番号　絶対よくない…
+    public int itemkind;
+
+  
     void Start()
     {
-        
+        if (getflag == true)
+        {
+            this.enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onflag()
     {
-        
+        getflag = true;
     }
 
 }

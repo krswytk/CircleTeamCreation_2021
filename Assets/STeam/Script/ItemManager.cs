@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Item
 {
-    [SerializeField]
+   /* [SerializeField]
     private int itemnum = 4;
+    */
 
    public Image[] gazou;
     Menu m;
-    int n = 1;
+    int n = 0;//後で決める選択カーソルの番号
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,10 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //アイテム使用
+        //メニューを開いているかどうか
         if (m.opcl == true)
         {
+            //アイテム使用
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 gazou[n].sprite = null;
@@ -32,17 +34,15 @@ public class ItemManager : MonoBehaviour
                     gazou[n+i].sprite = gazou[n+ i+1].sprite;
                 }
                 gazou[gazou.Length-1].sprite = null;
-
             }
+
         }
     }
-
-    public void getitem(Sprite s)
+    
+    public void getitem(Sprite s)//アイテムの画像を移行
     {
-        Debug.Log("呼び出され");
         for (int i = 0; i < gazou.Length; i++)
         {
-            Debug.Log(gazou[i].GetComponent<Image>().sprite);
             if (gazou[i].GetComponent<Image>().sprite == null)
             {
                 gazou[i].GetComponent<Image>().sprite = s;
