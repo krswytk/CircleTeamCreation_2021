@@ -7,12 +7,12 @@ public class play2d : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
 
-    [Header("移動速度")]public float speed;
-    [Header("ジャンプ速度")]public float jumpSpeed;
-    [Header("重力")]public float gravity; 　
-    [Header("接地判定")]public GroundCheck ground; 
-    [Header("ジャンプする高さの制限")]public float jumpHeight;
-    [Header("ジャンプ制限時間")]public float jumpLimitTime;
+    [Header("移動速度")] public float speed;
+    [Header("ジャンプ速度")] public float jumpSpeed;
+    [Header("重力")] public float gravity;
+    [Header("接地判定")] public GroundCheck ground;
+    [Header("ジャンプする高さの制限")] public float jumpHeight;
+    [Header("ジャンプ制限時間")] public float jumpLimitTime;
     [Header("頭をぶつけた判定")] public GroundCheck head;
 
     private Rigidbody2D rb = null;
@@ -25,7 +25,7 @@ public class play2d : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb= GetComponent<Rigidbody2D>();//2dリジットボディを取得
+        rb = GetComponent<Rigidbody2D>();//2dリジットボディを取得
     }
 
     // Update is called once per frame
@@ -34,8 +34,6 @@ public class play2d : MonoBehaviour
         move();
         ShotAction();
     }
-
-
     /// <summary> 
     /// プレイヤーの動き
     /// </summary> 
@@ -77,11 +75,11 @@ public class play2d : MonoBehaviour
                 ySpeed = jumpSpeed;
                 jumpTime += Time.deltaTime;
             }
-        
+
             else
             {
                 isJump = false;
-                jumpTime = 0.0f; 
+                jumpTime = 0.0f;
             }
         }
         if (horizontalKey > 0)
@@ -118,4 +116,3 @@ public class play2d : MonoBehaviour
         }
     }
 }
-
