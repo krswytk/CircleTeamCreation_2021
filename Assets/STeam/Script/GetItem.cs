@@ -26,8 +26,15 @@ public class GetItem : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Z))
             {
+                //アイテムを取得したら
                 hairetu.getitem(other.GetComponent<Item>().s);
-                Destroy(other.gameObject);
+
+                //アイテム取得フラグ
+                other.GetComponent<Item>().onflag();
+
+                //アイテム非表示
+                other.gameObject.SetActive(false);
+                //Destroy(other.gameObject);
             }
 
         }
