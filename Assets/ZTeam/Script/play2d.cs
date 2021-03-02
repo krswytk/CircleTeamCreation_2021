@@ -110,7 +110,7 @@ public class play2d : MonoBehaviour
     }
     void ShotAction()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Instantiate(bullet, transform.position, transform.rotation);
         }

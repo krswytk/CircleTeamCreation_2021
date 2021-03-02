@@ -7,10 +7,17 @@ public class EnemyC1 : MonoBehaviour
     // 敵の体力の入れ物
     [SerializeField]
     private int enemyArmorPoint;
-    public ScanPlayer iti;
+    private GameObject enemybullet;
+
+   // public ScanPlayer iti;
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
+    private int numberOfEnemys = 0;
+    public bool EnemyOn = true;
+    public bool down = false;
     void Start()
     {
+        EnemyOn = true;
+        down = false;
         // 敵の体力を初期化
         enemyArmorPoint = 3;
     }
@@ -21,6 +28,7 @@ public class EnemyC1 : MonoBehaviour
         // もしもtagがmybulletであるオブジェクトと接触したら
         if (collision.gameObject.tag == "mybullet")
         {
+           
             // 敵の体力が0以上だったら
             if (enemyArmorPoint > 0)
             {
@@ -29,6 +37,7 @@ public class EnemyC1 : MonoBehaviour
             }
             else {
                 // 敵の体力が0になったら敵オブジェクトを消滅させる
+                down = true;
                 Destroy(gameObject);
             }
         }
@@ -36,10 +45,21 @@ public class EnemyC1 : MonoBehaviour
 
     void Update()
     {
-        isPlayerIn = iti.IsPlayerIn();
+       /* isPlayerIn = iti.IsPlayerIn();
         if (isPlayerIn == true)
         {
             //ここに敵対行動を書く
-        }
+            Instantiate(enemybullet, transform.position, transform.rotation);
+
+            isPlayerIn = false;
+        }*/
     }
+    /*public bool EnemySP()
+    {
+        
+            EnemyOn = false;
+            return EnemyOn;
+        
+    }
+    */
 }
