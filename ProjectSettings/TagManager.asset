@@ -7,6 +7,8 @@ TagManager:
   - Item
   - Fire
   - Ground
+  - enemy
+  - mybullet
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - player
+  - Bullet
   - 
   - 
   - 
