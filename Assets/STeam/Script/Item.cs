@@ -1,32 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
     //アイテムを取得したかどうか
     public bool getflag=false;
+    //使った後なくなるかどうか
+    public bool itemlost = false;
+    //アイテムの画像
+    public Sprite s;
 
-    // Start is called before the first frame update
+    //アイテム番号　絶対よくない…
+    public int itemkind;
+
+  
     void Start()
     {
-        
+        if (getflag == true)
+        {
+            this.enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onflag()
     {
-        
-    }
-
-    public void OnItem()
-    {
-        this.enabled = true;
-    }
-
-    public void OffItem()
-    {
-        this.enabled = false;
+        getflag = true;
     }
 
 }

@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetItem : MonoBehaviour
 {
-    Item item;
+   ItemManager hairetu;
+
     // Start is called before the first frame update
     void Start()
     {
-
+         hairetu = GetComponent<ItemManager>();
     }
 
     // Update is called once per frame
@@ -21,11 +23,35 @@ public class GetItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Item")
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+
+            if (Input.GetKey(KeyCode.Z))
             {
-                //item.OffItem();
-                Destroy(other.gameObject);
+                //アイテムを取得したら
+                hairetu.getitem(other.GetComponent<Item>().s);
+
+                //アイテム取得フラグ
+                other.GetComponent<Item>().onflag();
+
+                //アイテム非表示
+                other.gameObject.SetActive(false);
+                //Destroy(other.gameObject);
+            }
+
+        }
+    }
+  /*  public void Get(Sprite s)
+    {
+        Debug.Log("呼び出され");
+        for (int i = 0; i < hairetu.Imege.Length; i++)
+        {
+            Debug.Log(hairetu.Imege[i].GetComponent<Image>().sprite);
+            if (hairetu.Imege[i].GetComponent<Image>().sprite == null)
+            {
+                hairetu.Imege[i].GetComponent<Image>().sprite = s;
+                break;
             }
         }
     }
+    */
+
 }
