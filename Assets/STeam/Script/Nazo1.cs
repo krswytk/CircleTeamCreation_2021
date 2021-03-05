@@ -7,20 +7,23 @@ public class Nazo1 : NazoData
     [SerializeField]
     GameObject g;
 
-    Menu m;
-    Item i;
+    Menu menu;
+    Item item;
+    ItemManager manager;
 
 
     // Start is called before the first frame update
     void Start()
     {
         g.SetActive(false);
-        m = GameObject.FindWithTag("Player").GetComponent<Menu>();
-        i = GameObject.FindWithTag("Item").GetComponent<Item>();
+        menu = GameObject.Find("Player").GetComponent<Menu>();
+        manager= GameObject.Find("Player").GetComponent<ItemManager>();
+        item = GameObject.FindGameObjectWithTag("Item").GetComponent<Item>();
+
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (right == true)
             g.SetActive(true);
@@ -28,13 +31,14 @@ public class Nazo1 : NazoData
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && m.opcl == true)
+        if (other.gameObject.tag == "Player" && menu.opcl == true)
         {
-            if (i.getflag == true && i.itemkind == 0)
+            if (item.getflag == true && item.itemkind == 0)
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     right = true;
+                    manager.useitem();
                 }
             }
         }
