@@ -458,7 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c1298e69afd0045af6ce3954e4a275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  right: 0
   g: {fileID: 1032150553}
 --- !u!65 &137495805
 BoxCollider:
@@ -1672,6 +1671,10 @@ PrefabInstance:
       propertyPath: gazou.Array.data[3]
       value: 
       objectReference: {fileID: 750039776}
+    - target: {fileID: 1922915272, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 750923217}
     - target: {fileID: 1922915273, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
       propertyPath: menu
       value: 
@@ -1734,7 +1737,7 @@ PrefabInstance:
     - target: {fileID: 2628077719434580514, guid: 218a5302587f3fe4fb29bb826089daa5,
         type: 3}
       propertyPath: m_Name
-      value: ThirdPersonController Variant
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
@@ -8215,6 +8218,36 @@ Transform:
   m_Father: {fileID: 590613890}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 89.99, z: 0}
+--- !u!1 &2091789620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2091789621}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2091789621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091789620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106214213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1246713692139956, guid: 386e3120a734f7047b962dc928686f28,

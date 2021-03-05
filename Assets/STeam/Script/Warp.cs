@@ -7,7 +7,6 @@ public class Warp : MonoBehaviour
 {
     public static bool inout=false;//教室内か外か static変数でどのシーンからも共通している
 
-
     // Start is called before the first frame update
     void Start()
     {

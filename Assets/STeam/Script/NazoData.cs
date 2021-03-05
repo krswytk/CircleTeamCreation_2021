@@ -5,7 +5,6 @@ using UnityEngine;
 public class NazoData : MonoBehaviour
 {
     //謎が解けたかどうか
-  public  bool right = false;
+  protected  bool right = false;
 
-   
 }

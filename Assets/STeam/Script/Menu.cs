@@ -25,9 +25,11 @@ public class Menu : MonoBehaviour
             {
                 menu.SetActive(true);
                 opcl = true;
+               // Time.timeScale = 0;
             }
             else
             {
+               // Time.timeScale=1;
                 menu.SetActive(false);
                 opcl = false;
             }
