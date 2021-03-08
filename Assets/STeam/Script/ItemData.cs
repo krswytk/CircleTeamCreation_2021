@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemData : Item
+public class ItemData : MonoBehaviour
 {
-   public Item[] item;
+   public bool[] item = new bool[4];
 
     // Start is called before the first frame update
     void Start()
     {
-        item= new Item[4];
+       
     }
 
     // Update is called once per frame

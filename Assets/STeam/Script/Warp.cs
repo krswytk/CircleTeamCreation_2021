@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Warp : MonoBehaviour
 {
+    SceneData scene;
+
     public static bool inout=false;//教室内か外か static変数でどのシーンからも共通している
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        scene = GameObject.FindWithTag("GameManager").GetComponent<SceneData>();
     }
 
     // Update is called once per frame
@@ -65,6 +67,8 @@ public class Warp : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            SceneManager.sceneLoaded += scene.GameSceneLoaded;
+
             SceneManager.LoadScene(s);
             inout = true;
         }
@@ -76,6 +80,7 @@ public class Warp : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            SceneManager.sceneLoaded += scene.GameSceneLoaded;
             SceneManager.LoadScene("STeam/Scenes/rouka");
             inout = false;
         }
