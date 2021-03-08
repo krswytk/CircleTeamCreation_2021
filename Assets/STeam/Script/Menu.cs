@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField]
-    GameObject menu;
+   public GameObject menu;
 
    public bool opcl = false;//メニューを開いているかどうか
 

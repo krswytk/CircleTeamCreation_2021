@@ -8,7 +8,9 @@ public class Item : MonoBehaviour
     //アイテムを取得したかどうか
     public bool getflag=false;
     //使った後なくなるかどうか
-    public bool itemlost = false;
+    //public bool itemlost = false;
+
+
     //アイテムの画像
     public Sprite s;
 
@@ -20,7 +22,7 @@ public class Item : MonoBehaviour
     {
         if (getflag == true)
         {
-            this.enabled = false;
+            this.gameObject.SetActive(false);
         }
     }
 
