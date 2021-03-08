@@ -33,7 +33,7 @@ public class Nazo1 : NazoData
     {
         if (other.gameObject.tag == "Player" && menu.opcl == true)
         {
-            if (item.getflag == true && item.itemkind == 0)
+            if (/*item.getflag == true && */item.itemkind == 0)
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
