@@ -54,7 +54,7 @@ public class play2d : MonoBehaviour
                 ySpeed = jumpSpeed;//unity側で設定した値を代入
                 jumpPos = transform.position.y; //ジャンプした位置を記録する
                 isJump = true;
-                jumpTime = 0.0f; //
+                jumpTime = 0.0f; 
             }
             else
             {
