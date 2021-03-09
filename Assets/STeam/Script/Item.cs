@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    //アイテムを取得したかどうか
-    public bool getflag=false;
+    Flag f;
+
     //使った後なくなるかどうか
     //public bool itemlost = false;
-
 
     //アイテムの画像
     public Sprite s;
@@ -20,15 +19,13 @@ public class Item : MonoBehaviour
   
     void Start()
     {
-        if (getflag == true)
+        f = GameObject.Find("Player").GetComponent<Flag>();
+
+        //部屋に入ったらこのアイテムを所持してるか判定
+        if (f.getflag[itemkind]==true)
         {
             this.gameObject.SetActive(false);
         }
-    }
-
-    public void onflag()
-    {
-        getflag = true;
     }
 
 }
