@@ -6,39 +6,53 @@ using UnityEngine.SceneManagement;
 
 public class SceneData : MonoBehaviour
 {
-    ItemManager Item;
-    ItemData i;
-    Menu nextparent;
+    ItemManager imane, nextparent;
+    Flag f;
 
     private Image[] nextchild;
 
     private void Start()
     {
-        Item = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+        imane = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+        f = GameObject.FindWithTag("Player").GetComponent<Flag>();
     }
 
     private void FixedUpdate()
     {
-        
+
     }
 
-    public void GameSceneLoaded(Scene next,LoadSceneMode mode)
+    public void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
-        nextparent = GameObject.FindWithTag("Player").GetComponent<Menu>();
-        nextchild = new Image[nextparent.menu.transform.childCount];
+        nextparent = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+        var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
+        nextchild = new Image[nextparent.parent.transform.childCount];
 
-        for(int i=1;i< nextparent.menu.transform.childCount; i++)
-        { 
-            nextchild[i] = nextparent.menu.transform.GetChild(i).GetComponent<Image>();
-        }
 
-        for(int i = 1; i < Item.gazou.Length; i++)
+        for (int i = 0; i < imane.gazou.Length; i++)
         {
-            if (Item.gazou[i].sprite == null) break;
-            nextchild[i].sprite = Item.gazou[i].sprite;
+            nextchild[i] = nextparent.parent.transform.GetChild(i).GetComponent<Image>();
         }
 
-        SceneManager.sceneLoaded -= GameSceneLoaded;
+        for (int i = 0; i < imane.gazou.Length; i++)
+        {
+            if (imane.gazou[i].sprite == null) break;
+            nextchild[i].sprite = imane.gazou[i].sprite;
+        }
+
+        for (int i = 0; i < imane.gazou.Length; i++)
+        {
+            if(f.itemhave[i]==true)nextflag.itemhave[i] =true;
+            else nextflag.itemhave[i] = false;
+
+            if (f.getflag[i] == true) nextflag.getflag[i] = true;
+            else nextflag.getflag[i] = false;
+
+            if (f.nazoflag[i] == true) nextflag.nazoflag[i] = true;
+            else nextflag.nazoflag[i] = false;
+        }
+
+            SceneManager.sceneLoaded -= GameSceneLoaded;
 
     }
 
