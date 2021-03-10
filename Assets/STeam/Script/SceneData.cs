@@ -52,7 +52,7 @@ public class SceneData : MonoBehaviour
             else nextflag.nazoflag[i] = false;
         }
 
-            SceneManager.sceneLoaded -= GameSceneLoaded;
+            //SceneManager.sceneLoaded -= GameSceneLoaded;
 
     }
 
