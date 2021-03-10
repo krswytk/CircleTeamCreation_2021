@@ -16,13 +16,15 @@ public class Nazo1 : MonoBehaviour
     void Start()
     {
         menu = GameObject.Find("Player").GetComponent<Menu>();
-        manager= GameObject.Find("Player").GetComponent<ItemManager>();
+        manager = GameObject.Find("Player").GetComponent<ItemManager>();
         f = GameObject.Find("Player").GetComponent<Flag>();
         item = GameObject.FindGameObjectWithTag("Item").GetComponent<Item>();
 
         if (f.nazoflag[0] == true)
         {
             g.SetActive(true);
+            this.gameObject.SetActive(false);
+
         }
         else
         {
@@ -33,7 +35,7 @@ public class Nazo1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -47,6 +49,7 @@ public class Nazo1 : MonoBehaviour
                     f.nazoflag[0] = true;
                     g.SetActive(true);
                     manager.useitem();
+                    this.gameObject.SetActive(false);
                 }
             }
         }
