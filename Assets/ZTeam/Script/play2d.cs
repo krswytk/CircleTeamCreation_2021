@@ -69,10 +69,16 @@ public class play2d : MonoBehaviour
             bool canHeight = jumpPos + jumpHeight > transform.position.y;
             //ジャンプ時間が長くなりすぎてないか
             bool canTime = jumpLimitTime > jumpTime;
-            bool syojump = jumpTime < jumpLimitTime / 2;
+            bool syoJump = (jumpLimitTime / 2) > jumpTime;
+            float syoJumpSpeed = jumpSpeed / 2;
             //上ボタンを押されている。かつ、現在の高さがジャンプした位置から自分の決めた位置より下ならジャンプを継続する
-            if (pushUpKey && canHeight && canTime && !isHead)
+            if (pushUpKey && canHeight && canTime && !isHead&&syoJump)
             {
+                ySpeed = syoJumpSpeed;
+                jumpTime += Time.deltaTime;
+            }
+            else if(pushUpKey && canHeight && canTime && !isHead&&!syoJump) {
+
                 ySpeed = jumpSpeed;
                 jumpTime += Time.deltaTime;
             }
