@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nazo1 : NazoData
+public class Nazo1 : MonoBehaviour
 {
     [SerializeField]
     GameObject g;
@@ -10,35 +10,46 @@ public class Nazo1 : NazoData
     Menu menu;
     Item item;
     ItemManager manager;
-
+    Flag f;
 
     // Start is called before the first frame update
     void Start()
     {
-        g.SetActive(false);
         menu = GameObject.Find("Player").GetComponent<Menu>();
-        manager= GameObject.Find("Player").GetComponent<ItemManager>();
+        manager = GameObject.Find("Player").GetComponent<ItemManager>();
+        f = GameObject.Find("Player").GetComponent<Flag>();
         item = GameObject.FindGameObjectWithTag("Item").GetComponent<Item>();
 
+        if (f.nazoflag[0] == true)
+        {
+            g.SetActive(true);
+            this.gameObject.SetActive(false);
+
+        }
+        else
+        {
+            g.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (right == true)
-            g.SetActive(true);
+
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player" && menu.opcl == true)
         {
-            if (item.getflag == true && item.itemkind == 0)
+            if (/*item.getflag == true && */item.itemkind == 0)
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    right = true;
+                    f.nazoflag[0] = true;
+                    g.SetActive(true);
                     manager.useitem();
+                    this.gameObject.SetActive(false);
                 }
             }
         }

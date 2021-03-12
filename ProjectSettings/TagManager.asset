@@ -5,10 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
-  - Fire
-  - Ground
-  - enemy
-  - mybullet
+  - GameManager
+  - outdoor
+  - indoor
   layers:
   - Default
   - TransparentFX
