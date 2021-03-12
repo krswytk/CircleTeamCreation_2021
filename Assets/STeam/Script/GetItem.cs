@@ -9,6 +9,7 @@ public class GetItem : MonoBehaviour
     Flag f;
     int itemnum;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class GetItem : MonoBehaviour
                itemnum= other.GetComponent<Item>().itemkind;
                 f.itemhave[itemnum] = true;
                 f.getflag[itemnum] = true;
+                Debug.Log(itemnum);
 
                 //アイテム非表示
                 other.gameObject.SetActive(false);
