@@ -17,7 +17,7 @@ public class Title : MonoBehaviour
         
     }
 
-    public void SceneGame()//ゲームシーンに移動
+    public void SceneGameStart()//ゲームシーンに移動
     {
         SceneManager.LoadScene("STeam/Scenes/rouka");
     }
