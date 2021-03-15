@@ -8,6 +8,8 @@ TagManager:
   - GameManager
   - outdoor
   - indoor
+  - mybullet
+  - enemy
   layers:
   - Default
   - TransparentFX

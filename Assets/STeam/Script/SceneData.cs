@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneData : MonoBehaviour
 {
-    ItemManager imane, nextparent;
+    ItemManager imane;
     Flag f;
 
     private Image[] nextchild;
@@ -17,33 +17,35 @@ public class SceneData : MonoBehaviour
         f = GameObject.FindWithTag("Player").GetComponent<Flag>();
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     public void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
-        nextparent = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+        var nextparent = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
         var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
         nextchild = new Image[nextparent.parent.transform.childCount];
-
 
         for (int i = 0; i < imane.gazou.Length; i++)
         {
             nextchild[i] = nextparent.parent.transform.GetChild(i).GetComponent<Image>();
         }
-
+        
         for (int i = 0; i < imane.gazou.Length; i++)
         {
-            if (imane.gazou[i].sprite == null) break;
+            if (imane.gazou[i].sprite == null)
+            {
+                break;
+            }
             nextchild[i].sprite = imane.gazou[i].sprite;
+            nextparent.itemkind[i] = imane.itemkind[i];
+           
+            //Debug.Log(imane.itemkind[i]);
+            //Debug.Log(nextparent.itemkind[i]);
+
         }
 
         for (int i = 0; i < imane.gazou.Length; i++)
         {
-            if(f.itemhave[i]==true)nextflag.itemhave[i] =true;
-            else nextflag.itemhave[i] = false;
+           // if (f.itemhave[i] == true) nextflag.itemhave[i] = true;
+            //else nextflag.itemhave[i] = false;
 
             if (f.getflag[i] == true) nextflag.getflag[i] = true;
             else nextflag.getflag[i] = false;
@@ -52,7 +54,10 @@ public class SceneData : MonoBehaviour
             else nextflag.nazoflag[i] = false;
         }
 
-            //SceneManager.sceneLoaded -= GameSceneLoaded;
+        //ここで次のシーンへ、持っているアイテムの個数を譲渡
+        nextparent.setcount(imane.getcount());
+
+        //SceneManager.sceneLoaded -= GameSceneLoaded;
 
     }
 
