@@ -8,9 +8,9 @@ public class Nazo1 : MonoBehaviour
     GameObject g;
 
     Menu menu;
-    Item item;
     ItemManager manager;
     Flag f;
+    CursorCtrl cursor;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +18,12 @@ public class Nazo1 : MonoBehaviour
         menu = GameObject.Find("Player").GetComponent<Menu>();
         manager = GameObject.Find("Player").GetComponent<ItemManager>();
         f = GameObject.Find("Player").GetComponent<Flag>();
-        item = GameObject.FindGameObjectWithTag("Item").GetComponent<Item>();
+        cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
 
         if (f.nazoflag[0] == true)
         {
             g.SetActive(true);
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
 
         }
         else
@@ -42,14 +42,14 @@ public class Nazo1 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && menu.opcl == true)
         {
-            if (/*item.getflag == true && */item.itemkind == 0)
+            if (manager.itemkind[cursor.getcursor()]==0)
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     f.nazoflag[0] = true;
-                    g.SetActive(true);
                     manager.useitem();
-                    this.gameObject.SetActive(false);
+                    g.SetActive(true);
+                    gameObject.SetActive(false);
                 }
             }
         }

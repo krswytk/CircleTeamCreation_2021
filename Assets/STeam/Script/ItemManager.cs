@@ -5,18 +5,35 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject cursor;
+
     Flag f;
+
+    //選択カーソルの番号 
+    CursorCtrl cursornum;
 
     public GameObject parent;
 
     public Image[] gazou;
 
-    int n = 0;//後で決める選択カーソルの番号
+    //所持しているアイテムの種類　順番は取得した順
+    public int[] itemkind;
+
+    //持っているアイテムの個数　カーソルの上限やアイテムの配列の大きさが決まる
+    private int havecount = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         f = GetComponent<Flag>();
+        cursornum = cursor.GetComponent<CursorCtrl>();
+        /*
+        itemkind = new int[parent.transform.childCount];
+        for (int i = 0; i < itemkind.Length; i++)
+        {
+            itemkind[i] = -1;//アイテムの種類を全て-1で初期化
+        }*/
 
         gazou = new Image[parent.transform.childCount];
         for (int i = 0; i < gazou.Length; i++)
@@ -31,17 +48,23 @@ public class ItemManager : MonoBehaviour
 
     }
 
-    public void useitem()
+    public void useitem()//アイテムを使う時は必ず呼び出す
     {
+        //うわって思うかもしれないけど、cursornum.getcursor()←これはただの整数　カーソルが何番を指しているか
 
-        //if(使ったらなくなるアイテムの itemkind==○○とやってロスト処理を制限)
-        gazou[n].sprite = null;
-        for (int i = 0; i < gazou.Length - (n + 1); i++)
+
+        //カーソルで選択した画像の場所を削除、消したところを詰める
+        gazou[cursornum.getcursor()].sprite = null;
+        //f.itemhave[itemkind[cursornum.getcursor()]] = false;
+        itemkind[cursornum.getcursor()] = -1;
+
+        for (int i = 0; i < gazou.Length - (cursornum.getcursor() + 1); i++)
         {
-            gazou[n + i].sprite = gazou[n + i + 1].sprite;
+            gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;
+            itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];
         }
-        f.itemhave[n] = false;
-        //gazou[gazou.Length].sprite = null;
+
+        decount();
     }
 
     public void getitem(Sprite s)//アイテムの画像を移行
@@ -56,4 +79,23 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public int getcount()
+    {
+        return havecount;
+    }
+
+    public void setcount(int n)
+    {
+        havecount = n;
+    }
+
+    public void incount()
+    {
+        havecount++;
+    }
+
+    public void decount()
+    {
+        havecount--;
+    }
 }
