@@ -16,27 +16,23 @@ public class Warp : MonoBehaviour
         scene = GameObject.FindWithTag("GameManager").GetComponent<SceneData>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
     //プレイヤーがトリガーのオブジェクトに触れたら
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "indoor")
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
+            if (other.gameObject.tag == "indoor")
+            { 
                 scenename += other.gameObject.name;
                 SceneManager.sceneLoaded += scene.GameSceneLoaded;
                 SceneManager.LoadScene(scenename);
             }
         }
 
-        if (other.gameObject.tag == "outdoor")
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (other.gameObject.tag == "outdoor")
             {
                 SceneManager.sceneLoaded += scene.GameSceneLoaded;
                 SceneManager.LoadScene("STeam/Scenes/rouka");

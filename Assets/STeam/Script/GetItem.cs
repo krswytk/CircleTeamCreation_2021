@@ -20,7 +20,7 @@ public class GetItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,12 +32,15 @@ public class GetItem : MonoBehaviour
             {
                 //アイテムを取得したら
                 hairetu.getitem(other.GetComponent<Item>().s);
+                hairetu.incount();
 
                 //アイテム取得フラグ
                itemnum= other.GetComponent<Item>().itemkind;
-                f.itemhave[itemnum] = true;
+                //f.itemhave[itemnum] = true;
                 f.getflag[itemnum] = true;
                 Debug.Log(itemnum);
+
+                hairetu.itemkind[hairetu.getcount() - 1] = itemnum;
 
                 //アイテム非表示
                 other.gameObject.SetActive(false);
