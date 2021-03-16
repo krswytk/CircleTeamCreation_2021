@@ -36,12 +36,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4378863311f6b49419da23d081566b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursor: {fileID: 0}
   parent: {fileID: 0}
   gazou:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemkind: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 --- !u!114 &1922915273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d6b7b9b0b99af47827bf70e8f667ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemhave: 00000000
-  getflag: 00000000
+  itemhave: 000000000000000000
+  getflag: 000000000000000000
   nazoflag: 00000000
 --- !u!1001 &2628077719434697532
 PrefabInstance:

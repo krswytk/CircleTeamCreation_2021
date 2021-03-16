@@ -13,12 +13,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        Menu menu;
-
         
         private void Start()
         {
-
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -27,7 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
             {
                 Debug.LogWarning(
-                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
+                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.");
                 // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             }
 
@@ -36,14 +33,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-       /* private void Update()
+        private void Update()
         {
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
         }
-        */
+
 
         // Fixed update is called in sync with physics
         private void FixedUpdate()
@@ -71,10 +68,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
             // pass all parameters to the character control script
-            
-                m_Character.Move(m_Move, false, m_Jump);
-                m_Jump = false;
-            
+            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Jump = false;
         }
     }
 }

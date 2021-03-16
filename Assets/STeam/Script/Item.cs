@@ -7,9 +7,6 @@ public class Item : MonoBehaviour
 {
     Flag f;
 
-    //使った後なくなるかどうか
-    //public bool itemlost = false;
-
     //アイテムの画像
     public Sprite s;
 

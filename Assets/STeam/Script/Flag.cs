@@ -5,12 +5,12 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     //アイテムを持っているかどうか
-   public bool[] itemhave = new bool[4];
+  // public bool[] itemhave = new bool[9];
 
     //アイテムを取得したかどうか
-    public bool[] getflag = new bool[4];
+    public bool[] getflag = new bool[9];
 
     //謎を解いたかどうか
-    public bool[] nazoflag = new bool[4];
+    public bool[] nazoflag = new bool[9];
    
 }
