@@ -11,7 +11,7 @@ public class Poolscript : MonoBehaviour
         pool = new GameObject("enemybullet").transform;
     }
 
-    void GetObject(GameObject obj, Vector3 pos, Quaternion qua)
+    void GetObject(GameObject enemybullet, Vector3 pos, Quaternion qua)
     {
         foreach (Transform t in pool)
         {
@@ -24,6 +24,6 @@ public class Poolscript : MonoBehaviour
         }
 
         //非アクティブなオブジェクトがないなら生成
-        Instantiate(obj, pos, qua, pool);//生成と同時にpoolを親に設定
+        Instantiate(enemybullet, pos, qua, pool);//生成と同時にpoolを親に設定
     }
 }
