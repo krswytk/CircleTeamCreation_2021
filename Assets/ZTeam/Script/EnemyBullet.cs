@@ -39,7 +39,12 @@ public class EnemyBullet : MonoBehaviour
         // Playerに弾が接触したら弾は消滅する
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+    private void OnBecameInvisible()
+    {
+        //画面外に行ったら非アクティブにする
+        gameObject.SetActive(false);
     }
 }
