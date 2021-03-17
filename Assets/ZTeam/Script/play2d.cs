@@ -16,11 +16,15 @@ public class play2d : MonoBehaviour
     [Header("頭をぶつけた判定")] public GroundCheck head;
 
     private Rigidbody2D rb = null;
+
     private bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
+
+    //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
+    //ここまで
     private string enemyTag = "enemy";
     // Start is called before the first frame update
     void Start()
