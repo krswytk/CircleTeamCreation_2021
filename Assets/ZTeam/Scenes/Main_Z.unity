@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 6792873811149313408, guid: 920d8322893c5054593a5195fd90a087, type: 3}
+  - {fileID: 2897488434761538808, guid: b099ca44071da7845aab5f68a6cd0dd2, type: 3}
   appearNextTime: 1
   maxNumOfEnemys: 1
   EnemyC1: {fileID: 0}

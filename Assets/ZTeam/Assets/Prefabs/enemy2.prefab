@@ -192,9 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe48d204de95cc3489a75a73c8533641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemybullet: {fileID: 8366809797029677806, guid: d59324a55c299dc4ea48acddc273f13f,
+    type: 3}
   enemyArmorPoint: 3
-  EnemyOn: 1
-  down: 0
+  scanplayer: {fileID: 6981147143317035134}
 --- !u!1 &6981147143752958649
 GameObject:
   m_ObjectHideFlags: 0
