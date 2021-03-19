@@ -16,8 +16,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
-		Menu menu;
-
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
 		bool m_IsGrounded;
@@ -34,8 +32,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void Start()
 		{
-			menu= GetComponent<Menu>();
-
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -53,32 +49,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
+			if (move.magnitude > 1f) move.Normalize();
+			move = transform.InverseTransformDirection(move);
+			CheckGroundStatus();
+			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+			m_TurnAmount = Mathf.Atan2(move.x, move.z);
+			m_ForwardAmount = move.z;
 
+			ApplyExtraTurnRotation();
 
-				if (move.magnitude > 1f) move.Normalize();
-				move = transform.InverseTransformDirection(move);
-				CheckGroundStatus();
-				move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-				m_TurnAmount = Mathf.Atan2(move.x, move.z);
-				m_ForwardAmount = move.z;
+			// control and velocity handling is different when grounded and airborne:
+			if (m_IsGrounded)
+			{
+				HandleGroundedMovement(crouch, jump);
+			}
+			else
+			{
+				HandleAirborneMovement();
+			}
 
-				ApplyExtraTurnRotation();
+			ScaleCapsuleForCrouching(crouch);
+			PreventStandingInLowHeadroom();
 
-				// control and velocity handling is different when grounded and airborne:
-				if (m_IsGrounded)
-				{
-					HandleGroundedMovement(crouch, jump);
-				}
-				else
-				{
-					HandleAirborneMovement();
-				}
-
-				ScaleCapsuleForCrouching(crouch);
-				PreventStandingInLowHeadroom();
-
-				// send input and other state parameters to the animator
-				UpdateAnimator(move);
+			// send input and other state parameters to the animator
+			UpdateAnimator(move);
 		}
 
 
@@ -95,7 +89,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
 					m_Crouching = true;
 					return;
@@ -113,7 +107,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
 					m_Crouching = true;
 				}
