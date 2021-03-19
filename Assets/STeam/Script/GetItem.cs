@@ -11,8 +11,12 @@ public class GetItem : MonoBehaviour
     //public GameObject itemtext = null;
     Panel panel;
 
+<<<<<<< HEAD
     [SerializeField]
     GameObject G;
+=======
+
+>>>>>>> 6781b5c32d0986c5b315ee42044fef3b9f1e8fe0
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,7 @@ public class GetItem : MonoBehaviour
                 itemnum = other.GetComponent<Item>().itemkind;
                 //f.itemhave[itemnum] = true;
                 f.getflag[itemnum] = true;
+                Debug.Log(itemnum);
 
                 hairetu.itemkind[hairetu.getcount() - 1] = itemnum;
 
