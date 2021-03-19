@@ -130,4 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyArmorPoint: 3
-  iti: {fileID: 0}
+  EnemyOn: 1
+  down: 0
