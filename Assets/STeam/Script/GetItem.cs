@@ -8,10 +8,19 @@ public class GetItem : MonoBehaviour
    ItemManager hairetu;
     Flag f;
     int itemnum;
+    //public GameObject itemtext = null;
+    Panel panel;
 
+<<<<<<< HEAD
+    [SerializeField]
+    GameObject G;
+=======
+
+>>>>>>> 6781b5c32d0986c5b315ee42044fef3b9f1e8fe0
     // Start is called before the first frame update
     void Start()
     {
+        panel = G.GetComponent<Panel>();
          hairetu = GetComponent<ItemManager>();
         f = GetComponent<Flag>();
     }
@@ -33,10 +42,14 @@ public class GetItem : MonoBehaviour
                 hairetu.getitem(other.GetComponent<Item>().s);
                 hairetu.incount();
 
+                G.SetActive(true);
+                panel.A(other.gameObject.GetComponent<Item>().Itemname);
+                Invoke("panelflag", 2.0f);
                 //アイテム取得フラグ
-               itemnum= other.GetComponent<Item>().itemkind;
+                itemnum = other.GetComponent<Item>().itemkind;
                 //f.itemhave[itemnum] = true;
                 f.getflag[itemnum] = true;
+                Debug.Log(itemnum);
 
                 hairetu.itemkind[hairetu.getcount() - 1] = itemnum;
 
@@ -47,5 +60,8 @@ public class GetItem : MonoBehaviour
 
         }
     }
-
+    void panelflag()
+    {
+        G.SetActive(false);
+    }
 }
