@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     Flag f;
 
+    public string Itemname = "NULL";
     //アイテムの画像
     public Sprite s;
 
