@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: "\u6975\u304C\u5916\u308C\u305F\u5730\u7403\u5100"
   s: {fileID: 21300000, guid: e40579d982378d7469bbf2ea1eca7a43, type: 3}
   itemkind: 0
 --- !u!1 &100435639
@@ -1641,6 +1642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1922915271, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: G
+      value: 
+      objectReference: {fileID: 568023448}
     - target: {fileID: 1922915272, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
       propertyPath: gazou.Array.size
       value: 9
@@ -2378,6 +2383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: "\u5730\u7403\u5100"
   s: {fileID: 21300000, guid: 03640f4b097b47a49ab2f1f7890b0e89, type: 3}
   itemkind: 1
 --- !u!65 &503021484
@@ -2598,7 +2604,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ba79a0cc1d249048b8be9e55209b893, type: 3}
   m_Name: 
@@ -3045,6 +3051,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4613529, y: 0.81688637, z: 0.47400317}
   m_Center: {x: -0.00000047683716, y: 0.0196715, z: 0}
+--- !u!1 &568023448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5722730705567038039, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+    type: 3}
+  m_PrefabInstance: {fileID: 777931968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &575286753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1125255547751596, guid: 5112c371a027e5d41800e4e72233bf0b,
@@ -4318,6 +4330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: "\u5730\u7403\u5100"
   s: {fileID: 21300000, guid: a3983c59ebf804b4abba687bd7c9e92f, type: 3}
   itemkind: 2
 --- !u!65 &999737633
