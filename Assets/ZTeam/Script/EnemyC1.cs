@@ -10,7 +10,7 @@ public class EnemyC1 : MonoBehaviour
     [SerializeField]
     private int enemyArmorPoint;// 敵の体力の入れ物
 
-
+    
     public ScanPlayer scanplayer;
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
     private int numberOfEnemys = 0;
@@ -18,6 +18,7 @@ public class EnemyC1 : MonoBehaviour
 
     private float timeOut=0.2f;
     private float timeElapsed;
+    
 
     void Start()
     {
@@ -41,14 +42,15 @@ public class EnemyC1 : MonoBehaviour
             }
             else {
                 // 敵の体力が0になったら敵オブジェクトを消滅させる
-                
-                Destroy(gameObject);
+               
+               Destroy(gameObject);
             }
         }
     }
 
     void Update()
     {
+       // GetComponent<Status>();
         isPlayerIn = scanplayer.IsPlayerInS();
         if (isPlayerIn == true)
         {
