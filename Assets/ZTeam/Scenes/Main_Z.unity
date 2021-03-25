@@ -537,8 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d126972c74aba614ca41b453d20674cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusG: 0
-  statusHP: 0
+  statusG: 10
+  statusHP: 2
   Gold: {fileID: 106448356}
   Hitpoint: {fileID: 637247452}
 --- !u!1 &637247450

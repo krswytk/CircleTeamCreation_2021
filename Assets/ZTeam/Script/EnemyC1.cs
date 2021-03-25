@@ -10,6 +10,8 @@ public class EnemyC1 : MonoBehaviour
     [SerializeField]
     private int enemyArmorPoint;// 敵の体力の入れ物
 
+    GameObject Canvas;
+    Status Status;
     
     public ScanPlayer scanplayer;
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
@@ -18,13 +20,15 @@ public class EnemyC1 : MonoBehaviour
 
     private float timeOut=0.2f;
     private float timeElapsed;
-    
+   
 
     void Start()
     {
         // 敵の体力を初期化
         enemyArmorPoint = 3;
         enemybulletT= new GameObject("enemybullet").transform;
+        Status = GetComponent<Status>();
+
     }
 
     // 弾オブジェクトと接触したときに呼び出される関数
@@ -42,7 +46,10 @@ public class EnemyC1 : MonoBehaviour
             }
             else {
                 // 敵の体力が0になったら敵オブジェクトを消滅させる
-               
+                //
+                Canvas = GameObject.Find("Canvas");
+                Status = Canvas.GetComponent<Status>();
+                Status.statusG += 1;
                Destroy(gameObject);
             }
         }
@@ -50,7 +57,6 @@ public class EnemyC1 : MonoBehaviour
 
     void Update()
     {
-       // GetComponent<Status>();
         isPlayerIn = scanplayer.IsPlayerInS();
         if (isPlayerIn == true)
         {
