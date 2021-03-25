@@ -7,8 +7,11 @@ public class CursorCtrl : MonoBehaviour
     Menu menu;
     ItemManager itemmanager;
 
+    //カーソル画像の座標変数
     public float a = 9.88f;
-   private int cursornum = 0;
+
+    //現在のカーソルで選択している番号
+    private int cursornum = 0;
 
     void Start()
     {
@@ -39,7 +42,7 @@ public class CursorCtrl : MonoBehaviour
             }
         }
     }
-
+    //カーソル番号
     public int getcursor()
     {
         return cursornum;

@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class GetItem : MonoBehaviour
 {
-   ItemManager hairetu;
+    ItemManager hairetu;
     Flag f;
-    int itemnum;
-    //public GameObject itemtext = null;
     Panel panel;
+    int itemnum;
 
+    //非表示のパネル(テロップ)取得
     [SerializeField]
     GameObject G;
-    // Start is called before the first frame update
+    
     void Start()
     {
         panel = G.GetComponent<Panel>();
@@ -29,24 +29,24 @@ public class GetItem : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        //アイテムを取得したら
         if (other.gameObject.tag == "Item")
         {
 
             if (Input.GetKey(KeyCode.Z))
             {
-                //アイテムを取得したら
-                hairetu.getitem(other.GetComponent<Item>().s);
-                hairetu.incount();
+                hairetu.getitem(other.GetComponent<Item>().s);//アイテムの持っている画像を譲渡
+                hairetu.incount();//アイテム所持数加算
 
-                G.SetActive(true);
+                G.SetActive(true);//テロップ表示
                 panel.A(other.gameObject.GetComponent<Item>().Itemname);
                 Invoke("panelflag", 2.0f);
-                //アイテム取得フラグ
+
+                //アイテムフラグ
                 itemnum = other.GetComponent<Item>().itemkind;
-                //f.itemhave[itemnum] = true;
                 f.getflag[itemnum] = true;
 
-                hairetu.itemkind[hairetu.getcount() - 1] = itemnum;
+                hairetu.itemkind[hairetu.getcount() - 1] = itemnum;//アイテムの持つ種類番号を配列へ
 
                 //アイテム非表示
                 other.gameObject.SetActive(false);

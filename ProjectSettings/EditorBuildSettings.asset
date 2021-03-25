@@ -27,9 +27,12 @@ EditorBuildSettings:
     path: Assets/STeam/Scenes/B-1.unity
     guid: 8ebcb66e0262b7c4eaf8b708e7ec25ae
   - enabled: 1
-    path: Assets/ZTeam/Scenes/Title_Z.unity
+    path: Assets/STeam/Assets/Dungeon_stone_textures/Materials/ZTeam/Scenes/Title_Z.unity
     guid: 18bdb8b1b8abaa34eb020d77fd9cf1bc
   - enabled: 1
-    path: Assets/ZTeam/Scenes/Main_Z.unity
+    path: Assets/STeam/Assets/Dungeon_stone_textures/Materials/ZTeam/Scenes/Main_Z.unity
     guid: 9a33672bfd1cfc244bebd1758a444b6f
+  - enabled: 1
+    path: Assets/STeam/Scenes/hokenn.unity
+    guid: c035891a5a45d9d49be0f50d6b45ab21
   m_configObjects: {}

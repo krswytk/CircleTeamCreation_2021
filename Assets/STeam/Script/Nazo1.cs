@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Nazo1 : MonoBehaviour
 {
+    //出口
     [SerializeField]
     GameObject g;
 
     Menu menu;
     ItemManager manager;
-    Flag f;
     CursorCtrl cursor;
+    Flag f;
 
     // Start is called before the first frame update
     void Start()
     {
         menu = GameObject.Find("Player").GetComponent<Menu>();
         manager = GameObject.Find("Player").GetComponent<ItemManager>();
-        f = GameObject.Find("Player").GetComponent<Flag>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
+        f = GameObject.Find("Player").GetComponent<Flag>();
 
         if (f.nazoflag[0] == true)
         {
@@ -46,10 +47,10 @@ public class Nazo1 : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    f.nazoflag[0] = true;
-                    manager.useitem();
-                    g.SetActive(true);
-                    gameObject.SetActive(false);
+                    f.nazoflag[0] = true;//謎を解いた
+                    manager.useitem();//アイテム消費
+                    g.SetActive(true);//出口出現
+                    gameObject.SetActive(false);//謎床非表示
                 }
             }
         }
