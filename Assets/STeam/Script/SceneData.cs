@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneData : MonoBehaviour
 {
+    //シーンのデータを行き来するスクリプト
+
     ItemManager imane;
     Flag f;
 
@@ -17,20 +19,31 @@ public class SceneData : MonoBehaviour
         f = GameObject.FindWithTag("Player").GetComponent<Flag>();
     }
 
+    //移るscene先のデータに移動前のデータで上書き
     public void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
+        //次のシーンのItemManagerを持つ変数
         var nextparent = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
-        var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
-        nextchild = new Image[nextparent.parent.transform.childCount];
 
+        //次のシーンのFlagを持つ変数
+        var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
+
+        //次のシーンのImage配列の子の数分だけ、画像配列を初期化
+        nextchild = new Image[nextparent.parent.transform.childCount];//transform.childCountで子の数を取得　要するに整数
+
+        //次のシーンのImage配列全てにImageのコンポーネントを付与　多分配列を作っただけだとImageのコンポーネントがない
         for (int i = 0; i < imane.gazou.Length; i++)
         {
             nextchild[i] = nextparent.parent.transform.GetChild(i).GetComponent<Image>();
         }
         
+
+        //////////////////主にやってること//////////////////////
+
+        //次のシーンに、画像と保持しているアイテムの種類を渡す
         for (int i = 0; i < imane.gazou.Length; i++)
         {
-            if (imane.gazou[i].sprite == null)
+            if (imane.gazou[i].sprite == null)//もし、画像に何も入っていなければbreak
             {
                 break;
             }
@@ -42,6 +55,7 @@ public class SceneData : MonoBehaviour
 
         }
 
+        //フラグの引継ぎ
         for (int i = 0; i < imane.gazou.Length; i++)
         {
            // if (f.itemhave[i] == true) nextflag.itemhave[i] = true;
