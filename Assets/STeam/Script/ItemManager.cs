@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
+    //主にアイテムの画像処理
+
+
+    //カーソルのスクリプトを触りたいので取得(非表示なので)
     [SerializeField]
     GameObject cursor;
 
     Flag f;
 
-    //選択カーソルの番号 
+    //クラス　カーソル 
     CursorCtrl cursornum;
 
+    //シーン引継ぎの時に配列の大きさ(子の数)を合わせるために子の親であるobjを取得
     public GameObject parent;
 
     public Image[] gazou;
@@ -23,7 +28,7 @@ public class ItemManager : MonoBehaviour
     //持っているアイテムの個数　カーソルの上限やアイテムの配列の大きさが決まる
     private int havecount = 0;
 
-    // Start is called before the first frame update
+   
     private void Start()
     {
         f = GetComponent<Flag>();
@@ -35,6 +40,7 @@ public class ItemManager : MonoBehaviour
             itemkind[i] = -1;//アイテムの種類を全て-1で初期化
         }*/
 
+        //配列の初期化
         gazou = new Image[parent.transform.childCount];
         for (int i = 0; i < gazou.Length; i++)
         {
@@ -48,7 +54,7 @@ public class ItemManager : MonoBehaviour
 
     }
 
-    public void useitem()//アイテムを使う時は必ず呼び出す
+    public void useitem()//アイテムを消費する時は必ず呼び出す
     {
         //うわって思うかもしれないけど、cursornum.getcursor()←これはただの整数　カーソルが何番を指しているか
 
@@ -60,11 +66,11 @@ public class ItemManager : MonoBehaviour
 
         for (int i = 0; i < gazou.Length - (cursornum.getcursor() + 1); i++)
         {
-            gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;
-            itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];
+            gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;//画像
+            itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];//アイテムの種類
         }
 
-        decount();
+        decount();//なくなったので
     }
 
     public void getitem(Sprite s)//アイテムの画像を移行

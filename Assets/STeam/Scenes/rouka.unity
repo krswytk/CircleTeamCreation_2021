@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: Sphere
   s: {fileID: 21300000, guid: 625fd1c881f659a4bb25a0a347dce135, type: 3}
   itemkind: 0
 --- !u!1 &228585995
@@ -595,6 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: Cube
   s: {fileID: 21300000, guid: 9b5c6a59633540f4597ed6ca77618c3a, type: 3}
   itemkind: 3
 --- !u!135 &865459695
@@ -1097,6 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: "\u7403"
   s: {fileID: 21300004, guid: e40579d982378d7469bbf2ea1eca7a43, type: 3}
   itemkind: 1
 --- !u!1 &1435436392 stripped
@@ -1117,13 +1120,26 @@ GameObject:
   - component: {fileID: 1517135303}
   - component: {fileID: 1517135302}
   - component: {fileID: 1517135301}
+  - component: {fileID: 1517135300}
   m_Layer: 0
-  m_Name: B-1
+  m_Name: hokenn
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1517135300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517135299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d4fea406c6b39468fab86c32720dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1517135301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1196,6 +1212,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1531697825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5722730705567038039, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106550600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1572146512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemname: "\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8"
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 2
 --- !u!135 &1572146514
@@ -1648,6 +1671,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1922915270, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922915271, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: G
+      value: 
+      objectReference: {fileID: 1531697825}
     - target: {fileID: 1922915272, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
       propertyPath: gazou.Array.size
       value: 9
@@ -1764,6 +1795,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2628077719434580514, guid: 218a5302587f3fe4fb29bb826089daa5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628077719439857266, guid: 218a5302587f3fe4fb29bb826089daa5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628077719447525922, guid: 218a5302587f3fe4fb29bb826089daa5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8115053163560741803, guid: 218a5302587f3fe4fb29bb826089daa5,
         type: 3}
       propertyPath: itemhave.Array.size
@@ -1773,6 +1819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nazoflag.Array.size
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115053163560741803, guid: 218a5302587f3fe4fb29bb826089daa5,
+        type: 3}
+      propertyPath: getflag.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}

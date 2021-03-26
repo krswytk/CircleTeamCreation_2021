@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     Flag f;
 
+    public string Itemname = "NULL";
     //アイテムの画像
     public Sprite s;
 
@@ -18,7 +19,7 @@ public class Item : MonoBehaviour
     {
         f = GameObject.Find("Player").GetComponent<Flag>();
 
-        //部屋に入ったらこのアイテムを所持してるか判定
+        //部屋に入ったらこのアイテムを取ったことがあるか判定　アイテム非表示
         if (f.getflag[itemkind]==true)
         {
             this.gameObject.SetActive(false);
