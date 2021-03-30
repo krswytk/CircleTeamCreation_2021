@@ -49,11 +49,12 @@ public class Bullet : MonoBehaviour
     // ENEMYと接触したときの関数
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // ENEMYに弾が接触したら弾は消滅する
+        Destroy(gameObject);
+        /* ENEMYに弾が接触したら弾は消滅する
         if (collision.gameObject.tag == "enemy")
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
 }

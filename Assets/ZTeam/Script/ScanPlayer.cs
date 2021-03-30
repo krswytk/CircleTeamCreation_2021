@@ -5,24 +5,24 @@ using UnityEngine;
 public class ScanPlayer : MonoBehaviour
 {
     private string PlayerTag = "Player";
-    private bool isPlayerIn = false;
+    private bool isPlayerInS = false;
     private bool isPlayerEnter, isPlayerStay, isPlayerExit;
 
-    public bool IsPlayerIn()
+    public bool IsPlayerInS()
     {
         if (isPlayerEnter || isPlayerStay)
         {
-            isPlayerIn = true;
+            isPlayerInS = true;
         }
         else if (isPlayerExit)
         {
-            isPlayerIn = false;
+            isPlayerInS = false;
         }
 
         isPlayerEnter = false;
         isPlayerStay = false;
         isPlayerExit = false;
-        return isPlayerIn;
+        return isPlayerInS;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

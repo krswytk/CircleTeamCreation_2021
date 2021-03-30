@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class EnemyC1 : MonoBehaviour
 {
-    // 敵の体力の入れ物
     [SerializeField]
-    private int enemyArmorPoint;
     private GameObject enemybullet;
+    
+    [SerializeField]
+    private int enemyArmorPoint;// 敵の体力の入れ物
 
-   // public ScanPlayer iti;
+
+    public ScanPlayer scanplayer;
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
     private int numberOfEnemys = 0;
-    public bool EnemyOn = true;
-    public bool down = false;
+    Transform enemybulletT;
+
+    private float timeOut=0.2f;
+    private float timeElapsed;
+
     void Start()
     {
-        EnemyOn = true;
-        down = false;
         // 敵の体力を初期化
         enemyArmorPoint = 3;
+        enemybulletT= new GameObject("enemybullet").transform;
     }
 
     // 弾オブジェクトと接触したときに呼び出される関数
@@ -37,7 +41,7 @@ public class EnemyC1 : MonoBehaviour
             }
             else {
                 // 敵の体力が0になったら敵オブジェクトを消滅させる
-                down = true;
+                
                 Destroy(gameObject);
             }
         }
@@ -45,21 +49,46 @@ public class EnemyC1 : MonoBehaviour
 
     void Update()
     {
-       /* isPlayerIn = iti.IsPlayerIn();
+        isPlayerIn = scanplayer.IsPlayerInS();
         if (isPlayerIn == true)
         {
             //ここに敵対行動を書く
-            Instantiate(enemybullet, transform.position, transform.rotation);
+
+            timeElapsed += Time.deltaTime;
+
+            if (timeElapsed >= timeOut)
+            {
+                InstBullet(transform.position, transform.rotation);
+
+                timeElapsed = 0.0f;
+            }
+            //Instantiate(enemybullet, transform.position, transform.rotation);
+       
+
 
             isPlayerIn = false;
-        }*/
+            
+        }
     }
-    /*public bool EnemySP()
+  
+
+    void InstBullet(Vector3 pos, Quaternion rotation)
     {
-        
-            EnemyOn = false;
-            return EnemyOn;
-        
+        //アクティブでないオブジェクトをbulletsの中から探索
+        foreach (Transform t in enemybulletT)
+        {
+            if (!t.gameObject.activeSelf)
+            {
+                //非アクティブなオブジェクトの位置と回転を設定
+                t.SetPositionAndRotation(pos, rotation);
+                //アクティブにする
+                t.gameObject.SetActive(true);
+                return;
+            }
+        }
+        //非アクティブなオブジェクトがない場合新規生成
+
+        //生成時にbulletsの子オブジェクトにする
+        Instantiate(enemybullet, pos, rotation, enemybulletT);
     }
-    */
 }

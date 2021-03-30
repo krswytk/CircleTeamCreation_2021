@@ -16,11 +16,15 @@ public class play2d : MonoBehaviour
     [Header("頭をぶつけた判定")] public GroundCheck head;
 
     private Rigidbody2D rb = null;
+
     private bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
+
+    //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
+    //ここまで
     private string enemyTag = "enemy";
     // Start is called before the first frame update
     void Start()
@@ -54,7 +58,7 @@ public class play2d : MonoBehaviour
                 ySpeed = jumpSpeed;//unity側で設定した値を代入
                 jumpPos = transform.position.y; //ジャンプした位置を記録する
                 isJump = true;
-                jumpTime = 0.0f; //
+                jumpTime = 0.0f; 
             }
             else
             {
@@ -69,9 +73,16 @@ public class play2d : MonoBehaviour
             bool canHeight = jumpPos + jumpHeight > transform.position.y;
             //ジャンプ時間が長くなりすぎてないか
             bool canTime = jumpLimitTime > jumpTime;
+            bool syoJump = (jumpLimitTime / 2) > jumpTime;
+            float syoJumpSpeed = jumpSpeed / 2;
             //上ボタンを押されている。かつ、現在の高さがジャンプした位置から自分の決めた位置より下ならジャンプを継続する
-            if (pushUpKey && canHeight && canTime && !isHead)
+            if (pushUpKey && canHeight && canTime && !isHead&&syoJump)
             {
+                ySpeed = syoJumpSpeed;
+                jumpTime += Time.deltaTime;
+            }
+            else if(pushUpKey && canHeight && canTime && !isHead&&!syoJump) {
+
                 ySpeed = jumpSpeed;
                 jumpTime += Time.deltaTime;
             }
