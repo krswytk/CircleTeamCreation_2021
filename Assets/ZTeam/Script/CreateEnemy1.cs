@@ -5,14 +5,13 @@ using UnityEngine;
 public class CreateEnemy1 : MonoBehaviour
 {
     //　出現させる敵を入れておく
-    [SerializeField]
-    GameObject[] enemys;
+    public GameObject[] enemys;
     //　次に敵が出現するまでの時間
-    [SerializeField]
-    float appearNextTime;
+
+    public float appearNextTime;
     //　この場所から出現する敵の数
-    [SerializeField]
-    int maxNumOfEnemys;
+
+    public int maxNumOfEnemys;
     //　今何人の敵を出現させたか（総数）
     private int numberOfEnemys;
     //　待ち時間計測フィールド
