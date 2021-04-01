@@ -15,7 +15,7 @@ public class EnemyC1 : MonoBehaviour
     
     public ScanPlayer scanplayer;
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
-    private int numberOfEnemys = 0;
+    //private int numberOfEnemys = 0;
     Transform enemybulletT;
 
     private float timeOut=0.2f;

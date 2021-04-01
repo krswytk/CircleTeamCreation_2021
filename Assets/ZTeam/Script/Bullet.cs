@@ -19,11 +19,11 @@ public class Bullet : MonoBehaviour
         float horizontalKey = Input.GetAxisRaw("Horizontal");//水平キーの判定
         if (horizontalKey < 0)
         {
-            bulletSpeed = -10.0f;
+            bulletSpeed = -15.0f;
         }
         else
         {
-            bulletSpeed = 10.0f;
+            bulletSpeed = 15.0f;
         }
            
         // 出現から３秒後に弾オブジェクトを消滅させる（メモリの節約）

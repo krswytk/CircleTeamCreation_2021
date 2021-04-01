@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - enemy
   - mybullet
+  - enemybullet
   layers:
   - Default
   - TransparentFX
