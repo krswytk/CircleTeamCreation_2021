@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class play2d : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bullet;
+   
+    public GameObject bullet;
+
+    GameObject Canvas;
+    Status Status;
 
     [Header("移動速度")] public float speed;
     [Header("ジャンプ速度")] public float jumpSpeed;
@@ -117,6 +120,12 @@ public class play2d : MonoBehaviour
         if (collision.collider.tag == enemyTag)
         {
             Debug.Log("敵と接触した！");
+        }
+        if (collision.collider.tag == "enemybullet")
+        {
+            Canvas = GameObject.Find("Canvas");
+            Status = Canvas.GetComponent<Status>();
+            Status.statusHP -= 2;
         }
     }
     void ShotAction()
