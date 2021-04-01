@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyC1 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemybullet;
+
+    public GameObject enemybullet;
     
-    [SerializeField]
-    private int enemyArmorPoint;// 敵の体力の入れ物
+    
+    public int enemyArmorPoint;// 敵の体力の入れ物
 
     GameObject Canvas;
     Status Status;
