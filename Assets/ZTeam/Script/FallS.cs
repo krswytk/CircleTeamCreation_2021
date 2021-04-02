@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FallS : MonoBehaviour
 {
+    GameObject Player;
     GameObject Canvas;
     Status Status;
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("player");
         Status = GetComponent<Status>();
     }
 
@@ -26,6 +28,8 @@ public class FallS : MonoBehaviour
             Canvas = GameObject.Find("Canvas");
             Status = Canvas.GetComponent<Status>();
             Status.statusHP = Status.statusHP*2/3;
+           
+            Player.transform.position = new Vector3(0f, -1f, -3f);
         }
 
     }
