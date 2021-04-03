@@ -6,18 +6,19 @@ public class EnemyC1 : MonoBehaviour
 {
 
     public GameObject enemybullet;
-    
+    public ScanPlayer scanplayer;
+    public furimukiS furimukis;
     
     public int enemyArmorPoint;// 敵の体力の入れ物
 
     GameObject Canvas;
     Status Status;
     
-    public ScanPlayer scanplayer;
+    
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
     //private int numberOfEnemys = 0;
     Transform enemybulletT;
-
+    private bool rightTleftF = false;
     private float timeOut=0.2f;
     private float timeElapsed;
    
@@ -76,6 +77,20 @@ public class EnemyC1 : MonoBehaviour
 
             isPlayerIn = false;
             
+        }
+        if (furimukis.isOn)
+        {
+            rightTleftF = !rightTleftF;
+        }
+        //int xVector = -1;
+        if (rightTleftF)
+        {
+            //xVector = 1;
+            transform.localScale = new Vector3(-1, -1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
   
