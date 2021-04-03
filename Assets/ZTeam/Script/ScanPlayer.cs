@@ -30,7 +30,7 @@ public class ScanPlayer : MonoBehaviour
 
         if (collision.tag == PlayerTag)
         {
-            Debug.Log("Playerが判定に入りました");
+           // Debug.Log("Playerが判定に入りました");
             isPlayerEnter = true;
         }
     }
@@ -40,7 +40,7 @@ public class ScanPlayer : MonoBehaviour
 
         if (collision.tag == PlayerTag)
         {
-            Debug.Log("Playerが判定に入り続けています");
+            //Debug.Log("Playerが判定に入り続けています");
             isPlayerStay = true;
         }
     }
@@ -50,7 +50,7 @@ public class ScanPlayer : MonoBehaviour
 
         if (collision.tag == PlayerTag)
         {
-            Debug.Log(" Playerが判定をでました");
+            //Debug.Log(" Playerが判定をでました");
             isPlayerExit = true;
         }
     }
