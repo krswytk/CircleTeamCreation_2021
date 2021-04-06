@@ -3127,10 +3127,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1922915271, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: G
+      value: 
+      objectReference: {fileID: 1403186071}
     - target: {fileID: 1922915272, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 1403186068}
+    - target: {fileID: 1922915272, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 1403186070}
     - target: {fileID: 1922915273, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
       propertyPath: menu
       value: 
@@ -3194,6 +3202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115053163560741803, guid: 218a5302587f3fe4fb29bb826089daa5,
+        type: 3}
+      propertyPath: nazoflag.Array.size
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218a5302587f3fe4fb29bb826089daa5, type: 3}
@@ -3662,6 +3675,18 @@ GameObject:
 --- !u!1 &1403186069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6734952456324433760, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1403186067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1403186070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4853390334948496010, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1403186067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1403186071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5722730705567038039, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
     type: 3}
   m_PrefabInstance: {fileID: 1403186067}
   m_PrefabAsset: {fileID: 0}
