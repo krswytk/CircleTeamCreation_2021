@@ -22,24 +22,30 @@ public class play2d : MonoBehaviour
 
     private bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
-
+    
     //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
     //ここまで
     private string enemyTag = "enemy";
+   public int statusHP;
+   
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//2dリジットボディを取得
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        move();
-        ShotAction();
+        if (statusHP >= 0)
+        {
+            move();
+            ShotAction();
+        }
     }
     /// <summary> 
     /// プレイヤーの動き
@@ -117,16 +123,23 @@ public class play2d : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.collider.tag == enemyTag)
         {
             Debug.Log("敵と接触した！");
+            Canvas = GameObject.Find("Canvas");
+            Status = Canvas.GetComponent<Status>();
+            statusHP = Status.statusHP;
+
         }
         if (collision.collider.tag == "enemybullet")
         {
             Canvas = GameObject.Find("Canvas");
             Status = Canvas.GetComponent<Status>();
             Status.statusHP -= 2;
+            statusHP = Status.statusHP;
         }
+
     }
     void ShotAction()
     {
