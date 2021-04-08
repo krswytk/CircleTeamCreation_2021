@@ -7,6 +7,7 @@ public class FallS : MonoBehaviour
     GameObject Player;
     GameObject Canvas;
     Status Status;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,13 @@ public class FallS : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("落下判定");
+        
         if (collision.gameObject.tag == "Player")
         {
             Canvas = GameObject.Find("Canvas");
             Status = Canvas.GetComponent<Status>();
             Status.statusHP = Status.statusHP*2/3;
+           
            
             Player.transform.position = new Vector3(0f, -1f, -3f);
         }
