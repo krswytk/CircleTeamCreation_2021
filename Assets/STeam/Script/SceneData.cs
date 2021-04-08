@@ -10,6 +10,7 @@ public class SceneData : MonoBehaviour
 
     ItemManager imane;
     Flag f;
+    Warp w;
 
     private Image[] nextchild;
 
@@ -17,6 +18,7 @@ public class SceneData : MonoBehaviour
     {
         imane = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
         f = GameObject.FindWithTag("Player").GetComponent<Flag>();
+        w = GameObject.FindWithTag("Player").GetComponent<Warp>();
     }
 
     //移るscene先のデータに移動前のデータで上書き
@@ -27,6 +29,8 @@ public class SceneData : MonoBehaviour
 
         //次のシーンのFlagを持つ変数
         var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
+
+        var nextpos= GameObject.FindWithTag("Player").GetComponent<Warp>();
 
         //次のシーンのImage配列の子の数分だけ、画像配列を初期化
         nextchild = new Image[nextparent.parent.transform.childCount];//transform.childCountで子の数を取得　要するに整数
@@ -67,6 +71,8 @@ public class SceneData : MonoBehaviour
             if (f.nazoflag[i] == true) nextflag.nazoflag[i] = true;
             else nextflag.nazoflag[i] = false;
         }
+
+        nextpos.setvector(w.getvector());
 
         //ここで次のシーンへ、持っているアイテムの個数を譲渡
         nextparent.setcount(imane.getcount());

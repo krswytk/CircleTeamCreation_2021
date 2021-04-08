@@ -9,11 +9,17 @@ public class Warp : MonoBehaviour
     Menu menu;
 
     string scenename = "STeam/Scenes/";
+    Vector3 vec;
 
     void Start()
     {
         scene = GameObject.FindWithTag("GameManager").GetComponent<SceneData>();
         menu = GetComponent<Menu>();
+       
+        if (SceneManager.GetActiveScene().name == "rouka"&&vec!=Vector3.zero)
+        {
+            this.transform.position = vec;
+        }
     }
 
 
@@ -29,6 +35,7 @@ public class Warp : MonoBehaviour
                     if (other.gameObject.tag == "indoor")
                     {
                         scenename += other.gameObject.name;
+                        vec = this.transform.position;
                         
                         //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
                         SceneManager.sceneLoaded += scene.GameSceneLoaded;
@@ -45,5 +52,15 @@ public class Warp : MonoBehaviour
             }
         }
 
+    }
+
+    public void setvector(Vector3 v)
+    {
+        vec = v;
+    }
+
+    public Vector3 getvector()
+    {
+        return vec;
     }
 }
