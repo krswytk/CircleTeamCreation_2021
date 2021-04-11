@@ -35,7 +35,8 @@ public class play2d : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//2dリジットボディを取得
-        
+        Canvas = GameObject.Find("Canvas");
+        Status = Canvas.GetComponent<Status>();
     }
 
     // Update is called once per frame
@@ -127,17 +128,14 @@ public class play2d : MonoBehaviour
         if (collision.collider.tag == enemyTag)
         {
             Debug.Log("敵と接触した！");
-            Canvas = GameObject.Find("Canvas");
-            Status = Canvas.GetComponent<Status>();
-            statusHP = Status.statusHP;
+          
+            Status.HP(-10);
 
         }
         if (collision.collider.tag == "enemybullet")
         {
-            Canvas = GameObject.Find("Canvas");
-            Status = Canvas.GetComponent<Status>();
-            Status.statusHP -= 2;
-            statusHP = Status.statusHP;
+          
+            Status.HP(-2);
         }
 
     }

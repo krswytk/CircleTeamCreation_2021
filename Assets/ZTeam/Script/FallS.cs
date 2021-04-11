@@ -14,6 +14,8 @@ public class FallS : MonoBehaviour
     {
         Player = GameObject.Find("player");
         Status = GetComponent<Status>();
+        Canvas = GameObject.Find("Canvas");
+        Status = Canvas.GetComponent<Status>();
     }
 
     // Update is called once per frame
@@ -26,9 +28,8 @@ public class FallS : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-            Canvas = GameObject.Find("Canvas");
-            Status = Canvas.GetComponent<Status>();
-            Status.statusHP = Status.statusHP*2/3;
+            
+            Status.HP(-Status.statusHP*1/3);
            
            
             Player.transform.position = new Vector3(0f, -1f, -3f);

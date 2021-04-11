@@ -22,11 +22,16 @@ public class Status : MonoBehaviour
     {
         Gold.text = "G : " + statusG;
         Hitpoint.text = "HP : " + statusHP;
-
         if (statusHP <= 0)
         {
             statusHP = 0;
             GameOverText.SetActive(true);
         }
+
+    }
+
+    public void HP(int damage)
+    {
+        statusHP += damage;
     }
 }
