@@ -19,6 +19,11 @@ public class Rock : MonoBehaviour
         f = GameObject.Find("Player").GetComponent<Flag>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
 
+        if (f.nazoflag[1] == true)
+        {
+            Destroy(gameObject.GetComponent<Rock>());
+        }
+
     }
     //もっと鍵付きなどを増やしていく場合はswitchを使って見やすくする
     private void OnTriggerStay(Collider other)
