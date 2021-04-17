@@ -12,5 +12,5 @@ public class Flag : MonoBehaviour
 
     //謎を解いたかどうか
     public bool[] nazoflag = new bool[9];
-   
+
 }
