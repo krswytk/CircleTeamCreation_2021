@@ -10,6 +10,8 @@ TagManager:
   - indoor
   - mybullet
   - enemy
+  - Cursor
+  - rouka
   layers:
   - Default
   - TransparentFX

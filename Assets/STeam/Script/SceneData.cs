@@ -72,7 +72,7 @@ public class SceneData : MonoBehaviour
             else nextflag.nazoflag[i] = false;
         }
 
-        nextpos.setvector(w.getvector());
+        nextpos.setvector(w.getvector(),w.getname());
 
         //ここで次のシーンへ、持っているアイテムの個数を譲渡
         nextparent.setcount(imane.getcount());
