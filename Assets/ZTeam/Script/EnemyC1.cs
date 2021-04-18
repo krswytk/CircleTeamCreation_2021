@@ -28,7 +28,9 @@ public class EnemyC1 : MonoBehaviour
         // 敵の体力を初期化
         enemyArmorPoint = 3;
         enemybulletT= new GameObject("enemybullet").transform;
-        Status = GetComponent<Status>();
+        
+          Canvas = GameObject.Find("Canvas");
+                Status = Canvas.GetComponent<Status>();
 
     }
 
@@ -46,12 +48,11 @@ public class EnemyC1 : MonoBehaviour
                 enemyArmorPoint -= 1;
             }
             else {
-                // 敵の体力が0になったら敵オブジェクトを消滅させる
-                //
-                Canvas = GameObject.Find("Canvas");
-                Status = Canvas.GetComponent<Status>();
-                Status.statusG += 1;
-               Destroy(gameObject);
+               
+                
+              
+                Status.statusG += 5;
+               Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
             }
         }
     }
@@ -67,7 +68,7 @@ public class EnemyC1 : MonoBehaviour
 
             if (timeElapsed >= timeOut)
             {
-                InstBullet(transform.position, transform.rotation);
+                InstBullet(transform.position, transform.rotation);//弾を生成する
 
                 timeElapsed = 0.0f;
             }

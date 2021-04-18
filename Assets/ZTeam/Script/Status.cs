@@ -32,6 +32,17 @@ public class Status : MonoBehaviour
 
     public void HP(int damage)
     {
-        statusHP += damage;
+        if (statusHP != 0)
+        {
+            statusHP += damage;
+        }
+    }
+
+    public void GOLD(int GetGold)
+    {
+        if (statusG != 0)
+        {
+            statusG += GetGold;
+        }
     }
 }
