@@ -28,7 +28,7 @@ public class play2d : MonoBehaviour
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
     //ここまで
-    private string enemyTag = "enemy";
+   
    public int statusHP;
    
     // Start is called before the first frame update
@@ -125,11 +125,11 @@ public class play2d : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.collider.tag == enemyTag)
+        if (collision.collider.tag == "enemy")
         {
             Debug.Log("敵と接触した！");
           
-            Status.HP(-10);
+            Status.HP(-5);
 
         }
         if (collision.collider.tag == "enemybullet")

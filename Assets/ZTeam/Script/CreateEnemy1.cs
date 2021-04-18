@@ -17,7 +17,6 @@ public class CreateEnemy1 : MonoBehaviour
     //　待ち時間計測フィールド
     private float elapsedTime;
    
-    public EnemyC1 EnemyC1;
     
     // Use this for initialization
     void Start()
