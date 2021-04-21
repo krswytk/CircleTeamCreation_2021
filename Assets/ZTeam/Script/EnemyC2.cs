@@ -7,25 +7,34 @@ using UnityEngine.AI;
 public class EnemyC2 : MonoBehaviour
 {
     [SerializeField]
-    Transform target; //追いかける対象
-    NavMeshAgent agent;
+    Transform target=null; //追いかける対象
+    NavMeshAgent agent=null;//ナビメッシュエージェント
 
     GameObject Canvas;
     Status Status;
+    GameObject pl;//宣言が合っていないと思う
 
     // Start is called before the first frame update
     void Start()
     {
+        pl = GameObject.FindGameObjectWithTag("Player");//ここでプレイヤーを取得したい
         agent = GetComponent<NavMeshAgent>();
-        Canvas = GameObject.Find("Canvas");
-        Status = Canvas.GetComponent<Status>();
+
+        Canvas = GameObject.Find("Canvas");//ステータスの入ったオブジェクトの取得
+        Status = Canvas.GetComponent<Status>();//ステータスの取得
+
+        if (target != null)
+        {
+            agent.destination = pl.transform.position;//ここにプレイヤーのポジションを入れたい
+        }
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
+        agent.SetDestination(pl.transform.position);
     }
 
 

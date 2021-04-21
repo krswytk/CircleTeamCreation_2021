@@ -112,6 +112,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: b5d4716a1cd75a949a2089d26baf4b95, type: 2}
+--- !u!1 &41398806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41398808}
+  - component: {fileID: 41398807}
+  m_Layer: 0
+  m_Name: enemyspawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41398807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41398806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd6df2ecda2fd745b60db53ed56130b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemys:
+  - {fileID: 764827626715890500, guid: 3b78114478ca8414d9512133a50f6f36, type: 3}
+  appearNextTime: 1
+  maxNumOfEnemys: 10
+--- !u!4 &41398808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41398806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -87.52, y: -3.5, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &89622778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 3843375324092795428, guid: 7913538def5868e4b82cf6dfa6d3a230,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3843375324092795428, guid: 7913538def5868e4b82cf6dfa6d3a230,
         type: 3}
@@ -314,7 +361,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &170207087
 MonoBehaviour:
@@ -1076,7 +1123,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 880150632}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b78114478ca8414d9512133a50f6f36, type: 3}
 --- !u!1 &880150626
@@ -2237,7 +2284,7 @@ Transform:
   m_LocalScale: {x: 27.727951, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1840993074
 BoxCollider2D:
@@ -2562,7 +2609,7 @@ PrefabInstance:
     - target: {fileID: 560087318531644339, guid: 832fb36634d0fe44bb48f42c68668b15,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 560087318531644339, guid: 832fb36634d0fe44bb48f42c68668b15,
         type: 3}
