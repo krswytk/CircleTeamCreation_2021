@@ -7,7 +7,7 @@ public class Title : MonoBehaviour
 {
     public void SceneGameStart()//ゲームシーンに移動
     {
-        SceneManager.LoadScene("STeam/Scenes/rouka");
+        SceneManager.LoadScene("STeam/Scenes/rouka/East rouka");
     }
 
 }
