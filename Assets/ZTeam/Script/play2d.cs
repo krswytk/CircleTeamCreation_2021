@@ -29,7 +29,7 @@ public class play2d : MonoBehaviour
     private float jumpTime = 0.0f;//ジャンプの時間制限
     //ここまで
    
-   public int statusHP;
+   public int HP;
    
     // Start is called before the first frame update
     void Start()
@@ -42,10 +42,15 @@ public class play2d : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (statusHP >= 0)
+        HP = Status.statusHP;
+        if (HP > 0)
         {
             move();
             ShotAction();
+
+        }else
+        {
+            Destroy(this.rb);
         }
     }
     /// <summary> 
@@ -53,6 +58,7 @@ public class play2d : MonoBehaviour
     /// </summary> 
     void move()
     {
+        Debug.Log(this.transform.position);
         isGround = ground.IsGround();
         isHead = head.IsGround();
 
@@ -83,15 +89,11 @@ public class play2d : MonoBehaviour
             bool canHeight = jumpPos + jumpHeight > transform.position.y;
             //ジャンプ時間が長くなりすぎてないか
             bool canTime = jumpLimitTime > jumpTime;
-            bool syoJump = (jumpLimitTime / 2) > jumpTime;
-            float syoJumpSpeed = jumpSpeed / 2;
+          
+           
             //上ボタンを押されている。かつ、現在の高さがジャンプした位置から自分の決めた位置より下ならジャンプを継続する
-            if (pushUpKey && canHeight && canTime && !isHead&&syoJump)
-            {
-                ySpeed = syoJumpSpeed;
-                jumpTime += Time.deltaTime;
-            }
-            else if(pushUpKey && canHeight && canTime && !isHead&&!syoJump) {
+            
+            if(pushUpKey && canHeight && canTime && !isHead) {
 
                 ySpeed = jumpSpeed;
                 jumpTime += Time.deltaTime;
