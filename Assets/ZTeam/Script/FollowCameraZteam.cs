@@ -18,6 +18,19 @@ public class FollowCameraZteam : MonoBehaviour
     void Update()
     {
         // カメラのx座標をPlayerオブジェクトのx座標から取得y座標とz座標は現在の状態を維持
-        transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
+        if (-4<target.position.y&& target.position.y<3)
+        {
+            
+            transform.position = new Vector3(target.position.x, 0, transform.position.z);
+        }
+
+        else if(target.position.y <= -4){
+            transform.position = new Vector3(target.position.x, target.position.y+4, transform.position.z);
+        }
+        else if (3<=target.position.y)
+        {
+            transform.position = new Vector3(target.position.x, target.position.y-3 , transform.position.z);
+        }
+
     }
 }
