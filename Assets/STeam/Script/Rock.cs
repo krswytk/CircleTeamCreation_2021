@@ -12,6 +12,7 @@ public class Rock : MonoBehaviour
     CursorCtrl cursor;
     Flag f;
 
+
     private void Start()
     {
         menu = GameObject.Find("Player").GetComponent<Menu>();
