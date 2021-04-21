@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Panel : MonoBehaviour
 {
-    string C;
+    string itemtext;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,10 @@ public class Panel : MonoBehaviour
      //   transform.Find("Text").gameObject.GetComponent<Text>().text = "abcd";
         transform.Find("Text").gameObject.GetComponent<Text>().text = "abcd";
     }
-    public void A(string B)
+    public void itemTelop(string B)
     {
-        C = B;
+        itemtext = B;
         
-        transform.Find("Text").gameObject.GetComponent<Text>().text = C+"を手に入れた";
+        transform.Find("Text").gameObject.GetComponent<Text>().text = itemtext+"を手に入れた";
     }
 }

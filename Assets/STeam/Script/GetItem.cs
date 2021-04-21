@@ -12,11 +12,11 @@ public class GetItem : MonoBehaviour
 
     //非表示のパネル(テロップ)取得
     [SerializeField]
-    GameObject G;
+    GameObject Telopmanager;
     
     void Start()
     {
-        panel = G.GetComponent<Panel>();
+        panel = Telopmanager.GetComponent<Panel>();
          hairetu = GetComponent<ItemManager>();
         f = GetComponent<Flag>();
     }
@@ -38,8 +38,8 @@ public class GetItem : MonoBehaviour
                 hairetu.getitem(other.GetComponent<Item>().s);//アイテムの持っている画像を譲渡
                 hairetu.incount();//アイテム所持数加算
 
-                G.SetActive(true);//テロップ表示
-                panel.A(other.gameObject.GetComponent<Item>().Itemname);
+                Telopmanager.SetActive(true);//テロップ表示
+                panel.itemTelop(other.gameObject.GetComponent<Item>().Itemname);
                 Invoke("panelflag", 2.0f);
 
                 //アイテムフラグ
@@ -57,6 +57,6 @@ public class GetItem : MonoBehaviour
     }
     void panelflag()
     {
-        G.SetActive(false);
+        Telopmanager.SetActive(false);
     }
 }
