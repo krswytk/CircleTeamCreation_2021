@@ -28,7 +28,7 @@ public class CreateEnemy1 : MonoBehaviour
 // Update is called once per frame
 void Update()
     {
-        //EnemyOn = EnemyC1.EnemySP();
+       
         var gameObject = GameObject.Find("enemy2(Clone)");
      
          
