@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,17 +7,18 @@ using UnityEngine.UI;
 public class GetItem : MonoBehaviour
 {
     ItemManager hairetu;
+    PanelManager Telop;
     Flag f;
-    Panel panel;
+   // Panel test;
     int itemnum;
 
     //非表示のパネル(テロップ)取得
-    [SerializeField]
-    GameObject G;
+   // [SerializeField]
+  //  GameObject Telopmanager;
     
     void Start()
     {
-        panel = G.GetComponent<Panel>();
+        Telop = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
          hairetu = GetComponent<ItemManager>();
         f = GetComponent<Flag>();
     }
@@ -38,9 +40,10 @@ public class GetItem : MonoBehaviour
                 hairetu.getitem(other.GetComponent<Item>().s);//アイテムの持っている画像を譲渡
                 hairetu.incount();//アイテム所持数加算
 
-                G.SetActive(true);//テロップ表示
-                panel.A(other.gameObject.GetComponent<Item>().Itemname);
-                Invoke("panelflag", 2.0f);
+                //Telopmanager.SetActive(true);//テロップ表示
+                //panel.itemTelop(other.gameObject.GetComponent<Item>().Itemname);
+               Telop.itempanel(other.gameObject.GetComponent<Item>().Itemname);
+                //Invoke("panelflag", 2.0f);
 
                 //アイテムフラグ
                 itemnum = other.GetComponent<Item>().itemkind;
@@ -55,8 +58,14 @@ public class GetItem : MonoBehaviour
 
         }
     }
-    void panelflag()
+
+    private void itempanel(string itemname)
     {
-        G.SetActive(false);
+        throw new NotImplementedException();
     }
+
+   // void panelflag()
+   // {
+    //   Telopmanager.SetActive(false);
+   // }
 }

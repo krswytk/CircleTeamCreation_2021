@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - Cursor
   - rouka
+  - PanelManager
   layers:
   - Default
   - TransparentFX
