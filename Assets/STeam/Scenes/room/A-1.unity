@@ -3881,6 +3881,10 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 1960283435}
+    - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
+      propertyPath: itemimage
+      value: 
+      objectReference: {fileID: 1960283435}
     - target: {fileID: 1436784126, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
       propertyPath: menu
       value: 

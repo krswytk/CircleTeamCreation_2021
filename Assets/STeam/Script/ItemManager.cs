@@ -18,7 +18,7 @@ public class ItemManager : MonoBehaviour
     CursorCtrl cursornum;
 
     //シーン引継ぎの時に配列の大きさ(子の数)を合わせるために子の親であるobjを取得
-    public GameObject parent;
+    public GameObject itemimage;
 
     public Image[] gazou;
 
@@ -41,10 +41,10 @@ public class ItemManager : MonoBehaviour
         }*/
 
         //配列の初期化
-        gazou = new Image[parent.transform.childCount];
+        gazou = new Image[itemimage.transform.childCount];
         for (int i = 0; i < gazou.Length; i++)
         {
-            gazou[i] = parent.transform.GetChild(i).GetComponent<Image>();
+            gazou[i] = itemimage.transform.GetChild(i).GetComponent<Image>();
         }
     }
 

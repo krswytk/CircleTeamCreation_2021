@@ -33,12 +33,12 @@ public class SceneData : MonoBehaviour
         var nextpos= GameObject.FindWithTag("Player").GetComponent<Warp>();
 
         //次のシーンのImage配列の子の数分だけ、画像配列を初期化
-        nextchild = new Image[nextparent.parent.transform.childCount];//transform.childCountで子の数を取得　要するに整数
+        nextchild = new Image[nextparent.itemimage.transform.childCount];//transform.childCountで子の数を取得　要するに整数
 
         //次のシーンのImage配列全てにImageのコンポーネントを付与　多分配列を作っただけだとImageのコンポーネントがない
         for (int i = 0; i < imane.gazou.Length; i++)
         {
-            nextchild[i] = nextparent.parent.transform.GetChild(i).GetComponent<Image>();
+            nextchild[i] = nextparent.itemimage.transform.GetChild(i).GetComponent<Image>();
         }
         
 
