@@ -7,7 +7,7 @@ public class Nazo1 : MonoBehaviour
     //出口
     [SerializeField]
     GameObject g;
-
+    PanelManager context;
     Menu menu;
     ItemManager manager;
     CursorCtrl cursor;
@@ -20,6 +20,9 @@ public class Nazo1 : MonoBehaviour
         manager = GameObject.Find("Player").GetComponent<ItemManager>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
         f = GameObject.Find("Player").GetComponent<Flag>();
+        context = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
+
+        context.TextActive("閉じ込められた");
 
         if (f.nazoflag[0] == true)
         {
@@ -51,6 +54,9 @@ public class Nazo1 : MonoBehaviour
                     manager.useitem();//アイテム消費
                     g.SetActive(true);//出口出現
                     gameObject.SetActive(false);//謎床非表示
+
+                    context.TextActive("扉が開いた");
+
                 }
             }
         }
