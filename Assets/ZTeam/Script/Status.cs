@@ -20,7 +20,7 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Gold.text = "G : " + statusG;
+        Gold.text = "   G : " + statusG;
         Hitpoint.text = "HP : " + statusHP;
         if (statusHP <= 0)
         {

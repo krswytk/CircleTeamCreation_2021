@@ -58,7 +58,7 @@ public class play2d : MonoBehaviour
     /// </summary> 
     void move()
     {
-        Debug.Log(this.transform.position);
+        
         isGround = ground.IsGround();
         isHead = head.IsGround();
 
