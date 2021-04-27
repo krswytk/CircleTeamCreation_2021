@@ -51,7 +51,7 @@ public class EnemyC1 : MonoBehaviour
                
                 
               
-                Status.statusG += 5;
+                Status.statusG += 10;
                Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
             }
         }
@@ -59,6 +59,13 @@ public class EnemyC1 : MonoBehaviour
 
     void Update()
     {
+        if (this.transform.position.y < -8)
+        {
+
+            Status.statusG += 5;
+            Destroy(gameObject);
+        }
+
         isPlayerIn = scanplayer.IsPlayerInS();
         if (isPlayerIn == true)
         {
