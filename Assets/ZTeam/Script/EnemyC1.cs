@@ -18,7 +18,7 @@ public class EnemyC1 : MonoBehaviour
     private bool isPlayerIn = false;//playerが範囲内にいるかどうか
     //private int numberOfEnemys = 0;
     Transform enemybulletT;
-    private bool rightTleftF = false;
+    private bool isOn = false;
     private float timeOut=0.2f;
     private float timeElapsed;
    
@@ -86,14 +86,10 @@ public class EnemyC1 : MonoBehaviour
             isPlayerIn = false;
             
         }
-        if (furimukis.isOn)
+        
+        if (isOn)
         {
-            rightTleftF = !rightTleftF;
-        }
-        //int xVector = -1;
-        if (rightTleftF)
-        {
-            //xVector = 1;
+            
             transform.localScale = new Vector3(-1, -1, 1);
         }
         else
@@ -121,5 +117,12 @@ public class EnemyC1 : MonoBehaviour
 
         //生成時にbulletsの子オブジェクトにする
         Instantiate(enemybullet, pos, rotation, enemybulletT);
+    }
+
+    public bool furimuki()
+    {
+        isOn =!isOn;
+        Debug.Log(isOn);
+        return isOn;
     }
 }
