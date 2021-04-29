@@ -40,9 +40,8 @@ public class Status : MonoBehaviour
 
     public void GOLD(int GetGold)
     {
-        if (statusG != 0)
-        {
+        
             statusG += GetGold;
-        }
+        
     }
 }
