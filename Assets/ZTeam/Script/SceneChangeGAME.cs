@@ -7,6 +7,6 @@ public class SceneChangeGAME : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Main_Z");
+        SceneManager.LoadScene("Stage_Select");
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // 弾オブジェクト（Inspectorでオブジェクトを指定）
-    [SerializeField] // Inspectorで操作できるように属性を追加します
-    private GameObject bullet;
+    // Inspectorで操作できるように属性を追加します
+    public GameObject bullet;
     // 弾オブジェクトのRigidbody2Dの入れ物
     private Rigidbody2D rb2d;
     // 弾オブジェクトの移動係数（速度調整用）
@@ -19,11 +19,11 @@ public class Bullet : MonoBehaviour
         float horizontalKey = Input.GetAxisRaw("Horizontal");//水平キーの判定
         if (horizontalKey < 0)
         {
-            bulletSpeed = -10.0f;
+            bulletSpeed = -15.0f;
         }
         else
         {
-            bulletSpeed = 10.0f;
+            bulletSpeed = 15.0f;
         }
            
         // 出現から３秒後に弾オブジェクトを消滅させる（メモリの節約）

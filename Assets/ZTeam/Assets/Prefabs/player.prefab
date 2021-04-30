@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559895345335263659}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03999996, y: -1.11, z: 1.8123136}
-  m_LocalScale: {x: 1, y: 0.122499995, z: 1}
+  m_LocalPosition: {x: -0, y: -1.09, z: 1.8123136}
+  m_LocalScale: {x: 0.42709783, y: 0.052319482, z: 0.42709783}
   m_Children: []
   m_Father: {fileID: 3559895345899202693}
   m_RootOrder: 0
@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 3559895345899202696}
   - component: {fileID: 3559895345899202697}
   - component: {fileID: 3559895345899202702}
+  - component: {fileID: 5388453983778628696}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -196,20 +197,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559895345899202703}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f2a343a9ee36234788a0e92cc579b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2793860571555678975, guid: 2d71ebfc94c225f4d8d50f361a8e1028, type: 3}
   speed: 10
-  jumpSpeed: 20
+  jumpSpeed: 10
   gravity: 6
   ground: {fileID: 3559895345335263652}
   jumpHeight: 3
   jumpLimitTime: 0.5
   head: {fileID: 3559895346513581922}
   statusHP: 0
+--- !u!114 &5388453983778628696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559895345899202703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da11eb31c43734db64100ba243eee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2793860571555678975, guid: 2d71ebfc94c225f4d8d50f361a8e1028, type: 3}
+  speed: 10
+  jumpSpeed: 10
+  gravity: 5
+  ground: {fileID: 3559895345335263652}
+  jumpHeight: 3
+  jumpLimitTime: 0.5
+  head: {fileID: 3559895346513581922}
+  statusHP: 100
 --- !u!1 &3559895346513581921
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559895346513581921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03999996, y: 1.1, z: 1.8123136}
-  m_LocalScale: {x: 1, y: 0.122499995, z: 1}
+  m_LocalPosition: {x: -0.02, y: 1.1, z: 1.8123136}
+  m_LocalScale: {x: 0.51906276, y: 0.077072956, z: 0.62916696}
   m_Children: []
   m_Father: {fileID: 3559895345899202693}
   m_RootOrder: 1

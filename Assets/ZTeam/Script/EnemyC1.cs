@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class EnemyC1 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemybullet;
-    
-    [SerializeField]
-    private int enemyArmorPoint;// 敵の体力の入れ物
 
-
+    public GameObject enemybullet;
     public ScanPlayer scanplayer;
-    private bool isPlayerIn = false;//playerが範囲内にいるかどうか
-    private int numberOfEnemys = 0;
-    Transform enemybulletT;
+    public furimukiS furimukis;
+    
+    public int enemyArmorPoint;// 敵の体力の入れ物
 
+    GameObject Canvas;
+    Status Status;
+    
+    
+    private bool isPlayerIn = false;//playerが範囲内にいるかどうか
+    //private int numberOfEnemys = 0;
+    Transform enemybulletT;
+    private bool isOn = false;
     private float timeOut=0.2f;
     private float timeElapsed;
+   
 
     void Start()
     {
         // 敵の体力を初期化
         enemyArmorPoint = 3;
         enemybulletT= new GameObject("enemybullet").transform;
+        
+          Canvas = GameObject.Find("Canvas");
+                Status = Canvas.GetComponent<Status>();
+
     }
 
     // 弾オブジェクトと接触したときに呼び出される関数
@@ -40,15 +48,24 @@ public class EnemyC1 : MonoBehaviour
                 enemyArmorPoint -= 1;
             }
             else {
-                // 敵の体力が0になったら敵オブジェクトを消滅させる
+               
                 
-                Destroy(gameObject);
+              
+                Status.statusG += 10;
+               Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
             }
         }
     }
 
     void Update()
     {
+        if (this.transform.position.y < -8)
+        {
+
+            Status.statusG += 5;
+            Destroy(gameObject);
+        }
+
         isPlayerIn = scanplayer.IsPlayerInS();
         if (isPlayerIn == true)
         {
@@ -58,7 +75,7 @@ public class EnemyC1 : MonoBehaviour
 
             if (timeElapsed >= timeOut)
             {
-                InstBullet(transform.position, transform.rotation);
+                InstBullet(transform.position, transform.rotation);//弾を生成する
 
                 timeElapsed = 0.0f;
             }
@@ -68,6 +85,16 @@ public class EnemyC1 : MonoBehaviour
 
             isPlayerIn = false;
             
+        }
+        
+        if (isOn)
+        {
+            
+            transform.localScale = new Vector3(-1, -1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
   
@@ -90,5 +117,12 @@ public class EnemyC1 : MonoBehaviour
 
         //生成時にbulletsの子オブジェクトにする
         Instantiate(enemybullet, pos, rotation, enemybulletT);
+    }
+
+    public bool furimuki()
+    {
+        isOn =!isOn;
+        Debug.Log(isOn);
+        return isOn;
     }
 }

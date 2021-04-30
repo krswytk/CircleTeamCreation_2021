@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class play2d : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bullet;
+   
+    public GameObject bullet;
+
+    GameObject Canvas;
+    Status Status;
 
     [Header("移動速度")] public float speed;
     [Header("ジャンプ速度")] public float jumpSpeed;
@@ -19,30 +22,43 @@ public class play2d : MonoBehaviour
 
     private bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
-
+    
     //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
     //ここまで
-    private string enemyTag = "enemy";
+   
+   public int HP;
+   
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//2dリジットボディを取得
+        Canvas = GameObject.Find("Canvas");
+        Status = Canvas.GetComponent<Status>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        move();
-        ShotAction();
+        HP = Status.statusHP;
+        if (HP > 0)
+        {
+            move();
+            ShotAction();
+
+        }else
+        {
+            Destroy(this.rb);
+        }
     }
     /// <summary> 
     /// プレイヤーの動き
     /// </summary> 
     void move()
     {
+        
         isGround = ground.IsGround();
         isHead = head.IsGround();
 
@@ -73,15 +89,11 @@ public class play2d : MonoBehaviour
             bool canHeight = jumpPos + jumpHeight > transform.position.y;
             //ジャンプ時間が長くなりすぎてないか
             bool canTime = jumpLimitTime > jumpTime;
-            bool syoJump = (jumpLimitTime / 2) > jumpTime;
-            float syoJumpSpeed = jumpSpeed / 2;
+          
+           
             //上ボタンを押されている。かつ、現在の高さがジャンプした位置から自分の決めた位置より下ならジャンプを継続する
-            if (pushUpKey && canHeight && canTime && !isHead&&syoJump)
-            {
-                ySpeed = syoJumpSpeed;
-                jumpTime += Time.deltaTime;
-            }
-            else if(pushUpKey && canHeight && canTime && !isHead&&!syoJump) {
+            
+            if(pushUpKey && canHeight && canTime && !isHead) {
 
                 ySpeed = jumpSpeed;
                 jumpTime += Time.deltaTime;
@@ -114,10 +126,20 @@ public class play2d : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == enemyTag)
+
+        if (collision.collider.tag == "enemy")
         {
             Debug.Log("敵と接触した！");
+          
+            Status.HP(-5);
+
         }
+        if (collision.collider.tag == "enemybullet")
+        {
+          
+            Status.HP(-2);
+        }
+
     }
     void ShotAction()
     {
