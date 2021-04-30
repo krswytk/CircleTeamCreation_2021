@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 438447284}
   - component: {fileID: 438447288}
   - component: {fileID: 438447287}
+  - component: {fileID: 438447289}
   m_Layer: 5
   m_Name: Button Hazimekara
   m_TagString: Untagged
@@ -348,7 +349,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 438447288}
-        m_MethodName: SceneGameStart
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -417,6 +418,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abef1a5c2e59a640bce6c11077c8297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &438447289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438447282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 438447288}
+          m_MethodName: GameModeHAZIMEKARA
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1245,7 @@ GameObject:
   - component: {fileID: 1906474352}
   - component: {fileID: 1906474351}
   - component: {fileID: 1906474350}
+  - component: {fileID: 1906474355}
   m_Layer: 5
   m_Name: Button Tutorial
   m_TagString: Untagged
@@ -1305,18 +1336,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1906474353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1906474351}
-        m_MethodName: SceneGameStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1906474353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,6 +1372,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906474348}
   m_CullTransparentMesh: 0
+--- !u!114 &1906474355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906474348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1906474351}
+          m_MethodName: GameMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
 --- !u!1 &1935542802
 GameObject:
   m_ObjectHideFlags: 0
