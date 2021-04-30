@@ -20,7 +20,7 @@ public class Title : MonoBehaviour
         {
             //zキーが押されたときの処理
 
-            Debug.LogError(3000);
+            
 
             SceneManager.LoadScene("STeam/Scenes/rouka/East rouka");
 
