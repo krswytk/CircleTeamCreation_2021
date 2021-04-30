@@ -12,7 +12,6 @@ public class Title : MonoBehaviour
 
     private void Update()
     {
-        Debug.LogError(StertF);
 
 
         StertF = GameModeHAZIMEKARA();
