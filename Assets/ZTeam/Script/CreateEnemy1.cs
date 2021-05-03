@@ -7,10 +7,8 @@ public class CreateEnemy1 : MonoBehaviour
     //　出現させる敵を入れておく
     public GameObject[] enemys;
     //　次に敵が出現するまでの時間
-
     public float appearNextTime;
     //　この場所から出現する敵の数
-
     public int maxNumOfEnemys;
     //　今何人の敵を出現させたか（総数）
     private int numberOfEnemys;
@@ -31,8 +29,6 @@ void Update()
        
         var gameObject = GameObject.Find("enemy2(Clone)");
      
-         
-
             //　この場所から出現する最大数を超えているかつ敵が倒されていなかったら
             if (numberOfEnemys >= maxNumOfEnemys)
             {
@@ -67,10 +63,10 @@ void Update()
     {
              
         GameObject.Instantiate(enemys[0], transform.position, Quaternion.Euler(0f, 0f, 0f));
-
         numberOfEnemys++;
         elapsedTime = 0f;
 
-
     }
+
+
 }
