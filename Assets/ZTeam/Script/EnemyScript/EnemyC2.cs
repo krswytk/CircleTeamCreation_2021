@@ -32,8 +32,16 @@ public class EnemyC2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.position.y < -8)//地面よりも下にいたら消える
+        {
+
+            Status.statusG += 5;
+            Destroy(gameObject);
+        }
         PlayerPosition = pl.transform.position;
         EnemyPosition = transform.position;
+
+        EnemyPosition.y = EnemyPosition.y + 0.05f;
 
         if (PlayerPosition.x > EnemyPosition.x)
         {
@@ -59,6 +67,8 @@ public class EnemyC2 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+     
+
         if (collision.collider.tag == "mybullet" || collision.collider.tag == "Player")
         {
             Destroy(gameObject);
