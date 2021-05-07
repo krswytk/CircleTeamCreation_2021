@@ -11,13 +11,15 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb2d;
     // 弾オブジェクトの移動係数（速度調整用）
     float bulletSpeed;
+    // 弾オブジェクトの移動方向の指定
+    bool Lookright;
     void Start()
     {
         // オブジェクトのRigidbody2Dを取得
         rb2d = GetComponent<Rigidbody2D>();
         // 弾オブジェクトの移動係数を初期化
-        float horizontalKey = Input.GetAxisRaw("Horizontal");//水平キーの判定
-        if (horizontalKey < 0)
+        Lookright = lookAt.lookright;
+        if (Lookright == false)
         {
             bulletSpeed = -15.0f;
         }
