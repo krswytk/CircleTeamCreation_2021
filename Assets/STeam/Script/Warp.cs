@@ -25,6 +25,9 @@ public class Warp : MonoBehaviour
         else if (SceneManager.GetActiveScene().name.Contains("rouka") && roukaname != null)
         {
             startvec = GameObject.Find(roukaname).transform.position;
+
+            if (startvec.x < 0) startvec.x += 2;
+            else startvec.x -= 2;
             this.transform.position = startvec;
         }
 
@@ -58,21 +61,29 @@ public class Warp : MonoBehaviour
                         SceneManager.LoadScene("STeam/Scenes/rouka/" + roukaname);
                     }
 
-                    if (other.gameObject.tag == "rouka")
-                    {
-                        s = other.gameObject.name;
-                        roukaname = SceneManager.GetActiveScene().name;
-                        //vec = Vector3.zero;
-                        //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
-                        SceneManager.sceneLoaded += scene.GameSceneLoaded;
-                        SceneManager.LoadScene("STeam/Scenes/rouka/" + s);
-                    }
-
                 }
             }
         }
 
     }
+
+    private void OnTriggerEnter(Collider other)//触れたら瞬間
+    {
+        if (menu.opcl == false)
+        {
+            if (other.gameObject.tag == "rouka")
+            {
+                s = other.gameObject.name;
+                roukaname = SceneManager.GetActiveScene().name;
+                //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
+                SceneManager.sceneLoaded += scene.GameSceneLoaded;
+                SceneManager.LoadScene("STeam/Scenes/rouka/" + s);
+            }
+        }
+
+    }
+
+
 
     public void setvector(Vector3 v, string s)
     {
