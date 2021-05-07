@@ -83,7 +83,7 @@ public class Title : MonoBehaviour
                     break;
 
                 case 2:
-                     SceneManager.LoadScene("STeam/Scenes/rouka/East rouka");
+                     SceneManager.LoadScene("STeam/Scenes/rouka/North rouka");
                      StertF = 0;
                     break;
 
