@@ -37,6 +37,7 @@ public class EnemyC1 : MonoBehaviour
     // 弾オブジェクトと接触したときに呼び出される関数
     void OnCollisionEnter2D(Collision2D collision)
     {
+     
         // もしもtagがmybulletであるオブジェクトと接触したら
         if (collision.gameObject.tag == "mybullet")
         {
@@ -59,7 +60,7 @@ public class EnemyC1 : MonoBehaviour
 
     void Update()
     {
-        if (this.transform.position.y < -8)
+        if (this.transform.position.y < -8)//地面よりも下にいたら消える
         {
 
             Status.statusG += 5;
