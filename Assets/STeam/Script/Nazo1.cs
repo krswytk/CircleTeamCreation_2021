@@ -22,8 +22,6 @@ public class Nazo1 : MonoBehaviour
         f = GameObject.Find("Player").GetComponent<Flag>();
         context = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
 
-        context.TextActive("閉じ込められた");
-
         if (f.nazoflag[0] == true)
         {
             g.SetActive(true);
@@ -32,6 +30,7 @@ public class Nazo1 : MonoBehaviour
         }
         else
         {
+            context.TextActive("閉じ込められた");
             g.SetActive(false);
         }
     }
@@ -54,7 +53,6 @@ public class Nazo1 : MonoBehaviour
                     manager.useitem();//アイテム消費
                     g.SetActive(true);//出口出現
                     gameObject.SetActive(false);//謎床非表示
-
                     context.TextActive("扉が開いた");
 
                 }

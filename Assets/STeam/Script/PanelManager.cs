@@ -37,6 +37,7 @@ public class PanelManager : MonoBehaviour
         item = true;
         Telopmanager.SetActive(true);//テロップ表示
         Telopmanager.transform.Find("Text").gameObject.GetComponent<Text>().text = name + "を手に入れた";//入手したアイテムを表示
+        timer = 0;
         //Invoke("panelflag", 2.0f);
     }
 
@@ -45,6 +46,7 @@ public class PanelManager : MonoBehaviour
         text = true;
         Telopmanager.SetActive(true);
         Telopmanager.transform.Find("Text").gameObject.GetComponent<Text>().text = textname;
+        timer = 0;
         //Invoke("Panelflag", 2.0f);
        // Debug.Log("呼び出し");
     }
