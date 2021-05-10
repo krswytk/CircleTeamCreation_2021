@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class PanelManager : MonoBehaviour
 {
-    Panel Telop;
-    string itemtext;
     [SerializeField]
     GameObject Telopmanager;
 
@@ -15,7 +13,7 @@ public class PanelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        Telop = Telopmanager.GetComponent<Panel>();
+
     }
 
     // Update is called once per frame
