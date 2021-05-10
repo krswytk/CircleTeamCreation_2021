@@ -61,7 +61,6 @@ public class CreateEnemy2 : MonoBehaviour
 
     void AppearEnemy()
     {
-
         GameObject.Instantiate(enemys[0], transform.position, Quaternion.Euler(0f, 0f, 0f));
         numberOfEnemys++;
         elapsedTime = 0f;

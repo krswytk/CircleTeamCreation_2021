@@ -32,7 +32,7 @@ public class GroundCheck : MonoBehaviour
       
         if (collision.tag == groundTag)
         {
-            Debug.Log("地面が判定に入りました");
+           // Debug.Log("地面が判定に入りました");
             isGroundEnter = true;
         }
     }
@@ -42,7 +42,7 @@ public class GroundCheck : MonoBehaviour
        
         if (collision.tag == groundTag)
         {
-            Debug.Log("地面が判定に入り続けています");
+           // Debug.Log("地面が判定に入り続けています");
             isGroundStay = true;
         }
     }
@@ -52,7 +52,7 @@ public class GroundCheck : MonoBehaviour
       
         if (collision.tag == groundTag)
         {
-            Debug.Log("地面が判定をでました");
+            //Debug.Log("地面が判定をでました");
             isGroundExit = true;
         }
     }
