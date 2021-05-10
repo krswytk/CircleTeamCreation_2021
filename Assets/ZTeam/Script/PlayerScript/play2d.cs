@@ -129,8 +129,8 @@ public class play2d : MonoBehaviour
 
         if (collision.collider.tag == "enemy")
         {
-            Debug.Log("敵と接触した！");
-          
+
+            
             Status.HP(-5);
 
         }
@@ -145,6 +145,7 @@ public class play2d : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            Status.GOLD(-1);
             Instantiate(bullet, transform.position, transform.rotation);
         }
     }
