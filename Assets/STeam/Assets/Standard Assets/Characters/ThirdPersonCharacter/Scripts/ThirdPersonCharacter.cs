@@ -61,15 +61,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
-				HandleGroundedMovement(crouch, jump);
+				//HandleGroundedMovement(crouch, jump);
 			}
 			else
 			{
-				HandleAirborneMovement();
+				//HandleAirborneMovement();
 			}
 
-			ScaleCapsuleForCrouching(crouch);
-			PreventStandingInLowHeadroom();
+			//ScaleCapsuleForCrouching(crouch);
+			//PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
@@ -89,7 +89,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
 					m_Crouching = true;
 					return;
@@ -107,7 +107,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				Ray crouchRay = new Ray(m_Rigidbody.position + Vector3.up * m_Capsule.radius * k_Half, Vector3.up);
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
-				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
 					m_Crouching = true;
 				}

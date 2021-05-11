@@ -5,20 +5,25 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    //アイテムを取得したかどうか
-    public bool getflag=false;
+    Flag f;
+
+    public string Itemname = "NULL";
+    //アイテムの画像
     public Sprite s;
 
-    // Start is called before the first frame update
+    //アイテム番号　絶対よくない…
+    public int itemkind;
+
+  
     void Start()
     {
-        
-    }
+        f = GameObject.Find("Player").GetComponent<Flag>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //部屋に入ったらこのアイテムを取ったことがあるか判定　アイテム非表示
+        if (f.getflag[itemkind]==true)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
 }

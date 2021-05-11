@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField]
-    GameObject menu;
+   public GameObject menu;
 
    public bool opcl = false;//メニューを開いているかどうか
 
@@ -25,9 +24,11 @@ public class Menu : MonoBehaviour
             {
                 menu.SetActive(true);
                 opcl = true;
+               // Time.timeScale = 0;
             }
             else
             {
+               // Time.timeScale=1;
                 menu.SetActive(false);
                 opcl = false;
             }
