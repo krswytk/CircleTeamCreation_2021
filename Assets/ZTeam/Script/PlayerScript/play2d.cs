@@ -130,7 +130,6 @@ public class play2d : MonoBehaviour
         if (collision.collider.tag == "enemy")
         {
 
-            
             Status.HP(-5);
 
         }
