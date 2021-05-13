@@ -46,10 +46,11 @@ public class GetItem : MonoBehaviour
                 //Invoke("panelflag", 2.0f);
 
                 //アイテムフラグ
-                itemnum = other.GetComponent<Item>().itemkind;
-                f.getflag[itemnum] = true;
+                itemnum = other.GetComponent<Item>().itemkind;//番号分けされたアイテムを入手
+                f.getflag[itemnum] = true;//番号分けされたアイテムを非表示にする
 
                 hairetu.itemkind[hairetu.getcount() - 1] = itemnum;//アイテムの持つ種類番号を配列へ
+                                                
 
                 //アイテム非表示
                 other.gameObject.SetActive(false);
