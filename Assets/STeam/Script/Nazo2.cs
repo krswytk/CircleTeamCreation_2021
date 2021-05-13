@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nazo1 : MonoBehaviour
+public class Nazo2 : MonoBehaviour
 {
-    //出口
     [SerializeField]
     GameObject g;
     PanelManager context;
@@ -12,7 +11,6 @@ public class Nazo1 : MonoBehaviour
     ItemManager manager;
     CursorCtrl cursor;
     Flag f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +28,7 @@ public class Nazo1 : MonoBehaviour
         }
         else
         {
-            context.TextActive("閉じ込められた");
+            //context.TextActive("閉じ込められた");
             g.SetActive(false);
         }
     }
@@ -38,22 +36,21 @@ public class Nazo1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player" && menu.opcl == true)
         {
-            if (manager.itemkind[cursor.getcursor()]==0)//種類が０に分類されいているアイテムが選択されたら板3
+            if (manager.itemkind[cursor.getcursor()] == 3)//種類が０に分類されいているアイテムが選択されたら板3
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     f.nazoflag[0] = true;//謎を解いた
                     manager.useitem();//アイテム消費
-                    g.SetActive(true);//出口出現
+                   // g.SetActive(true);//出口出現
                     gameObject.SetActive(false);//謎床非表示
-                    context.TextActive("扉が開いた");
+                   context.TextActive("渡ることができるようになった");
                 }
             }
         }

@@ -59,8 +59,8 @@ MonoBehaviour:
   m_JumpPower: 12
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
+  m_MoveSpeedMultiplier: 4
+  m_AnimSpeedMultiplier: 4
   m_GroundCheckDistance: 0.3
 --- !u!114 &1436784125
 MonoBehaviour:
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 0}
-  parent: {fileID: 0}
+  itemimage: {fileID: 0}
   gazou:
   - {fileID: 0}
   - {fileID: 0}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f5387650d3cc64f8345025a56cb697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  G: {fileID: 0}
 --- !u!114 &1436784129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1750625887683472, guid: 196405dd91626fd4c8aa9160f83204a2, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1750625887683472, guid: 196405dd91626fd4c8aa9160f83204a2, type: 3}
       propertyPath: m_TagString
