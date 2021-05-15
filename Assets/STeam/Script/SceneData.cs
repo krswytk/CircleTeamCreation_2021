@@ -54,16 +54,15 @@ public class SceneData : MonoBehaviour
             nextchild[i].sprite = imane.gazou[i].sprite;
             nextparent.itemkind[i] = imane.itemkind[i];
            
-            //Debug.Log(imane.itemkind[i]);
-            //Debug.Log(nextparent.itemkind[i]);
+            
 
         }
 
         //フラグの引継ぎ
-        for (int i = 0; i < imane.gazou.Length; i++)
+        for (int i = 0; i < f.rockflag.Length; i++)
         {
-           // if (f.itemhave[i] == true) nextflag.itemhave[i] = true;
-            //else nextflag.itemhave[i] = false;
+            if (f.rockflag[i] == true) nextflag.rockflag[i] = true;
+            else nextflag.rockflag[i] = false;
 
             if (f.getflag[i] == true) nextflag.getflag[i] = true;
             else nextflag.getflag[i] = false;

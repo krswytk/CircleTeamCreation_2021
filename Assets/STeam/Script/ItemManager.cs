@@ -12,8 +12,6 @@ public class ItemManager : MonoBehaviour
     [SerializeField]
     GameObject cursor;
 
-    Flag f;
-
     //クラス　カーソル 
     CursorCtrl cursornum;
 
@@ -31,14 +29,8 @@ public class ItemManager : MonoBehaviour
    
     private void Start()
     {
-        f = GetComponent<Flag>();
         cursornum = cursor.GetComponent<CursorCtrl>();
-        /*
-        itemkind = new int[parent.transform.childCount];
-        for (int i = 0; i < itemkind.Length; i++)
-        {
-            itemkind[i] = -1;//アイテムの種類を全て-1で初期化
-        }*/
+       
 
         //配列の初期化
         gazou = new Image[itemimage.transform.childCount];
@@ -48,7 +40,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
 

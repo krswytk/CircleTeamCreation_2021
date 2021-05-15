@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Itemname: "\u5730\u7403\u5100"
+  Itemname: "\u3054\u307F"
   s: {fileID: 21300000, guid: 03640f4b097b47a49ab2f1f7890b0e89, type: 3}
   itemkind: 1
 --- !u!65 &503021484
@@ -4443,7 +4443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16ae36ba8c904c48be5705a1e3dcf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Itemname: "\u5730\u7403\u5100"
+  Itemname: "A-2\u306E\u9375"
   s: {fileID: 21300000, guid: a3983c59ebf804b4abba687bd7c9e92f, type: 3}
   itemkind: 2
 --- !u!65 &999737633

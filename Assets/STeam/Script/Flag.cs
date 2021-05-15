@@ -5,7 +5,7 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     //アイテムを持っているかどうか
-  // public bool[] itemhave = new bool[9];
+    public bool[] rockflag = new bool[9];
 
     //アイテムを取得したかどうか
     public bool[] getflag = new bool[9];
