@@ -9,12 +9,10 @@ public class GetItem : MonoBehaviour
     ItemManager hairetu;
     PanelManager Telop;
     Flag f;
-   // Panel test;
+   
     int itemnum;
 
-    //非表示のパネル(テロップ)取得
-   // [SerializeField]
-  //  GameObject Telopmanager;
+    
     
     void Start()
     {
@@ -40,8 +38,6 @@ public class GetItem : MonoBehaviour
                 hairetu.getitem(other.GetComponent<Item>().s);//アイテムの持っている画像を譲渡
                 hairetu.incount();//アイテム所持数加算
 
-                //Telopmanager.SetActive(true);//テロップ表示
-                //panel.itemTelop(other.gameObject.GetComponent<Item>().Itemname);
                Telop.itempanel(other.gameObject.GetComponent<Item>().Itemname);
                 //Invoke("panelflag", 2.0f);
 
@@ -65,8 +61,4 @@ public class GetItem : MonoBehaviour
         throw new NotImplementedException();
     }
 
-   // void panelflag()
-   // {
-    //   Telopmanager.SetActive(false);
-   // }
 }
