@@ -33,5 +33,6 @@ public class PotionS : MonoBehaviour
             Status.HP(25);
             Destroy(gameObject);
         }
+
     }
 }

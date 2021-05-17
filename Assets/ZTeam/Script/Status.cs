@@ -34,7 +34,14 @@ public class Status : MonoBehaviour
     {
         if (statusHP != 0)
         {
-            statusHP += damage;
+            if(statusHP+damage>100)
+            {
+                statusHP=100;
+            }
+            else
+            {
+               statusHP += damage;
+            }
         }
     }
 
