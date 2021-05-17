@@ -667,8 +667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d126972c74aba614ca41b453d20674cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusG: 100
+  statusG: 300
   statusHP: 100
+  attackP: 0
   Gold: {fileID: 106448356}
   Hitpoint: {fileID: 637247452}
   GameOverText: {fileID: 240754440}

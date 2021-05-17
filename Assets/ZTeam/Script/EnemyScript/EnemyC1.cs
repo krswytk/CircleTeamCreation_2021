@@ -26,11 +26,11 @@ public class EnemyC1 : MonoBehaviour
     void Start()
     {
         // 敵の体力を初期化
-        enemyArmorPoint = 3;
+        enemyArmorPoint = 10;
         enemybulletT= new GameObject("enemybullet").transform;
         
           Canvas = GameObject.Find("Canvas");
-                Status = Canvas.GetComponent<Status>();
+          Status = Canvas.GetComponent<Status>();
 
     }
 
@@ -45,8 +45,9 @@ public class EnemyC1 : MonoBehaviour
             // 敵の体力が0以上だったら
             if (enemyArmorPoint > 0)
             {
-                // 敵の体力を1削る
-                enemyArmorPoint -= 1;
+               
+                 ENHP(Status.attackP);
+
             }
             else {
                
@@ -125,5 +126,12 @@ public class EnemyC1 : MonoBehaviour
         isOn =!isOn;
         Debug.Log(isOn);
         return isOn;
+    }
+
+    public void ENHP(int damage)
+    {
+        // 敵の体力を削る
+       enemyArmorPoint -= damage;
+        Debug.Log(enemyArmorPoint);
     }
 }

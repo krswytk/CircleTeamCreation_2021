@@ -7,6 +7,7 @@ public class Status : MonoBehaviour
 {
     public int statusG;
     public int statusHP;
+    public int attackP;
     public Text Gold;
     public Text Hitpoint;
     public GameObject GameOverText;
@@ -25,8 +26,10 @@ public class Status : MonoBehaviour
         if (statusHP <= 0)
         {
             statusHP = 0;
-            GameOverText.SetActive(true);
+            GameOverText.SetActive(true);//gameover表示
         }
+
+        BulletStatus();
 
     }
 
@@ -50,5 +53,22 @@ public class Status : MonoBehaviour
         
             statusG += GetGold;
         
+    }
+
+    public void BulletStatus()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))//射撃の際
+        {
+             
+           for(int i=0;i<10;i++)
+            {
+                if(statusG>=100*i)
+                {
+                     Debug.Log(i+1);//攻撃力確認用
+                    attackP=1+i;
+                  
+                }
+            }
+        }
     }
 }
