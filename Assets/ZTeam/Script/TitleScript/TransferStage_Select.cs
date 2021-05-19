@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TransferStage_Select : MonoBehaviour
 {
     [SerializeField] GameObject Panel;
-   // [SerializeField] GameObject text;
+    public static GameObject text;
     float FadeOut = -0.0025f;
     public static float alfa = 1f;
     float red, blue, green;
@@ -15,9 +15,11 @@ public class TransferStage_Select : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        text = GameObject.Find("Text");
         red = GetComponent<Image>().color.r;
         green = GetComponent<Image>().color.g;
         blue = GetComponent<Image>().color.b;
+        text.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class TransferStage_Select : MonoBehaviour
       
         if (alfa <= 0f)
         {
-           // text.SetActive(true);
+            text.SetActive(true);
             alfa = 0f;
             FadeOut = 0;
         }
