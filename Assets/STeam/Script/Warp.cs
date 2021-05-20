@@ -80,7 +80,7 @@ public class Warp : MonoBehaviour
                 //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
                 SceneManager.sceneLoaded += scene.GameSceneLoaded;
                 SceneManager.LoadScene("STeam/Scenes/rouka/" + s);
-                clear();
+               // clear();
             }
         }
 
