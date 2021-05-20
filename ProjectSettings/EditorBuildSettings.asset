@@ -57,9 +57,17 @@ EditorBuildSettings:
     path: Assets/STeam/Scenes/rouka/West rouka.unity
     guid: 277088db540811e4c8dc88cde117d68f
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/STeam/Scenes/rouka/Tyutoriaru rouka.unity
     guid: 74b4d76269dca8440a7fc8408ebd9ce6
   - enabled: 1
     path: Assets/STeam/Scenes/room/T-1.unity
     guid: 3a188d2707c138742ab70ba0a3c90094
+=======
+    path: Assets/STeam/Scenes/room/toilet.unity
+    guid: b5a8c46cca98f7e4a9587ab02a52335f
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/A-3.unity
+    guid: ed7f7da71c3dcd64694969a256ee5030
+>>>>>>> 771e768dcd43abe1b9fb042ccf45282ddd2fe1ca
   m_configObjects: {}
