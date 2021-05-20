@@ -80,6 +80,7 @@ public class Title : MonoBehaviour
 
                 case 1:
                     Debug.Log("チュートリアル");
+                    SceneManager.LoadScene("STeam/Scenes/rouka/Tyutoriaru rouka");
                     break;
 
                 case 2:
