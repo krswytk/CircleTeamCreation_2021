@@ -52,16 +52,18 @@ public class Warp : MonoBehaviour
                         //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
                         SceneManager.sceneLoaded += scene.GameSceneLoaded;
                         SceneManager.LoadScene(roomname);
+                        clear();
                     }
 
                     if (other.gameObject.tag == "outdoor")
                     {
                         //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
                         SceneManager.sceneLoaded += scene.GameSceneLoaded;
-                        SceneManager.LoadScene("STeam/Scenes/rouka/" + roukaname);
+                        SceneManager.LoadScene("STeam/Scenes/rouka/" + other.gameObject.name);
+                        clear();
                     }
 
-                }
+                }//　↑のシーンの呼び出し方被ってる
             }
         }
 
@@ -78,6 +80,7 @@ public class Warp : MonoBehaviour
                 //シーンを読み込む前にこれを呼び出してデータの引継ぎをする
                 SceneManager.sceneLoaded += scene.GameSceneLoaded;
                 SceneManager.LoadScene("STeam/Scenes/rouka/" + s);
+                clear();
             }
         }
 
@@ -99,5 +102,11 @@ public class Warp : MonoBehaviour
     public string getname()
     {
         return roukaname;
+    }
+
+    void clear()
+    {
+        roomname = "STeam/Scenes/room/";
+        roukaname=null;
     }
 }
