@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Nazo2 : MonoBehaviour
 {
-    [SerializeField]
-    GameObject g;
     PanelManager context;
     Menu menu;
     ItemManager manager;
@@ -22,14 +20,14 @@ public class Nazo2 : MonoBehaviour
 
         if (f.nazoflag[1] == true)
         {
-            g.SetActive(true);
+           // g.SetActive(true);
             gameObject.SetActive(false);
 
         }
         else
         {
-            gameObject.SetActive(false);
-            g.SetActive(false);
+            gameObject.SetActive(true);
+            //g.SetActive(false);
         }
     }
 
