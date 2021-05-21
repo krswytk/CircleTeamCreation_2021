@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 422065655}
   - component: {fileID: 422065654}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: East rouka
   m_TagString: outdoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

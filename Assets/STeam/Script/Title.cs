@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class Title : MonoBehaviour
 {
-    int StertF = 0;//0:初期状態　1:チュートリアル　2：初めから　３：つづきから　４：遊び方
-    int A = 0;
+   static int StertF = 0;//0:初期状態　1:チュートリアル　2：初めから　３：つづきから　４：遊び方
     Button button_1, button_2, button_3, button_4;
 
     public void Start()
@@ -27,7 +26,7 @@ public class Title : MonoBehaviour
     private void Update()
     {
 
-       
+      // Debug.Log(StertF);
 
 
         if (Input.GetMouseButtonUp(0))

@@ -4075,7 +4075,7 @@ GameObject:
   - component: {fileID: 1032150555}
   - component: {fileID: 1032150554}
   m_Layer: 0
-  m_Name: A-2
+  m_Name: North rouka
   m_TagString: outdoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
