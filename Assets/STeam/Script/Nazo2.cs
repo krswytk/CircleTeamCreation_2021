@@ -9,6 +9,10 @@ public class Nazo2 : MonoBehaviour
     ItemManager manager;
     CursorCtrl cursor;
     Flag f;
+
+    [SerializeField]
+    GameObject ita;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +24,15 @@ public class Nazo2 : MonoBehaviour
 
         if (f.nazoflag[1] == true)
         {
-           // g.SetActive(true);
+            // g.SetActive(true);
             gameObject.SetActive(false);
+            ita.SetActive(true);
 
         }
         else
         {
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
+
             //g.SetActive(false);
         }
     }
@@ -34,7 +40,7 @@ public class Nazo2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -46,11 +52,12 @@ public class Nazo2 : MonoBehaviour
                 {
                     f.nazoflag[1] = true;//謎を解いた
                     manager.useitem();//アイテム消費
-                   // g.SetActive(true);//出口出現
+                    ita.SetActive(true);
                     gameObject.SetActive(false);//謎床非表示
-                   context.TextActive("渡ることができるようになった");
+                    context.TextActive("渡ることができるようになった");
                 }
-            }else
+            }
+            else
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
