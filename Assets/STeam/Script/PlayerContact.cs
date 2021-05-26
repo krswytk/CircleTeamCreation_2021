@@ -16,7 +16,7 @@ public class PlayerContact : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             if (collision.gameObject.name == "gareki")
             {
@@ -27,12 +27,24 @@ public class PlayerContact : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Rock>()&&m.opcl==false)
+        if (m.opcl == false)
         {
-            if (Input.GetKey(KeyCode.Z))
+            if (other.GetComponent<Rock>())
             {
-                p.TextActive("鍵が掛かっている…");
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    p.TextActive("鍵が掛かっている…");
+                }
             }
+
+            if (other.gameObject.GetComponent<Nazo2>())
+            {
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
+                }
+            }
+
         }
     }
 
