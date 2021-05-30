@@ -1,21 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class EnemyC3_s : MonoBehaviour {
-    private Transform _Transform;
-    private float Ratete;
-    
-
-    void Start() {
-
-        _Transform = GetComponent<Transform>();
-        Ratete = 0;
-
+public class EnemyC3_s : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
-    // Update is called once per frame 
-    void Update() {
 
-        Ratete++;
-        _Transform.rotation = Quaternion.Euler(0, 0, Ratete);
-
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
