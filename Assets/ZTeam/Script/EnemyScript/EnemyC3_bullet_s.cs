@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyC3b_s : MonoBehaviour
+public class EnemyC3_bullet_s : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Transform target;
     GameObject Canvas;
     Status Status;
-    bool BFire=false;
+    bool BFire = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
- 
-
+        Destroy(gameObject, 6.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        float step = 2f * Time.deltaTime;
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,13 +30,12 @@ public class EnemyC3b_s : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-           
-            if (BFire==false)
+
+            if (BFire == false)
             {
                 BFire = true;
-                StartCoroutine("Firedamage");//wait使うときに必要
+                StartCoroutine("Firedamage");//コルーチン使うときに必要
             }
-
         }
     }
 
@@ -55,6 +54,7 @@ public class EnemyC3b_s : MonoBehaviour
         Status.HP(-1);
 
         BFire = false;
-
     }
+
+ 
 }

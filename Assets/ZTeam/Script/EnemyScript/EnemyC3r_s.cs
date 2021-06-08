@@ -16,7 +16,7 @@ public class EnemyC3r_s : MonoBehaviour {
     // Update is called once per frame 
     void Update() {
 
-        Rotate = Rotate + 3;
+        Rotate = Rotate + 2;
         _Transform.rotation = Quaternion.Euler(0, 0, Rotate);
 
     }
