@@ -10840,7 +10840,7 @@ PrefabInstance:
       objectReference: {fileID: 391284214}
     - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
       propertyPath: itemkind.Array.data[0]
-      value: 3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1436784126, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
       propertyPath: menu
