@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/STeam/Scenes/Title_S.unity
+    guid: 32ee668e71146314193c25600d4cdeec
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/souko.unity
+    guid: 243a263acff50784783c4eac13c8c2ae
+  - enabled: 1
+    path: Assets/STeam/Scenes/rouka/East rouka.unity
+    guid: 3b13d9ec81955e6419d1a58a0028ba78
+  - enabled: 1
+    path: Assets/STeam/Scenes/rouka/North rouka.unity
+    guid: fea59c349b9f59c4995d362e97adec72
+  - enabled: 1
+    path: Assets/STeam/Scenes/rouka/South rouka.unity
+    guid: 2088883b3558cda47b93148c5cea5f15
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/toilet.unity
+    guid: b5a8c46cca98f7e4a9587ab02a52335f
+  - enabled: 1
+    path: Assets/STeam/Scenes/rouka/Tyutoriaru rouka.unity
+    guid: 74b4d76269dca8440a7fc8408ebd9ce6
+  - enabled: 1
+    path: Assets/STeam/Scenes/rouka/West rouka.unity
+    guid: 277088db540811e4c8dc88cde117d68f
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/T-1.unity
+    guid: 3a188d2707c138742ab70ba0a3c90094
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/Rikasitu.unity
+    guid: 3ae3a99597df11f48a1677dfd6e2a385
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/A-1.unity
+    guid: ce892091c0a764a4b96241b4fff3eedc
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/hokenn.unity
+    guid: c035891a5a45d9d49be0f50d6b45ab21
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/A-2.unity
+    guid: 328f00f06a907024886cd948118d8cc5
+  - enabled: 1
+    path: Assets/STeam/Scenes/room/A-3.unity
+    guid: ed7f7da71c3dcd64694969a256ee5030
+  m_configObjects: {}
