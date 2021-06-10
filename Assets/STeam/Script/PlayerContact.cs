@@ -22,6 +22,22 @@ public class PlayerContact : MonoBehaviour
             {
                 p.TextActive("瓦礫があって先に進むことができない");
             }
+              if (collision.gameObject.name == "papername")
+            {
+                p.TextActive("何かの書類が散らばっている");
+            }
+                   if (collision.gameObject.name == "gomi")
+            {
+                p.TextActive("真っ黒なゴミ袋だ...\n何が入っているのだろう...");
+            }
+            if (collision.gameObject.name == "nikki")
+            {
+                p.TextActive("日記...?のようだが、文字がかすれて読むことができない");
+            }
+            if (collision.gameObject.name == "danball")
+            {
+                p.TextActive("段ボールが散らかっている、授業の教材だろうか");
+            }
         }
     }
 
@@ -44,6 +60,7 @@ public class PlayerContact : MonoBehaviour
                     p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
                 }
             }
+            
 
         }
     }
