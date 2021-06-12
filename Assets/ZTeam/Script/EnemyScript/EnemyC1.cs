@@ -26,7 +26,7 @@ public class EnemyC1 : MonoBehaviour
     void Start()
     {
         // 敵の体力を初期化
-        enemyArmorPoint = 10;
+        enemyArmorPoint = 20;
         enemybulletT= new GameObject("enemybullet").transform;
         
           Canvas = GameObject.Find("Canvas");
@@ -34,33 +34,25 @@ public class EnemyC1 : MonoBehaviour
 
     }
 
-    // 弾オブジェクトと接触したときに呼び出される関数
+    // オブジェクトと接触したときに呼び出される関数
     void OnCollisionEnter2D(Collision2D collision)
     {
-     
+        
         // もしもtagがmybulletであるオブジェクトと接触したら
         if (collision.gameObject.tag == "mybullet")
         {
-           
-            // 敵の体力が0以上だったら
-            if (enemyArmorPoint > 0)
-            {
-               
-                 ENHP(Status.attackP);
 
-            }
-            else {
-               
-                
-              
-                Status.statusG += 10;
-               Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
-            }
+            ENHP(Status.attackP);
         }
     }
 
     void Update()
     {
+        if (enemyArmorPoint <= 0)
+        {
+            Status.statusG += 10;
+            Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
+        }
         if (this.transform.position.y < -8)//地面よりも下にいたら消える
         {
 

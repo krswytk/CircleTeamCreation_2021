@@ -194,8 +194,15 @@ public class play2d : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Status.GOLD(-1);
-            Instantiate(bullet, transform.position, transform.rotation);
+            if (Status.statusG > 0)
+            {
+                Status.GOLD(-1);
+                Instantiate(bullet, transform.position, transform.rotation);
+            }
+            else
+            {
+                
+            }
         }
     }
 }
