@@ -15,12 +15,15 @@ public class CreateEnemy2 : MonoBehaviour
     //　待ち時間計測フィールド
     private float elapsedTime;
 
+    Renderer targetRenderer; // 判定したいオブジェクトのrendererへの参照
+
 
     // Use this for initialization
     void Start()
     {
         numberOfEnemys = 0;
         elapsedTime = 0f;
+        targetRenderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -61,10 +64,12 @@ public class CreateEnemy2 : MonoBehaviour
 
     void AppearEnemy()
     {
-        GameObject.Instantiate(enemys[0], transform.position, Quaternion.Euler(0f, 0f, 0f));
-        numberOfEnemys++;
-        elapsedTime = 0f;
-
+        if (targetRenderer.isVisible)
+        {
+            GameObject.Instantiate(enemys[0], transform.position, Quaternion.Euler(0f, 0f, 0f));
+            numberOfEnemys++;
+            elapsedTime = 0f;
+        }
     }
 
 }
