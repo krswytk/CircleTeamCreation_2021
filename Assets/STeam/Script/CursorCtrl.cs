@@ -15,8 +15,8 @@ public class CursorCtrl : MonoBehaviour
 
     void Start()
     {
-        menu = GameObject.Find("Player").GetComponent<Menu>();
-        itemmanager = GameObject.Find("Player").GetComponent<ItemManager>();
+        menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
+        itemmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
     }
 
     // Update is called once per frame
