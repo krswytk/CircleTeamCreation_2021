@@ -17,12 +17,12 @@ public class Tutoriaruinf : MonoBehaviour
     void Start()
     {
 
-        menu = GameObject.Find("Player (1)").GetComponent<Menu>();
-        manager = GameObject.Find("Player (1)").GetComponent<ItemManager>();
+        menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
+        manager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
-        f = GameObject.Find("Player (1)").GetComponent<Flag>();
+        f = GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
         context = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
-        TF=GameObject.Find("Player (1)").GetComponent<Flag>();
+        TF=GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
 
         Tyutorial();
     }

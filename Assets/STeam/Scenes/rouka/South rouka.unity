@@ -10332,6 +10332,21 @@ PrefabInstance:
       propertyPath: G
       value: 
       objectReference: {fileID: 1531697825}
+    - target: {fileID: 8849902792359447825, guid: 819b70e9ce213b3458f231b16cd364e4,
+        type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 1926551058}
+    - target: {fileID: 8849902792359447826, guid: 819b70e9ce213b3458f231b16cd364e4,
+        type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 1435436392}
+    - target: {fileID: 8849902792359447826, guid: 819b70e9ce213b3458f231b16cd364e4,
+        type: 3}
+      propertyPath: itemimage
+      value: 
+      objectReference: {fileID: 391284214}
     - target: {fileID: 8851565155047873407, guid: 819b70e9ce213b3458f231b16cd364e4,
         type: 3}
       propertyPath: m_Name

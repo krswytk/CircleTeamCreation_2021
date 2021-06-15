@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
   
     void Start()
     {
-        f = GameObject.Find("Player").GetComponent<Flag>();
+        f = GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
 
         //部屋に入ったらこのアイテムを取ったことがあるか判定　アイテム非表示
         if (f.getflag[itemkind]==true)
