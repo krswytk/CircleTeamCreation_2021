@@ -261,7 +261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 11965310c797fec48a9e76d29cd6e780, type: 3}
     m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click to Strat
+  m_Text: Click to Start
 --- !u!222 &230787967
 CanvasRenderer:
   m_ObjectHideFlags: 0

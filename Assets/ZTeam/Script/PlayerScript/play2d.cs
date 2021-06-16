@@ -22,11 +22,16 @@ public class play2d : MonoBehaviour
 
     private bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
-    
+    private bool is2Jump = false;//二段ジャンプしているかどうか
+    private bool isVKey = false;
+    float yspeed = 0.0f;
+    float yAc;
+
     //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     private float jumpPos = 0.0f;//ジャンプした時の位置
     private float jumpTime = 0.0f;//ジャンプの時間制限
+
     //ここまで
    
    public int HP;
@@ -65,8 +70,8 @@ public class play2d : MonoBehaviour
         float horizontalKey = Input.GetAxisRaw("Horizontal");//水平キーの判定
         float verticalKey = Input.GetAxisRaw("Vertical");//↑キーの判定
         float xSpeed = 0.0f;
-        float ySpeed = -gravity; //重力で落ち続ける
-
+        float ySpeed = yspeed;
+        /*//ゆうすけのスクリプト
         if (isGround)
         {
             if (verticalKey > 0)
@@ -104,7 +109,52 @@ public class play2d : MonoBehaviour
                 isJump = false;
                 jumpTime = 0.0f;
             }
+        }*/
+
+        
+        if(verticalKey > 0)
+        {
+            
+            if (!isVKey)
+            {
+                if (isJump)
+                {
+                    yAc = jumpSpeed;
+                    isJump = false;
+                    is2Jump = true;
+                }
+                if (isGround)
+                {
+                    
+                    yAc = jumpSpeed;
+                    isGround = false;
+                    isJump = true;
+                }
+                if (is2Jump)
+                {
+                    is2Jump = false;
+                }
+                isVKey = true;
+            }
         }
+        else
+        {
+            isVKey = false;
+        }
+        if (!isGround)
+        {
+            yAc = yAc - gravity;
+            ySpeed = ySpeed + yAc;
+        }
+        else
+        {
+            yAc = 0;
+            ySpeed = 0;
+        }
+
+        Debug.Log(isGround);
+        
+
         if (horizontalKey > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -144,8 +194,15 @@ public class play2d : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Status.GOLD(-1);
-            Instantiate(bullet, transform.position, transform.rotation);
+            if (Status.statusG > 0)
+            {
+                Status.GOLD(-1);
+                Instantiate(bullet, transform.position, transform.rotation);
+            }
+            else
+            {
+                
+            }
         }
     }
 }

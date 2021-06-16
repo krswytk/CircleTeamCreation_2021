@@ -64,9 +64,10 @@ public class Status : MonoBehaviour
             {
                 if(statusG>=100*i)
                 {
-                     Debug.Log(i+1);//攻撃力確認用
-                    attackP=1+i;
-                  
+                     
+                    attackP=1+i*2;
+                    Debug.Log(attackP);//攻撃力確認用
+
                 }
             }
         }

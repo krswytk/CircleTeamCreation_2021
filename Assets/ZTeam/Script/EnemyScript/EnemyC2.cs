@@ -31,8 +31,7 @@ public class EnemyC2 : MonoBehaviour
     {
         if (this.transform.position.y < -8)//地面よりも下にいたら消える
         {
-
-            Status.statusG += 5;
+            
             Destroy(gameObject);
         }
         PlayerPosition = pl.transform.position;
@@ -59,6 +58,7 @@ public class EnemyC2 : MonoBehaviour
 
         if (collision.collider.tag == "mybullet" || collision.collider.tag == "Player")
         {
+            Status.statusG += 5;
             Destroy(gameObject);
         }
     }
