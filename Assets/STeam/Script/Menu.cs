@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
    public GameObject menu;
+   public GameObject image;
 
-   public bool opcl = false;//メニューを開いているかどうか
+    public bool opcl = false;//メニューを開いているかどうか
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Menu : MonoBehaviour
             if (opcl == false)
             {
                 menu.SetActive(true);
+                image.SetActive(true);
                 opcl = true;
                // Time.timeScale = 0;
             }
@@ -29,6 +31,7 @@ public class Menu : MonoBehaviour
             {
                // Time.timeScale=1;
                 menu.SetActive(false);
+                image.SetActive(false);
                 opcl = false;
             }
         }
