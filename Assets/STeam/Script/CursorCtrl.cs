@@ -47,5 +47,13 @@ public class CursorCtrl : MonoBehaviour
     {
         return cursornum;
     }
+    public void decursor()
+    {
+        if (getcursor() >= 1)
+        {
+            transform.Translate(-Screen.width / a, 0f, 0f);
+            cursornum--;
+        }
+    }
 
 }

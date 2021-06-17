@@ -49,7 +49,7 @@ public class SceneData : MonoBehaviour
         {
             if (imane.gazou[i].sprite == null)//もし、画像に何も入っていなければbreak
             {
-                break;
+                //break;
             }
             nextchild[i].sprite = imane.gazou[i].sprite;
             nextparent.itemkind[i] = imane.itemkind[i];
