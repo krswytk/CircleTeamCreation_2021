@@ -15,12 +15,14 @@ public class EnemyC3_bullet_s : MonoBehaviour
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
         Destroy(gameObject, 6.0f);
+        target= GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float step = 2f * Time.deltaTime;
+        float step = 3f * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
