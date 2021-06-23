@@ -15,9 +15,9 @@ public class Rock : MonoBehaviour
 
     private void Start()
     {
-        menu = GameObject.Find("Player").GetComponent<Menu>();
-        manager = GameObject.Find("Player").GetComponent<ItemManager>();
-        f = GameObject.Find("Player").GetComponent<Flag>();
+        menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
+        manager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
+        f = GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
 

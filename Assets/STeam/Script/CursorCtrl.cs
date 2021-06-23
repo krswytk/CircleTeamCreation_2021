@@ -15,8 +15,8 @@ public class CursorCtrl : MonoBehaviour
 
     void Start()
     {
-        menu = GameObject.Find("Player").GetComponent<Menu>();
-        itemmanager = GameObject.Find("Player").GetComponent<ItemManager>();
+        menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
+        itemmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
     }
 
     // Update is called once per frame
@@ -46,6 +46,14 @@ public class CursorCtrl : MonoBehaviour
     public int getcursor()
     {
         return cursornum;
+    }
+    public void decursor()
+    {
+        if (getcursor() >= 1)
+        {
+            transform.Translate(-Screen.width / a, 0f, 0f);
+            cursornum--;
+        }
     }
 
 }

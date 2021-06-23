@@ -16,10 +16,10 @@ public class Nazo1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menu = GameObject.Find("Player").GetComponent<Menu>();
-        manager = GameObject.Find("Player").GetComponent<ItemManager>();
+        menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
+        manager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
-        f = GameObject.Find("Player").GetComponent<Flag>();
+        f = GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
         context = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
 
         if (f.nazoflag[0] == true)

@@ -61,8 +61,8 @@ public class ItemManager : MonoBehaviour
             gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;//画像
             itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];//アイテムの種類
         }
-
-        decount();//なくなったので
+        cursornum.decursor();//アイテム画像が消えたのでカーソルも手前へ移動
+        decount();//アイテムがなくなったので
     }
 
     public void getitem(Sprite s)//アイテムの画像を移行
