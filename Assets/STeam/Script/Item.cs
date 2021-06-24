@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour
 {
     Flag f;
-
+    //アイテムの名前
     public string Itemname = "NULL";
+
+    //アイテムの説明文
+    [TextArea(1, 4)]
+    public string Itemabout = "NULL";
+
     //アイテムの画像
     public Sprite s;
 
