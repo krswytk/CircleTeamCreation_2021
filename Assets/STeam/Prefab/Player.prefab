@@ -2824,8 +2824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4378863311f6b49419da23d081566b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 0}
-  itemimage: {fileID: 0}
+  cursor: {fileID: 9119732438551370973, guid: a54cedb6285f0774da824d8e4ea2d363, type: 3}
+  itemimage: {fileID: 7128175624853886352, guid: 34a1ef9f30e091a4b9dd0eae6a305d29,
+    type: 3}
   gazou:
   - {fileID: 0}
   - {fileID: 0}
@@ -2869,8 +2870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ae3cc3a19f5644ba651668fa9a25ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
-  image: {fileID: 0}
+  menu: {fileID: 1865085902959800629, guid: efdcdb0cb7988864aabccd7d71f3286b, type: 3}
+  image: {fileID: 5641422819637918580, guid: 42bb26d5158381b43b22cfeda918d2ea, type: 3}
   opcl: 0
 --- !u!114 &8849902792359447824
 MonoBehaviour:
