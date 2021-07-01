@@ -6,11 +6,13 @@ public class PlayerContact : MonoBehaviour
 {
     PanelManager p;
     Menu m;
+    Flag f;
 
     void Start()
     {
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
-        m = gameObject.GetComponent<Menu>();
+        m = this.GetComponent<Menu>();
+        f = this.GetComponent<Flag>();
     }
 
 
@@ -39,13 +41,16 @@ public class PlayerContact : MonoBehaviour
 
             if (other.gameObject.GetComponent<Nazo2>())
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (f.nazoflag[1] != true)
                 {
-                    p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
+                    }
                 }
             }
-
         }
-    }
 
+    }
 }
+
