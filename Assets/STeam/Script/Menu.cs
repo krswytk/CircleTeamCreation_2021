@@ -5,35 +5,37 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-   public GameObject menu;
-   public GameObject image;
+    public GameObject menu;
+    public GameObject image;
 
     public bool opcl = false;//メニューを開いているかどうか
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+
+        if (Input.GetKeyDown(KeyCode.C)) opcl = !opcl;
+
+        //ずっと呼び出すのはなぁ…
+        if (opcl == false)
         {
-            if (opcl == false)
-            {
-                menu.SetActive(true);
-                image.SetActive(true);
-                opcl = true;
-               // Time.timeScale = 0;
-            }
-            else
-            {
-               // Time.timeScale=1;
-                menu.SetActive(false);
-                image.SetActive(false);
-                opcl = false;
-            }
+            menu.SetActive(false);
+            image.SetActive(false);
+
         }
+
+        if (opcl == true)
+        { 
+            menu.SetActive(true);
+            image.SetActive(true);
+
+        }
+
+
     }
 }

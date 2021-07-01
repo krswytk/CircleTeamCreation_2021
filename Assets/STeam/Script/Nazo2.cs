@@ -50,11 +50,12 @@ public class Nazo2 : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
+                    context.TextActive("渡ることができるようになった");
                     f.nazoflag[1] = true;//謎を解いた
                     manager.useitem();//アイテム消費
                     ita.SetActive(true);
                     gameObject.SetActive(false);//謎床非表示
-                    context.TextActive("渡ることができるようになった");
+                    
                 }
             }
             else

@@ -15,11 +15,14 @@ public class ItemManager : MonoBehaviour
     //クラス　カーソル 
     CursorCtrl cursornum;
 
+    Menu m;
+
     //シーン引継ぎの時に配列の大きさ(子の数)を合わせるために子の親であるobjを取得
     public GameObject itemimage;
 
     public Image[] gazou;
 
+    //アイテム名・詳細
     public string[] itemname, itemabout;
 
     //所持しているアイテムの種類　順番は取得した順
@@ -32,7 +35,7 @@ public class ItemManager : MonoBehaviour
     private void Start()
     {
         cursornum = cursor.GetComponent<CursorCtrl>();
-
+        m = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
 
         //配列の初期化
         gazou = new Image[itemimage.transform.childCount];
@@ -51,23 +54,28 @@ public class ItemManager : MonoBehaviour
     public void useitem()//アイテムを消費する時は必ず呼び出す
     {
         //うわって思うかもしれないけど、cursornum.getcursor()←これはただの整数　カーソルが何番を指しているか
-
-
-        //カーソルで選択した画像の場所を削除、消したところを詰める
-        gazou[cursornum.getcursor()].sprite = null;
-        itemkind[cursornum.getcursor()] = -1;
-        itemname[cursornum.getcursor()] = "null";
-        itemabout[cursornum.getcursor()] = "null";
-
-        for (int i = 0; i < gazou.Length - (cursornum.getcursor() + 1); i++)
+        if (m.opcl==true)
         {
-            gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;//画像
-            itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];//アイテムの種類
-            itemname[cursornum.getcursor() + i] = itemname[cursornum.getcursor() + i + 1];//アイテム名
-            itemabout[cursornum.getcursor() + i] = itemabout[cursornum.getcursor() + i + 1];//アイテム詳細
+
+            //カーソルで選択した画像の場所を削除、消したところを詰める
+            gazou[cursornum.getcursor()].sprite = null;
+            itemkind[cursornum.getcursor()] = -1;
+            itemname[cursornum.getcursor()] = "null";
+            itemabout[cursornum.getcursor()] = "null";
+
+            for (int i = 0; i < gazou.Length - (cursornum.getcursor() + 1); i++)
+            {
+                gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;//画像
+                itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];//アイテムの種類
+                itemname[cursornum.getcursor() + i] = itemname[cursornum.getcursor() + i + 1];//アイテム名
+                itemabout[cursornum.getcursor() + i] = itemabout[cursornum.getcursor() + i + 1];//アイテム詳細
+            }
+            cursornum.decursor();//アイテム画像が消えたのでカーソルも手前へ移動
+            decount();//アイテムがなくなったので
+
+            m.opcl = false;
         }
-        cursornum.decursor();//アイテム画像が消えたのでカーソルも手前へ移動
-        decount();//アイテムがなくなったので
+
     }
 
     public void inputitem(Sprite s)//アイテムの画像を移行

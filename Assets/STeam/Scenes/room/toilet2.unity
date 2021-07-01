@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_LocalRotation.z
@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_RootOrder
@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 9140055537207749, guid: f419c5415dc14254587920d13c085b37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3364,6 +3364,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.39996338
       objectReference: {fileID: 0}
+    - target: {fileID: 5031869790477970881, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.49994
+      objectReference: {fileID: 0}
     - target: {fileID: 6734952456183530385, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5745,7 +5750,7 @@ GameObject:
   - component: {fileID: 1954704972}
   - component: {fileID: 1954704971}
   m_Layer: 0
-  m_Name: North rouka
+  m_Name: South rouka
   m_TagString: outdoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

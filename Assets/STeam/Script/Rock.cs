@@ -39,9 +39,9 @@ public class Rock : MonoBehaviour
                 {
                     Destroy(gameObject.GetComponent<Rock>());
                     p.TextActive("鍵を開けた");
-                    manager.useitem();//鍵を消費しない場合はいらない
+                   // manager.useitem();//鍵を消費しない場合はいらない
                     f.rockflag[0] = true;//フラグ
-                   
+                    menu.opcl = false;
                 }
             }
         }
