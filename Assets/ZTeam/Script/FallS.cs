@@ -13,7 +13,6 @@ public class FallS : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("player");
-        Status = GetComponent<Status>();
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
     }
@@ -28,10 +27,14 @@ public class FallS : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-            
-            Status.HP(-Status.statusHP*1/3);
-           
-           
+            if (Status.statusHP > 20)
+            {
+                Status.HP(-Status.statusHP * 1 / 3);
+
+            }else
+            {
+                Status.HP(-9);
+            }
             Player.transform.position = new Vector3(0f, -1f, -3f);
         }
 
