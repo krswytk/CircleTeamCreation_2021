@@ -10,11 +10,13 @@ public class CursorCtrl : MonoBehaviour
     //カーソル画像の座標変数
     public float a = 9.88f;
 
-    //現在のカーソルで選択している番号
+    //これはただの整数　現在のカーソルが何番を指しているか
     private int cursornum = 0;
 
     void Start()
     {
+        cursornum = 0;
+
         menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
         itemmanager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
     }
@@ -46,6 +48,14 @@ public class CursorCtrl : MonoBehaviour
     public int getcursor()
     {
         return cursornum;
+    }
+    public void decursor()
+    {
+        if (getcursor() >= 1)
+        {
+            transform.Translate(-Screen.width / a, 0f, 0f);
+            cursornum--;
+        }
     }
 
 }

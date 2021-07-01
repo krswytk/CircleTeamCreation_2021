@@ -12,8 +12,6 @@ public class GetItem : MonoBehaviour
    
     int itemnum;
 
-    
-    
     void Start()
     {
         Telop = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
@@ -35,7 +33,11 @@ public class GetItem : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Z))
             {
-                hairetu.getitem(other.GetComponent<Item>().s);//アイテムの持っている画像を譲渡
+                //アイテムの持っている画像、アイテム名、アイテム詳細を譲渡
+                hairetu.inputitem(other.GetComponent<Item>().s);
+                hairetu.inputitemname(other.GetComponent<Item>().Itemname);
+                hairetu.inputitemabout(other.GetComponent<Item>().Itemabout);
+
                 hairetu.incount();//アイテム所持数加算
 
                Telop.itempanel(other.gameObject.GetComponent<Item>().Itemname);

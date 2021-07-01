@@ -667,6 +667,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 125705147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &125705152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7103787441819248114, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+    type: 3}
+  m_PrefabInstance: {fileID: 125705147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &198518301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6709,6 +6715,11 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 125705148}
+    - target: {fileID: 13417163787619101, guid: f419c5415dc14254587920d13c085b37,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 125705152}
     - target: {fileID: 13417163787619102, guid: f419c5415dc14254587920d13c085b37,
         type: 3}
       propertyPath: cursor

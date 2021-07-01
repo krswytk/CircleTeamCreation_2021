@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
-    //主にアイテムの画像処理
+    //主にアイテムに関する関数
 
 
     //カーソルのスクリプトを触りたいので取得(非表示なので)
@@ -20,17 +20,19 @@ public class ItemManager : MonoBehaviour
 
     public Image[] gazou;
 
+    public string[] itemname, itemabout;
+
     //所持しているアイテムの種類　順番は取得した順
     public int[] itemkind;
 
     //持っているアイテムの個数　カーソルの上限やアイテムの配列の大きさが決まる
     private int havecount = 0;
 
-   
+
     private void Start()
     {
         cursornum = cursor.GetComponent<CursorCtrl>();
-       
+
 
         //配列の初期化
         gazou = new Image[itemimage.transform.childCount];
@@ -40,7 +42,7 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-   
+
     void Update()
     {
 
@@ -53,19 +55,22 @@ public class ItemManager : MonoBehaviour
 
         //カーソルで選択した画像の場所を削除、消したところを詰める
         gazou[cursornum.getcursor()].sprite = null;
-        //f.itemhave[itemkind[cursornum.getcursor()]] = false;
         itemkind[cursornum.getcursor()] = -1;
+        itemname[cursornum.getcursor()] = "null";
+        itemabout[cursornum.getcursor()] = "null";
 
         for (int i = 0; i < gazou.Length - (cursornum.getcursor() + 1); i++)
         {
             gazou[cursornum.getcursor() + i].sprite = gazou[cursornum.getcursor() + i + 1].sprite;//画像
             itemkind[cursornum.getcursor() + i] = itemkind[cursornum.getcursor() + i + 1];//アイテムの種類
+            itemname[cursornum.getcursor() + i] = itemname[cursornum.getcursor() + i + 1];//アイテム名
+            itemabout[cursornum.getcursor() + i] = itemabout[cursornum.getcursor() + i + 1];//アイテム詳細
         }
-
-        decount();//なくなったので
+        cursornum.decursor();//アイテム画像が消えたのでカーソルも手前へ移動
+        decount();//アイテムがなくなったので
     }
 
-    public void getitem(Sprite s)//アイテムの画像を移行
+    public void inputitem(Sprite s)//アイテムの画像を移行
     {
         for (int i = 0; i < gazou.Length; i++)
         {
@@ -75,6 +80,35 @@ public class ItemManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void inputitemname(string s)//アイテムの名前を移行
+    {
+        for (int i = 0; i < itemname.Length; i++)
+        {
+            if (itemname[i] == "null")
+            {
+                itemname[i] = s;
+                break;
+            }
+        }
+    }
+
+    public void inputitemabout(string s)//アイテムの詳細を移行
+    {
+        for (int i = 0; i < itemabout.Length; i++)
+        {
+            if (itemabout[i] == "null")
+            {
+                itemabout[i] = s;
+                break;
+            }
+        }
+    }
+
+    public string[] getabout()
+    {
+        return itemabout;
     }
 
     public int getcount()

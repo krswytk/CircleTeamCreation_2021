@@ -30,7 +30,7 @@ public class SceneData : MonoBehaviour
         //次のシーンのFlagを持つ変数
         var nextflag = GameObject.FindWithTag("Player").GetComponent<Flag>();
 
-        var nextpos= GameObject.FindWithTag("Player").GetComponent<Warp>();
+        var nextpos = GameObject.FindWithTag("Player").GetComponent<Warp>();
 
         //次のシーンのImage配列の子の数分だけ、画像配列を初期化
         nextchild = new Image[nextparent.itemimage.transform.childCount];//transform.childCountで子の数を取得　要するに整数
@@ -40,22 +40,20 @@ public class SceneData : MonoBehaviour
         {
             nextchild[i] = nextparent.itemimage.transform.GetChild(i).GetComponent<Image>();
         }
-        
+
 
         //////////////////主にやってること//////////////////////
 
-        //次のシーンに、画像と保持しているアイテムの種類を渡す
+        //次のシーンに、画像・アイテム名・アイテムの詳細・保持しているアイテムの種類を渡す
         for (int i = 0; i < imane.gazou.Length; i++)
         {
-            if (imane.gazou[i].sprite == null)//もし、画像に何も入っていなければbreak
-            {
-                break;
-            }
+
             nextchild[i].sprite = imane.gazou[i].sprite;
             nextparent.itemkind[i] = imane.itemkind[i];
-           
-            
+            nextparent.itemname[i] = imane.itemname[i];
+            nextparent.itemabout[i] = imane.itemabout[i];
 
+            
         }
 
         //フラグの引継ぎ
@@ -71,7 +69,7 @@ public class SceneData : MonoBehaviour
             else nextflag.nazoflag[i] = false;
         }
 
-        nextpos.setvector(w.getvector(),w.getname());
+        nextpos.setvector(w.getvector(), w.getname());
 
         //ここで次のシーンへ、持っているアイテムの個数を譲渡
         nextparent.setcount(imane.getcount());
