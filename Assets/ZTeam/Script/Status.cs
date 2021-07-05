@@ -8,8 +8,11 @@ public class Status : MonoBehaviour
     public int statusG;
     public int statusHP;
     public int attackP;
+    private bool FireS=false;
     public Text Gold;
     public Text Hitpoint;
+    public Text Attack;
+    public Text izyou;
     public GameObject GameOverText;
     
     // Start is called before the first frame update
@@ -23,6 +26,8 @@ public class Status : MonoBehaviour
     {
         Gold.text = "  G : " + statusG;
         Hitpoint.text = "HP : " + statusHP;
+        Attack.text = "Power : " + attackP;
+
         if (statusHP <= 0)
         {
             statusHP = 0;
@@ -66,10 +71,22 @@ public class Status : MonoBehaviour
                 {
                      
                     attackP=1+i*2;
-                    Debug.Log(attackP);//攻撃力確認用
+                   // Debug.Log(attackP);//攻撃力確認用
 
                 }
             }
+        }
+    }
+
+    public void zyoutai()
+    {//受け渡しを考え直すから後でやる
+        if (FireS == true)
+        {
+            izyou.text = " 炎上" ;
+        }
+        else
+        {
+            izyou.text = " ノーマル";
         }
     }
 }
