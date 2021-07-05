@@ -31,7 +31,7 @@ public class EnemyC3_s : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float step = 1f * Time.deltaTime;
+        float step = 0.75f * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 

@@ -22,7 +22,7 @@ public class EnemyC3_bullet_s : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float step = 3f * Time.deltaTime;
+        float step = 2f * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
     }
