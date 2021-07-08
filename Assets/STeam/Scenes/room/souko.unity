@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u6728\u306E\u677F"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 3
 --- !u!65 &115405240
@@ -3032,6 +3033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.39996338
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031869790477970881, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.49994
       objectReference: {fileID: 0}
     - target: {fileID: 5722730705567038039, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
         type: 3}
@@ -5855,6 +5861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u6728\u306E\u677F"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 3
 --- !u!65 &1658001101
@@ -6325,6 +6332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u6728\u306E\u677F"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 3
 --- !u!65 &1792498490
@@ -6737,6 +6745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u9577\u3044\u6728\u306E\u677F"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: e6fbe8bad19fd5c4fafe3b5508350664, type: 3}
   itemkind: 3
 --- !u!65 &1843481892
@@ -7720,6 +7729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u6728\u306E\u677F"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 3
 --- !u!65 &2097857820
