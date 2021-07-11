@@ -7,7 +7,6 @@ public class EnemyC3b_s : MonoBehaviour
     Rigidbody2D rb;
     GameObject Canvas;
     Status Status;
-    bool BFire=false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,30 +30,11 @@ public class EnemyC3b_s : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
            
-            if (BFire==false)
+            if (Status.FireS==false)
             {
-                BFire = true;
-                StartCoroutine("Firedamage");//wait使うときに必要
+                Status.FireS = true;
             }
 
         }
-    }
-
-    private IEnumerator Firedamage()
-    {
-        Status.HP(-2);
-        yield return new WaitForSeconds(1.0f);//1秒待つ
-        Status.HP(-1);
-        yield return new WaitForSeconds(1.0f);//1秒待つ
-        Status.HP(-1);
-        yield return new WaitForSeconds(1.0f);//1秒待つ
-        Status.HP(-1);
-        yield return new WaitForSeconds(1.0f);//1秒待つ
-        Status.HP(-1);
-        yield return new WaitForSeconds(1.0f);//1秒待つ
-        Status.HP(-1);
-
-        BFire = false;
-
     }
 }

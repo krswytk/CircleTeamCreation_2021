@@ -8,7 +8,8 @@ public class Status : MonoBehaviour
     public int statusG;
     public int statusHP;
     public int attackP;
-    private bool FireS=false;
+    public bool FireS=false;
+    private float Ftime=0f;
     public Text Gold;
     public Text Hitpoint;
     public Text Attack;
@@ -24,9 +25,9 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Gold.text = "  G : " + statusG;
-        Hitpoint.text = "HP : " + statusHP;
-        Attack.text = "Power : " + attackP;
+        Gold.text = ": "+statusG;
+        Hitpoint.text =": "+statusHP;
+        Attack.text = ": " + attackP;
 
         if (statusHP <= 0)
         {
@@ -35,6 +36,7 @@ public class Status : MonoBehaviour
         }
 
         BulletStatus();
+        zyoutai();
 
     }
 
@@ -79,14 +81,37 @@ public class Status : MonoBehaviour
     }
 
     public void zyoutai()
-    {//受け渡しを考え直すから後でやる
+    {
         if (FireS == true)
         {
+            
             izyou.text = " 炎上" ;
+            
+            for (int i = 0; i < 4; i++)//四回繰り返す
+            {
+                Ftime += Time.deltaTime;
+                if (Ftime > 2)
+                {//if文の中でデルタタイムが1.5Sを超えたら2ダメージを与えてリセット
+                    Debug.Log(Ftime);
+                    HP(-2);
+                    if (i < 3) {
+                        Ftime = 0f;
+                    }
+                    else
+                    {
+                        FireS = false;//FireSをfalseにする
+                    }
+                   
+                }
+            }
+        
+
         }
         else
         {
             izyou.text = " ノーマル";
         }
     }
+
+
 }
