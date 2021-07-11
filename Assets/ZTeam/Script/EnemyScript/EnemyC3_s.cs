@@ -44,16 +44,11 @@ public class EnemyC3_s : MonoBehaviour
             timeElapsed = 0.0f;
         }
 
-
-
-
         if (enemyArmorPoint <= 0)
         {
             Status.statusG += 10;
             Destroy(gameObject); // 敵の体力が0になったら敵オブジェクトを消滅させる
         }
-
-
     }
 
     void InstBullet(Vector3 pos, Quaternion rotation)
