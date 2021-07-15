@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ZTeam/Scenes/Stage_1.unity
     guid: 62dd7e0b4d4bef64fb0d9ffb4b6ed455
+  - enabled: 1
+    path: Assets/ZTeam/Scenes/Stage_2.unity
+    guid: 14b163454ab7831499293b233cfde516
   m_configObjects: {}

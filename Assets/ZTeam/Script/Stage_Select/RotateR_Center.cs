@@ -9,18 +9,17 @@ public class RotateR_Center : MonoBehaviour
     public GameObject stage2;
     public GameObject Lrotate;
     bool rotStart = false;
-    float speed = 3.0f;
-    float rotAngle = 180f;
-    float variation;
-    float rot;
-    int i = 0;
-    public int Rj=1;
+   //float speed = 3.0f;
+   //float rotAngle = 180f;
+    //float variation;
+    //float rot;
+    int i = 0, Rj=2;
     //Start is called before the first frame update
     void Start()
     {
         //CenterMarker = GameObject.Find("CenterMarker");
 
-        variation = rotAngle / speed;
+        //variation = rotAngle / speed;
     }
 
    //Update is called once per frame
@@ -34,13 +33,13 @@ public class RotateR_Center : MonoBehaviour
            // Debug.Log(RotateL_Center.RotateTotal++);
            // Debug.Log(rotStart);
             //rot += variation * Time.deltaTime;
-            if (i %180==0)
+            if (i %90==0)
             {
                 rotStart = false;
                 Lrotate.SetActive(true);
                 //CenterMarker.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            if (i % 180 == 90)
+            if (i % 90 == 44)
             {
                 Rotate_Center.RotateFrequency++;
             }
@@ -64,7 +63,7 @@ public class RotateR_Center : MonoBehaviour
         {
             Rotate_Center.RotateFrequency++;
         }
-       rot = 0f;
+       //rot = 0f;
        //CenterMarker.transform.localRotation = Quaternion.Euler(0, 0, 0);
        rotStart = true;
         Lrotate.SetActive(false);

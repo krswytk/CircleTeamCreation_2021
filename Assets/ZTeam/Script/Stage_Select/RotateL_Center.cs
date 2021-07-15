@@ -9,12 +9,12 @@ public class RotateL_Center : MonoBehaviour
     public GameObject stage1;
     public GameObject stage2;
     public GameObject Rrotate;
-    bool rotStart = false,rota=true;
+    bool rotStart = false;// rota=true;
     float speed = 3.0f;
     float rotAngle = 180f;
     float variation;
-    float rot;
-    public static int  Lj = 1;
+   // float rot;
+    int  Lj =2;
     public static int RotateTotal=0;
     //Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class RotateL_Center : MonoBehaviour
            // Debug.Log(RotateTotal);
            // Debug.Log(rotStart);
             //rot += variation * Time.deltaTime;
-            if (RotateTotal % 180 == 0)
+            if (RotateTotal % 90 == 0)
             {
                 
                 rotStart = false;
@@ -43,7 +43,7 @@ public class RotateL_Center : MonoBehaviour
                 Rrotate.SetActive(true);
                 //CenterMarker.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-            if(RotateTotal%180==90)
+            if(RotateTotal%90==44)
             {
                 Rotate_Center.RotateFrequency++;
             }
@@ -64,7 +64,7 @@ public class RotateL_Center : MonoBehaviour
     {
         // Debug.Log("押された!");
         
-        rot = 0f;
+       // rot = 0f;
         //CenterMarker.transform.localRotation = Quaternion.Euler(0, 0, 0);
         rotStart = true;
        // rota = false;
