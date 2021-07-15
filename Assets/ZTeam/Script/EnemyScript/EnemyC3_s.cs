@@ -9,7 +9,7 @@ public class EnemyC3_s : MonoBehaviour
     Transform FireballT;
     private float timeOut = 6f;
     private float timeElapsed;
-
+    Vector3 TP;
     private int enemyArmorPoint;// 敵の体力の入れ物
     GameObject Canvas;
     Status Status;
@@ -23,7 +23,7 @@ public class EnemyC3_s : MonoBehaviour
 
 
 
-        enemyArmorPoint = 5;
+        enemyArmorPoint = 15;
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
     }
@@ -32,6 +32,7 @@ public class EnemyC3_s : MonoBehaviour
     void Update()
     {
         float step = 0.75f * Time.deltaTime;
+        TP = target.position;
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
