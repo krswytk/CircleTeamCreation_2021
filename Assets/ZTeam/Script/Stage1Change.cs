@@ -6,7 +6,7 @@ public class Stage1Change : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Main_Z");
+        SceneManager.LoadScene("Stage_1");
     }
 
     // Update is called once per frame
