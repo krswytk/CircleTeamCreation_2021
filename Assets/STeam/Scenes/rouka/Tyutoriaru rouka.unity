@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: Cube
+  Itemabout: NULL
   s: {fileID: 21300000, guid: 9b5c6a59633540f4597ed6ca77618c3a, type: 3}
   itemkind: 3
 --- !u!135 &65246590
@@ -1305,7 +1306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 357e7803f1e1c7e4f94fa48d47335113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2835,6 +2836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: Sphere
+  Itemabout: NULL
   s: {fileID: 21300002, guid: e40579d982378d7469bbf2ea1eca7a43, type: 3}
   itemkind: 0
 --- !u!135 &449371929
@@ -3041,7 +3043,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 357e7803f1e1c7e4f94fa48d47335113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3468,7 +3470,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 357e7803f1e1c7e4f94fa48d47335113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8097,7 +8099,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 357e7803f1e1c7e4f94fa48d47335113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10418,6 +10420,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.4000244
       objectReference: {fileID: 0}
+    - target: {fileID: 5031869790477970881, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.49994
+      objectReference: {fileID: 0}
     - target: {fileID: 6734952456183530385, guid: e8f8eeba6df5f71449f9dc23c7f00d16,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11926,6 +11933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8"
+  Itemabout: NULL
   s: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
   itemkind: 2
 --- !u!135 &2032218770
@@ -12561,6 +12569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Itemname: "\u7403"
+  Itemabout: NULL
   s: {fileID: 21300004, guid: e40579d982378d7469bbf2ea1eca7a43, type: 3}
   itemkind: 1
 --- !u!135 &2124219425
