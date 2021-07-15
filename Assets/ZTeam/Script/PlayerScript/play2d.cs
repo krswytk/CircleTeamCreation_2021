@@ -29,8 +29,8 @@ public class play2d : MonoBehaviour
 
     //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
-    private float jumpPos = 0.0f;//ジャンプした時の位置
-    private float jumpTime = 0.0f;//ジャンプの時間制限
+    //private float jumpPos = 0.0f;//ジャンプした時の位置
+    //private float jumpTime = 0.0f;//ジャンプの時間制限
 
     //ここまで
    

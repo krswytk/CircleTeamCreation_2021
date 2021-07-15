@@ -11,6 +11,7 @@ public class EnemyC2 : MonoBehaviour
     GameObject Canvas;
     Status Status;
     GameObject pl;//宣言が合っていないと思う
+    //float sin;
     private Vector3 PlayerPosition;
     private Vector3 EnemyPosition;
 
@@ -34,12 +35,14 @@ public class EnemyC2 : MonoBehaviour
             
             Destroy(gameObject);
         }
+
+        //sin = Mathf.Sin(10 * Time.time)+EnemyPosition.y;
         PlayerPosition = pl.transform.position;
         EnemyPosition = transform.position;
-
+        
+        //EnemyPosition.y = sin / 2;
         //無理やり跳ねるようにしているがぶるぶるするため、変更したい
         EnemyPosition.y = EnemyPosition.y + 0.05f;
-
         if (PlayerPosition.x > EnemyPosition.x)
         {
             EnemyPosition.x = EnemyPosition.x + 0.05f;
@@ -48,7 +51,9 @@ public class EnemyC2 : MonoBehaviour
         {
             EnemyPosition.x = EnemyPosition.x - 0.05f;
         }
+        
         transform.position = EnemyPosition;
+        
     }
 
 
