@@ -20,7 +20,9 @@ public class Status : MonoBehaviour
     void Start()
     {
         GameOverText.SetActive(false);
+      
     }
+
 
     // Update is called once per frame
     void Update()
@@ -64,20 +66,17 @@ public class Status : MonoBehaviour
 
     public void BulletStatus()
     {
-        if (Input.GetKeyDown(KeyCode.Z))//射撃の際
+        for (int i = 0; i < 10; i++)
         {
-             
-           for(int i=0;i<10;i++)
+            if (statusG >= 100 * i)
             {
-                if(statusG>=100*i)
-                {
-                     
-                    attackP=1+i*2;
-                   // Debug.Log(attackP);//攻撃力確認用
 
-                }
+                attackP = 1 + i * 2;
+
+
             }
         }
+     
     }
 
     public void zyoutai()
