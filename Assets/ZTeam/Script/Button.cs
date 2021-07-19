@@ -5,14 +5,19 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     Status Status;
+    ShopS ShopS;
     GameObject Canvas;
     GameObject select;
+    GameObject shop;
+
 
         private void Start()
     {
+        shop = GameObject.Find("shop");
         select = GameObject.Find("select");
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
+        ShopS = shop.GetComponent<ShopS>();
     }
     public void Onclick()
     {
@@ -26,11 +31,13 @@ public class Button : MonoBehaviour
         }
 
         select.gameObject.SetActive(false);
+        ShopS.ShopOpen = false;
 
     }
 
     public void Onclick2()
     {
         select.gameObject.SetActive(false);
+        ShopS.ShopOpen = false;
     }
 }
