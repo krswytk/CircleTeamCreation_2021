@@ -21,15 +21,22 @@ public class Button : MonoBehaviour
     }
     public void Onclick()
     {
-        if (Status.statusG >= 25)
+        if (Status.PotionHave == false)
         {
-            Status.GOLD(-25);
+            if (Status.statusG >= 25)
+            {
+                Status.GOLD(-25);
+                Status.PotionHave = true;
+            }
+            else
+            {
+                Debug.Log("お金が足りないため、購入できません");
+            }
         }
         else
         {
-            Debug.Log("購入できません");
+            Debug.Log("重複購入はできません");
         }
-
         select.gameObject.SetActive(false);
         ShopS.ShopOpen = false;
 

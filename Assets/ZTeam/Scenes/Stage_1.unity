@@ -2108,6 +2108,7 @@ MonoBehaviour:
   statusHP: 100
   attackP: 0
   FireS: 0
+  PotionHave: 0
   Gold: {fileID: 106448356}
   Hitpoint: {fileID: 637247452}
   Attack: {fileID: 241352165}
@@ -2784,24 +2785,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &738117343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3559895345899202703, guid: 9e91a62c0ace93445be4e42f2951b0ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 692175301}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &738117350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738117343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b051c84bcee88ed4eb3d7ad1c2ee7fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &742345176
 PrefabInstance:
   m_ObjectHideFlags: 0
