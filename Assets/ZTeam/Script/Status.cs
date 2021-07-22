@@ -9,6 +9,7 @@ public class Status : MonoBehaviour
     public int statusHP;
     public int attackP;
     public bool FireS=false;
+    public bool PotionHave = false;
     private float Ftime=0f;
     public Text Gold;
     public Text Hitpoint;
@@ -38,6 +39,7 @@ public class Status : MonoBehaviour
         }
 
         BulletStatus();
+        PotionUse();
         zyoutai();
 
     }
@@ -77,6 +79,19 @@ public class Status : MonoBehaviour
             }
         }
      
+    }
+
+    public void PotionUse()
+    {
+        if (PotionHave==true) {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                HP(25);
+                PotionHave = false;
+            }
+
+        }
+
     }
 
     public void zyoutai()

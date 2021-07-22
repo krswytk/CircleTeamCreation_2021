@@ -152,7 +152,7 @@ public class play2d : MonoBehaviour
             ySpeed = 0;
         }
 
-        Debug.Log(isGround);
+        //Debug.Log(isGround);
         
 
         if (horizontalKey > 0)
