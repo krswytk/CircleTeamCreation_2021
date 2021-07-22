@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rock : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Rock : MonoBehaviour
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
 
-        if (f.rockflag[0] == true)
+        if (f.rockflag[0] == true|| f.rockflag[1] == true)
         {
             Destroy(gameObject.GetComponent<Rock>());
         }
@@ -33,15 +34,34 @@ public class Rock : MonoBehaviour
         if (menu.opcl == true)
         {
             //アイテムの種類3番目を使用した時
-            if (manager.itemkind[cursor.getcursor()] == 2)
+            if (SceneManager.GetActiveScene().name == "North rouka")
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (manager.itemkind[cursor.getcursor()] == 2)
                 {
-                    Destroy(gameObject.GetComponent<Rock>());
-                    p.TextActive("鍵を開けた");
-                   // manager.useitem();//鍵を消費しない場合はいらない
-                    f.rockflag[0] = true;//フラグ
-                    menu.opcl = false;
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[0] = true;//フラグ
+                        menu.opcl = false;
+                    }
+                }
+            }
+
+            if (SceneManager.GetActiveScene().name == "souko")
+            {
+                if (manager.itemkind[cursor.getcursor()] == 5)
+                {
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[1] = true;//フラグ
+
+                        menu.opcl = false;
+                    }
                 }
             }
         }

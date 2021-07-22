@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerContact : MonoBehaviour
 {
     PanelManager p;
@@ -35,7 +35,14 @@ public class PlayerContact : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    p.TextActive("鍵が掛かっている…");
+                    if (SceneManager.GetActiveScene().name == "souko")
+                    {
+                        p.TextActive("鍵がかかっている…\nよく見ると小さな鍵穴がある");
+                    }
+                    else
+                    {
+                        p.TextActive("鍵が掛かっている…");
+                    }
                 }
             }
 
