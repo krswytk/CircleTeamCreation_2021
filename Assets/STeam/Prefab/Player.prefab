@@ -2847,6 +2847,15 @@ MonoBehaviour:
   - null
   - null
   - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
   itemabout:
   - null
   - null
@@ -2857,7 +2866,16 @@ MonoBehaviour:
   - null
   - null
   - null
-  itemkind: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  itemkind: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 --- !u!114 &8849902792359447825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,9 +2927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d6b7b9b0b99af47827bf70e8f667ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockflag: 000000000000000000
-  getflag: 000000000000000000
-  nazoflag: 000000000000000000
+  rockflag: 000000000000000000000000000000000000
+  getflag: 000000000000000000000000000000000000
+  nazoflag: 000000000000000000000000000000000000
 --- !u!114 &8882852851807822527
 MonoBehaviour:
   m_ObjectHideFlags: 0

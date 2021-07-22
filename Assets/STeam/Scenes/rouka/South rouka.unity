@@ -2124,7 +2124,7 @@ GameObject:
   - component: {fileID: 378357821}
   - component: {fileID: 378357822}
   m_Layer: 0
-  m_Name: A-1
+  m_Name: B-1
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5973,7 +5973,7 @@ GameObject:
   - component: {fileID: 882991845}
   - component: {fileID: 882991846}
   m_Layer: 0
-  m_Name: A-2
+  m_Name: B-2
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6452,7 +6452,7 @@ GameObject:
   - component: {fileID: 939374727}
   - component: {fileID: 939374728}
   m_Layer: 0
-  m_Name: A-2
+  m_Name: B-2
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7941,7 +7941,7 @@ GameObject:
   - component: {fileID: 1182170419}
   - component: {fileID: 1182170420}
   m_Layer: 0
-  m_Name: A-1
+  m_Name: B-1
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8497,7 +8497,7 @@ GameObject:
   - component: {fileID: 1271846944}
   - component: {fileID: 1271846945}
   m_Layer: 0
-  m_Name: A-3
+  m_Name: B-3
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10519,7 +10519,7 @@ GameObject:
   - component: {fileID: 1804008094}
   - component: {fileID: 1804008095}
   m_Layer: 0
-  m_Name: A-3
+  m_Name: B-3
   m_TagString: indoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12542,38 +12542,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1436784122, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: m_MoveSpeedMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436784122, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: m_AnimSpeedMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 1435436392}
-    - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 391284214}
-    - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: itemimage
-      value: 
-      objectReference: {fileID: 391284214}
-    - target: {fileID: 1436784125, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: itemkind.Array.data[0]
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1436784126, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: menu
-      value: 
-      objectReference: {fileID: 1926551058}
-    - target: {fileID: 1436784128, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
-      propertyPath: G
-      value: 
-      objectReference: {fileID: 1531697825}
     - target: {fileID: 8849902792359447825, guid: 819b70e9ce213b3458f231b16cd364e4,
         type: 3}
       propertyPath: menu
@@ -12653,26 +12621,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853788454075699145, guid: 819b70e9ce213b3458f231b16cd364e4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853788454075699145, guid: 819b70e9ce213b3458f231b16cd364e4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8853788454075699145, guid: 819b70e9ce213b3458f231b16cd364e4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879733832489818401, guid: 819b70e9ce213b3458f231b16cd364e4,
-        type: 3}
-      propertyPath: m_MotionVectors
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
