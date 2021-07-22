@@ -6667,7 +6667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Itemname: "\u30D0\u30FC\u30EB"
   Itemabout: kugi
-  s: {fileID: 21300030, guid: feda0c18015b3284cabbc0da85254f9a, type: 3}
+  s: {fileID: 21300000, guid: 304bc8021f3c6984cb61224c070e04d2, type: 3}
   itemkind: 6
 --- !u!1 &1817242769 stripped
 GameObject:
@@ -6926,7 +6926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Itemname: "\u9577\u3044\u6728\u306E\u677F"
   Itemabout: NULL
-  s: {fileID: 21300000, guid: e6fbe8bad19fd5c4fafe3b5508350664, type: 3}
+  s: {fileID: 21300000, guid: 86f89bd71cfd4fe458f1a2a879601fa8, type: 3}
   itemkind: 3
 --- !u!65 &1843481892
 BoxCollider:
