@@ -15,6 +15,7 @@ public class Status : MonoBehaviour
     public Text Hitpoint;
     public Text Attack;
     public Text izyou;
+    public Text Potionhave;
     public GameObject GameOverText;
     
     // Start is called before the first frame update
@@ -84,6 +85,7 @@ public class Status : MonoBehaviour
     public void PotionUse()
     {
         if (PotionHave==true) {
+            Potionhave.text = "ポーション有：Cで使用";
             if (Input.GetKeyDown(KeyCode.C))
             {
                 HP(25);
@@ -91,7 +93,11 @@ public class Status : MonoBehaviour
             }
 
         }
-
+        else
+        {
+            Potionhave.text = "ポーションなし";
+        }
+      
     }
 
     public void zyoutai()
@@ -123,7 +129,7 @@ public class Status : MonoBehaviour
         }
         else
         {
-            izyou.text = " ノーマル";
+            izyou.text = "ノーマル";
         }
     }
 
