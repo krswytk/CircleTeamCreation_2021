@@ -27,6 +27,8 @@ public class play2d : MonoBehaviour
     float yspeed = 0.0f;
     float yAc;
 
+
+
     //消しても良い
     private bool isHead = false; //頭が天井にぶつかっているかどうか
     //private float jumpPos = 0.0f;//ジャンプした時の位置
@@ -42,6 +44,7 @@ public class play2d : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();//2dリジットボディを取得
         Canvas = GameObject.Find("Canvas");
         Status = Canvas.GetComponent<Status>();
+      
     }
 
     // Update is called once per frame
@@ -196,6 +199,7 @@ public class play2d : MonoBehaviour
         {
             if (Status.statusG > 0)
             {
+               
                 Status.GOLD(-1);
                 Instantiate(bullet, transform.position, transform.rotation);
             }
