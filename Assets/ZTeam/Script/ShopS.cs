@@ -7,7 +7,6 @@ public class ShopS : MonoBehaviour
     public bool ShopOpen=false;
     GameObject select;
     Transform target;
-    Vector3 V;
     float dis;
     // Start is called before the first frame update
     void Start()

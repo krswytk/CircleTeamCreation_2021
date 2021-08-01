@@ -112,7 +112,7 @@ public class Status : MonoBehaviour
                 Ftime += Time.deltaTime;
                 if (Ftime > 2)
                 {//if文の中でデルタタイムが1.5Sを超えたら2ダメージを与えてリセット
-                    Debug.Log(Ftime);
+                   // Debug.Log(Ftime);
                     HP(-2);
                     if (i < 3) {
                         Ftime = 0f;

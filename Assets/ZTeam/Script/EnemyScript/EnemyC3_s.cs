@@ -87,6 +87,6 @@ public class EnemyC3_s : MonoBehaviour
     {
         // 敵の体力を削る
         enemyArmorPoint -= damage;
-        Debug.Log(enemyArmorPoint);
+        //Debug.Log(enemyArmorPoint);
     }
 }
