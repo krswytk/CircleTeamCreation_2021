@@ -8,11 +8,32 @@ public class BossS : MonoBehaviour
     GameObject Canvas;//キャンバスを格納するオブジェクト
     Status Status;//ステータススクリプトを格納する変数
     Transform player;//プレイヤーの座標を格納する
+    GameObject part1,part2,core;
+
+
+
+
+
     float dis;//プレイヤーとの距離
     float LeftOrRight;//正ならプレイヤーは左にいる　負ならプレイヤーは右にいる
     int BossHP=100;
-    bool AttackReady;
+    bool AttackReady=true;
     float time=0f;
+
+    //演出の為の変数たち
+    float second = 3.0f;
+    float RotationAngle = 360f;
+    float variation;
+    float TotalAngle;
+
+    bool StartOfProduction = false;
+
+
+    float Part1Zmovement=0.25f;
+    float Part1Zvariation;
+    float Part2Zmovement = -0.25f;
+    float Part2Zvariation;
+
 
     enum State 
     {
@@ -22,28 +43,32 @@ public class BossS : MonoBehaviour
         rest,
         defeat,
     }
-    /*
-    enum AttackState
-    {
-        Short,
-        Middle,
-        Long,
-    }
-    */
+    
     State StateNow;
 
     // Start is called before the first frame update
     void Start()
     {
         Canvas = GameObject.Find("Canvas");//キャンバスを検索
-        Status = Canvas.GetComponent<Status>();//キャンバスについているステータススクリプトを所得
+        Status = Canvas.GetComponent<Status>();//キャンバスについているステータススクリプトを取得
         StateNow = State.beforebattle;//ステータスを戦闘前に変更
         player = GameObject.FindGameObjectWithTag("Player").transform;//プレイヤーをタグから取得
+        core= transform.GetChild(0).gameObject;
+        part1 = transform.GetChild(1).gameObject;
+        part2 = transform.GetChild(2).gameObject;
+
+
+        //演出系統
+        variation = RotationAngle / second;
+        Part1Zvariation=Part1Zmovement / second;
+        Part2Zvariation = Part2Zmovement / second;
+        StateNow = State.beforebattle;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         dis = Vector3.Distance(player.position, transform.position);
         LeftOrRight = Mathf.Sign(transform.position.x - player.position.x);
         switch (StateNow)
@@ -62,7 +87,7 @@ public class BossS : MonoBehaviour
             
         }
 
-
+       // part1.transform.position = new Vector3(3,0,0);
 
     }
 
@@ -74,6 +99,34 @@ public class BossS : MonoBehaviour
     void beforefunc()
     {
 
+        
+            if (StartOfProduction)
+            {
+                part1.transform.Rotate(0.0f, variation * Time.deltaTime, 0.0f);
+                part1.transform.Translate(0.0f, Part1Zvariation * Time.deltaTime, 0.0f);
+                
+                part2.transform.Rotate(0.0f, -variation * Time.deltaTime, 0.0f);
+                part2.transform.Translate(0.0f, Part2Zvariation * Time.deltaTime, 0.0f);
+
+                TotalAngle += variation * Time.deltaTime;
+                if (TotalAngle >= RotationAngle)
+                {
+                StartOfProduction = false;
+                    TotalAngle = 0f;
+                    part1.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+                    part2.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+                    StateNow = State.attack;
+                }
+        }
+        else
+        {
+            if (dis < 4.0f)
+            {
+                StartOfProduction = true;
+            }
+        }
+        
+        
     }
 
 
@@ -81,23 +134,42 @@ public class BossS : MonoBehaviour
     {
 
     }
+    public enum AttackState
+    {
+        Short,
+        Middle,
+        Long,
+    }
+
+    public AttackState AttackStateNow;
+
 
     void attackfunc()
     {
+        switch (AttackStateNow) {
+            case AttackState.Short:
+                shortfunc();break;
+            case AttackState.Middle:
+                middlefunc();break;
+            case AttackState.Long:
+                longfunc();break;
+        }
+
+
         if (AttackReady)
         {
             time = 0f;
-            if (dis < 3f)
+            if (dis < 3.0f)
             {
-                shortfunc();
+                AttackStateNow = AttackState.Short;
             }
-            else if (dis < 5f)
+            else if (dis < 9.0f)
             {
-                middlefunc();
+                AttackStateNow = AttackState.Middle;
             }
-            else if (dis >= 5f)
+            else if (dis >= 9.0f)
             {
-                longfunc();
+                AttackStateNow = AttackState.Long;
             }
             AttackReady = false;
 
@@ -125,15 +197,20 @@ public class BossS : MonoBehaviour
 
     void shortfunc()
     {
+        
+        
+        Debug.Log("近距離");
         //近距離
         
     }
     void middlefunc()
     {
+        Debug.Log("中距離");
         //中距離
     }
     void longfunc()
     {
+        Debug.Log("遠距離");
         //遠距離
     }
 
