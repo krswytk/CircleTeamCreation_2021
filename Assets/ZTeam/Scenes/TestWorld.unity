@@ -252,6 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375a8ece13269334788f0e63eeaba05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftOrRight: 0
+  bullet: {fileID: 5148780295538065720, guid: 16a1a0eefa8cbdf458deab99fb603194, type: 3}
+  AttackStateNow: 0
 --- !u!4 &7959123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2854547273621590248, guid: 6728d188411d97d4bafdd405722dc923,
@@ -2574,6 +2577,7 @@ GameObject:
   - component: {fileID: 744017519}
   - component: {fileID: 744017518}
   - component: {fileID: 744017517}
+  - component: {fileID: 744017520}
   m_Layer: 0
   m_Name: part1
   m_TagString: enemy
@@ -2666,6 +2670,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744017515}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &744017520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744017515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee941c001cbdae9459cbf1c9730cc7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &839182081
 Mesh:
   m_ObjectHideFlags: 0
@@ -4511,6 +4527,7 @@ GameObject:
   - component: {fileID: 1591290322}
   - component: {fileID: 1591290321}
   - component: {fileID: 1591290320}
+  - component: {fileID: 1591290323}
   m_Layer: 0
   m_Name: part2
   m_TagString: enemy
@@ -4603,6 +4620,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591290318}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1591290323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591290318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee941c001cbdae9459cbf1c9730cc7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1600292408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1777473020616293377, guid: e2ac089d3ed0f9843976670dc17d9cd8,
