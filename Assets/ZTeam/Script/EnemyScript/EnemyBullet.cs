@@ -17,8 +17,8 @@ public class EnemyBullet : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         // 弾オブジェクトの移動係数を初期化
             bulletSpeed = 10.0f;
-        // 出現から３秒後に弾オブジェクトを消滅させる（メモリの節約）
-        Destroy(gameObject, 3.0f);
+        
+       
     }
     void Update()
     {
