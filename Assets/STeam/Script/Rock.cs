@@ -59,7 +59,7 @@ public class Rock : MonoBehaviour
                         p.TextActive("鍵を開けた");
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[1] = true;//フラグ
-
+                        
                         menu.opcl = false;
                     }
                 }
