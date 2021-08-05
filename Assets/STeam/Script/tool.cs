@@ -33,18 +33,15 @@ public class tool : MonoBehaviour
     void Update()
     {
 
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (GameObject.Find("Chest").GetComponent<Rock>() == null)
+        if (f.rockflag[1] == true)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-               // a.SetActive(false);
-                b.SetActive(true);
+            // g.SetActive(true);
 
-            }
+            b.SetActive(true);
+
         }
-
     }
+
+
+
 }
