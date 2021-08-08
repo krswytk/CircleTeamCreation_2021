@@ -37,6 +37,10 @@ public class BossS : MonoBehaviour
     Transform BulletPool;
     [SerializeField] GameObject bullet;
 
+    //攻撃処理
+    Vector3 BulletSpawnPosition;
+    Quaternion BulletSpawnRotation;
+    bool middlebool = false;
 
 
     enum State
@@ -72,9 +76,10 @@ public class BossS : MonoBehaviour
         BulletPool = new GameObject("BossBullets").transform;
         
     }
+ 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         
@@ -191,6 +196,7 @@ public class BossS : MonoBehaviour
             if (time > 5f)
             {
                 AttackReady = true;
+                middlebool = false;
             }
         }
     }
@@ -216,9 +222,22 @@ public class BossS : MonoBehaviour
     }
     void middlefunc()
     {
+        if (middlebool==false)
+        {
+            BulletSpawnPosition = transform.position;
+            BulletSpawnRotation = transform.rotation;
+            if (LeftOrRight > 0) {//プレイヤーが左にいる時
+                BulletSpawnPosition.x = transform.position.x - 0.3f;
+                BulletSpawnRotation.z = transform.rotation.z - 180;
+            }
+            else if(LeftOrRight < 0)//プレイヤーが右にいる時
+            {
+                BulletSpawnPosition.x = transform.position.x + 0.3f;
+            }
+            InstBullet(BulletSpawnPosition, transform.rotation);//test
 
-        InstBullet(transform.position, transform.rotation);//test
-
+            middlebool = true;
+        }
         Debug.Log("中距離");
         //中距離
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3397801023118626483}
   - component: {fileID: 4901180458381367402}
   - component: {fileID: 3747512439571789775}
-  - component: {fileID: 50391696425671296}
+  - component: {fileID: 215276807685631981}
   m_Layer: 0
   m_Name: BossBullet
   m_TagString: Untagged
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd517a020cbc47c48a0e146a649e4111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &50391696425671296
+--- !u!50 &215276807685631981
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
