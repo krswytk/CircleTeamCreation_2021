@@ -11,9 +11,6 @@ public class BossS : MonoBehaviour
     GameObject part1, part2, core;
 
 
-
-
-
     float dis;//プレイヤーとの距離
     public float LeftOrRight;//正ならプレイヤーは左にいる　負ならプレイヤーは右にいる
     int BossHP = 100;
@@ -40,7 +37,9 @@ public class BossS : MonoBehaviour
     //攻撃処理
     Vector3 BulletSpawnPosition;
     Quaternion BulletSpawnRotation;
+    //中距離ようの変数たち
     bool middlebool = false;
+    float middleTime = 0f;
 
 
     enum State
@@ -224,17 +223,27 @@ public class BossS : MonoBehaviour
     {
         if (middlebool==false)
         {
+           // Quaternion.Euler
             BulletSpawnPosition = transform.position;
             BulletSpawnRotation = transform.rotation;
             if (LeftOrRight > 0) {//プレイヤーが左にいる時
-                BulletSpawnPosition.x = transform.position.x - 0.3f;
-                BulletSpawnRotation.z = transform.rotation.z - 180;
+
+                // BulletSpawnPosition.x = transform.position.x - 0.3f;
+                //BulletSpawnRotation.z = transform.rotation.z - 180;
+                // InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+               
+                BulletSpawnPosition.x = transform.position.x - 1f;
+                BulletSpawnRotation.z = transform.rotation.z + 180;
+                InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                Debug.Log(BulletSpawnRotation);
+
+
             }
             else if(LeftOrRight < 0)//プレイヤーが右にいる時
             {
                 BulletSpawnPosition.x = transform.position.x + 0.3f;
             }
-            InstBullet(BulletSpawnPosition, transform.rotation);//test
+            InstBullet(BulletSpawnPosition, BulletSpawnRotation);
 
             middlebool = true;
         }
