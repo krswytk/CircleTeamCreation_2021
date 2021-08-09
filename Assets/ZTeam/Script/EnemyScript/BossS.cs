@@ -11,9 +11,6 @@ public class BossS : MonoBehaviour
     GameObject part1, part2, core;
 
 
-
-
-
     float dis;//プレイヤーとの距離
     public float LeftOrRight;//正ならプレイヤーは左にいる　負ならプレイヤーは右にいる
     int BossHP = 100;
@@ -37,6 +34,12 @@ public class BossS : MonoBehaviour
     Transform BulletPool;
     [SerializeField] GameObject bullet;
 
+    //攻撃処理
+    Vector3 BulletSpawnPosition;
+    Quaternion BulletSpawnRotation;
+    //中距離ようの変数たち
+    bool middlebool = false;
+    float middleTime = 0f;
 
 
     enum State
@@ -72,9 +75,10 @@ public class BossS : MonoBehaviour
         BulletPool = new GameObject("BossBullets").transform;
         
     }
+ 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         
@@ -191,6 +195,7 @@ public class BossS : MonoBehaviour
             if (time > 5f)
             {
                 AttackReady = true;
+                middlebool = false;
             }
         }
     }
@@ -216,9 +221,32 @@ public class BossS : MonoBehaviour
     }
     void middlefunc()
     {
+        if (middlebool==false)
+        {
+           // Quaternion.Euler
+            BulletSpawnPosition = transform.position;
+            BulletSpawnRotation = transform.rotation;
+            if (LeftOrRight > 0) {//プレイヤーが左にいる時
 
-        InstBullet(transform.position, transform.rotation);//test
+                // BulletSpawnPosition.x = transform.position.x - 0.3f;
+                //BulletSpawnRotation.z = transform.rotation.z - 180;
+                // InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+               
+                BulletSpawnPosition.x = transform.position.x - 1f;
+                BulletSpawnRotation.z = transform.rotation.z + 180;
+                InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                Debug.Log(BulletSpawnRotation);
 
+
+            }
+            else if(LeftOrRight < 0)//プレイヤーが右にいる時
+            {
+                BulletSpawnPosition.x = transform.position.x + 0.3f;
+            }
+            InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+
+            middlebool = true;
+        }
         Debug.Log("中距離");
         //中距離
     }

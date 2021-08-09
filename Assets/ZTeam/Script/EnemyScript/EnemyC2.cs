@@ -28,7 +28,7 @@ public class EnemyC2 : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.transform.position.y < -8)//地面よりも下にいたら消える
         {

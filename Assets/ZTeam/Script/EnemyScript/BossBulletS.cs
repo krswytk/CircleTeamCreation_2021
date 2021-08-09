@@ -23,43 +23,22 @@ public class BossBulletS : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;//プレイヤーをタグから取得
         Boss = GameObject.Find("BOSS");//BOSSを検索
         BossS = Boss.GetComponent<BossS>();//BOSSについているスクリプトを取得
-        rb = GetComponent<Rigidbody2D>();
         time = 0f;
-
-        if (BossS.LeftOrRight < 0)//左側にプレイヤー
-        {
-            Debug.Log(BossS.LeftOrRight);
-            if (BossS.AttackStateNow == BossS.AttackState.Short)
-            {
-                BulletMovement = new Vector2(1000.0f, 0.0f);
-            }
-            else if (BossS.AttackStateNow == BossS.AttackState.Middle)
-            {
-                BulletMovement = new Vector2(-10000.0f,0.0f);
-            }
-            else if (BossS.AttackStateNow == BossS.AttackState.Long)
-            {
-                BulletMovement = new Vector2(100.0f, 0.0f);
-            }
-            rb.AddForce(BulletMovement, ForceMode2D.Impulse);
-        }
-        else if (BossS.LeftOrRight > 0)//右側にプレイヤー
-        {
-            rb.AddForce(BulletMovement, ForceMode2D.Impulse);
-        }
-
-
+        BulletMovement = new Vector2(3.0f, 0.0f);
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        transform.Translate(BulletMovement*Time.deltaTime);
+       // rb.AddForce(BulletMovement);
         time += Time.deltaTime;
         if (time > 3f)
         {
-            gameObject.SetActive(false);
             time = 0f;
+            gameObject.SetActive(false);
+            
         }
     }
 
@@ -68,13 +47,44 @@ public class BossBulletS : MonoBehaviour
         // Playerに弾が接触したら弾は消滅する
         if (collision.gameObject.tag == "Player")
         {
+            time = 0f;
             gameObject.SetActive(false);
+
         }
     }
 
     private void OnBecameInvisible()
     {
         //画面外に行ったら非アクティブにする
+        time = 0f;
         gameObject.SetActive(false);
     }
+    /*
+    void BulletState()
+    {
+
+        if (BossS.LeftOrRight < 0)//左側にプレイヤー
+        {
+            
+            if (BossS.AttackStateNow == BossS.AttackState.Short)
+            {
+                BulletMovement = new Vector2(-100.0f, 0.0f);
+            }
+            else if (BossS.AttackStateNow == BossS.AttackState.Middle)
+            {
+                BulletMovement = new Vector2(-100.0f, 0.0f);
+            }
+            else if (BossS.AttackStateNow == BossS.AttackState.Long)
+            {
+                BulletMovement = new Vector2(-100.0f, 0.0f);
+            }
+
+        }
+        else if (BossS.LeftOrRight > 0)//右側にプレイヤー
+        {
+
+        }
+        
+    }
+    */
 }
