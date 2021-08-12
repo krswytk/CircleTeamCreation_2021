@@ -34,7 +34,7 @@ public class BossBulletS : MonoBehaviour
         transform.Translate(BulletMovement*Time.deltaTime);
        // rb.AddForce(BulletMovement);
         time += Time.deltaTime;
-        if (time > 3f)
+        if (time > 4f)
         {
             time = 0f;
             gameObject.SetActive(false);

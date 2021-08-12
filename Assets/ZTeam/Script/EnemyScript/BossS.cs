@@ -40,6 +40,7 @@ public class BossS : MonoBehaviour
     //中距離ようの変数たち
     bool middlebool = false;
     float middleTime = 0f;
+    int middlecount = 0;
 
 
     enum State
@@ -221,32 +222,45 @@ public class BossS : MonoBehaviour
     }
     void middlefunc()
     {
-        if (middlebool==false)
-        {
-           // Quaternion.Euler
-            BulletSpawnPosition = transform.position;
-            BulletSpawnRotation = transform.rotation;
+        BulletSpawnPosition = transform.position;
+        BulletSpawnRotation = transform.rotation;
             if (LeftOrRight > 0) {//プレイヤーが左にいる時
+            if (middlecount < 3) {
+                middleTime += Time.deltaTime;
 
-                // BulletSpawnPosition.x = transform.position.x - 0.3f;
-                //BulletSpawnRotation.z = transform.rotation.z - 180;
-                // InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                if (middlebool == false)
+                {
+                    BulletSpawnPosition.x = transform.position.x - 0.3f;
+                    BulletSpawnRotation.z = transform.rotation.z - 180;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    BulletSpawnRotation.z = transform.rotation.z - 210;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    middlebool = true;
+                }
+
+                if (middleTime>1f)
+                {
+                    middleTime = 0f;
+                    middlebool = false;
+                }
+              
                
-                BulletSpawnPosition.x = transform.position.x - 1f;
-                BulletSpawnRotation.z = transform.rotation.z + 180;
-                InstBullet(BulletSpawnPosition, BulletSpawnRotation);
-                Debug.Log(BulletSpawnRotation);
+                
+
+            }
+               
 
 
+
+            
             }
             else if(LeftOrRight < 0)//プレイヤーが右にいる時
             {
                 BulletSpawnPosition.x = transform.position.x + 0.3f;
             }
-            InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+            
 
-            middlebool = true;
-        }
+           
         Debug.Log("中距離");
         //中距離
     }
@@ -270,6 +284,6 @@ public class BossS : MonoBehaviour
                 return;
             }
         }
-        Instantiate(bullet, pos, rotation, BulletPool);//test
+        Instantiate(bullet, pos, Quaternion.Euler(rotation.x, rotation.y, rotation.z), BulletPool);//test
     }
 }
