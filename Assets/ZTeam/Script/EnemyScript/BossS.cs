@@ -182,6 +182,9 @@ public class BossS : MonoBehaviour
             else if (dis < 9.0f)
             {
                 AttackStateNow = AttackState.Middle;
+                middlecount = 0;
+                 middleTime = 0f;
+                    middlebool = false;
             }
             else if (dis >= 9.0f)
             {
@@ -224,8 +227,11 @@ public class BossS : MonoBehaviour
     {
         BulletSpawnPosition = transform.position;
         BulletSpawnRotation = transform.rotation;
-            if (LeftOrRight > 0) {//プレイヤーが左にいる時
-            if (middlecount < 3) {
+        if (middlecount < 3)
+        {
+            if (LeftOrRight > 0)
+            {//プレイヤーが左にいる時
+
                 middleTime += Time.deltaTime;
 
                 if (middlebool == false)
@@ -235,30 +241,32 @@ public class BossS : MonoBehaviour
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z - 210;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    middlecount++;
                     middlebool = true;
                 }
 
-                if (middleTime>1f)
+                if (middleTime > 1.5f)
                 {
                     middleTime = 0f;
                     middlebool = false;
                 }
-              
-               
-                
 
-            }
-               
 
 
 
-            
             }
-            else if(LeftOrRight < 0)//プレイヤーが右にいる時
+
+
+
+
+
+
+            else if (LeftOrRight < 0)//プレイヤーが右にいる時
             {
                 BulletSpawnPosition.x = transform.position.x + 0.3f;
             }
-            
+
+        }
 
            
         Debug.Log("中距離");
@@ -278,7 +286,7 @@ public class BossS : MonoBehaviour
             if (!bullet.gameObject.activeSelf)
             {
                 //非アクティブなオブジェクトの位置と回転を設定
-                bullet.SetPositionAndRotation(pos, rotation);
+                bullet.SetPositionAndRotation(pos, Quaternion.Euler(rotation.x, rotation.y, rotation.z));
                 //アクティブにする
                 bullet.gameObject.SetActive(true);
                 return;
