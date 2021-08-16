@@ -14,6 +14,8 @@ public class Rock : MonoBehaviour
     Flag f;
     PanelManager p;
 
+    public int n;
+
     private void Start()
     {
         menu = GameObject.FindGameObjectWithTag("Player").GetComponent<Menu>();
@@ -22,9 +24,36 @@ public class Rock : MonoBehaviour
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
 
-        if (f.rockflag[0] == true|| f.rockflag[1] == true)
+
+        switch(n)
         {
-            Destroy(gameObject.GetComponent<Rock>());
+            case 0:
+                if(f.rockflag[n] == true)Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            case 1:
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            case 2:
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            case 3:
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            case 4:
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            case 5:
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
+                break;
+
+            default:
+                break;
+
         }
 
     }
@@ -59,11 +88,71 @@ public class Rock : MonoBehaviour
                         p.TextActive("鍵を開けた");
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[1] = true;//フラグ
-                        
+
+                        menu.opcl = false;
+                    }
+                }
+            }
+
+            if (manager.itemkind[cursor.getcursor()] == 7)
+            {
+                if (gameObject.name == "Rikasitu")
+                {
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[2] = true;//フラグ
+
+                        menu.opcl = false;
+                    }
+                }
+
+                if (gameObject.name == "Library")
+                {
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[3] = true;//フラグ
+
+                        menu.opcl = false;
+                    }
+                }
+
+                if (gameObject.name == "hokenn")
+                {
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[4] = true;//フラグ
+
+                        menu.opcl = false;
+                    }
+                }
+
+                if (gameObject.name == "Zyunnbi")
+                {
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        Destroy(gameObject.GetComponent<Rock>());
+                        p.TextActive("鍵を開けた");
+                        // manager.useitem();//鍵を消費しない場合はいらない
+                        f.rockflag[5] = true;//フラグ
+
                         menu.opcl = false;
                     }
                 }
             }
         }
+
     }
 }

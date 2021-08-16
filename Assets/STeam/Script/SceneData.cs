@@ -69,6 +69,7 @@ public class SceneData : MonoBehaviour
             else nextflag.nazoflag[i] = false;
         }
 
+        //遷移時の初期場所
         nextpos.setvector(w.getvector(), w.getname());
 
         //ここで次のシーンへ、持っているアイテムの個数を譲渡

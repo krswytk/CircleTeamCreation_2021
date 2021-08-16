@@ -10,6 +10,8 @@ public class Title : MonoBehaviour
    static int StertF = 0;//0:初期状態　1:チュートリアル　2：初めから　３：つづきから　４：遊び方
     Button button_1, button_2, button_3, button_4;
 
+   public static bool tuduki;
+
     public void Start()
     {
 
@@ -89,6 +91,9 @@ public class Title : MonoBehaviour
 
                 case 3:
                     Debug.Log('a');
+                    tuduki = true;
+                    if(SaveData.GetString("scene_name").Contains("rouka")) SceneManager.LoadScene("STeam/Scenes/rouka/"+SaveData.GetString("scene_name"));
+                    else SceneManager.LoadScene("STeam/Scenes/room/" + SaveData.GetString("scene_name"));
                     break;
 
                 case 4:
