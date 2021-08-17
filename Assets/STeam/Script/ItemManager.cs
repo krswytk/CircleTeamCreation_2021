@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ItemManager : MonoBehaviour
 {
@@ -48,7 +49,10 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("STeam/Scenes/Title_s");
+        }
     }
 
     public void useitem()//アイテムを消費する時は必ず呼び出す
