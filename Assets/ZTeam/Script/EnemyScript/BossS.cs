@@ -41,6 +41,7 @@ public class BossS : MonoBehaviour
     bool middlebool = false;
     float middleTime = 0f;
     int middlecount = 0;
+    int randomvalve;
 
 
     enum State
@@ -175,6 +176,7 @@ public class BossS : MonoBehaviour
         if (AttackReady)
         {
             time = 0f;
+            
             if (dis < 3.0f)
             {
                 AttackStateNow = AttackState.Short;
@@ -182,9 +184,7 @@ public class BossS : MonoBehaviour
             else if (dis < 9.0f)
             {
                 AttackStateNow = AttackState.Middle;
-                middlecount = 0;
-                 middleTime = 0f;
-                    middlebool = false;
+               
             }
             else if (dis >= 9.0f)
             {
@@ -196,10 +196,14 @@ public class BossS : MonoBehaviour
         else
         {
             time += Time.deltaTime;
-            if (time > 5f)
+            if (time > 6f)
             {
                 AttackReady = true;
                 middlebool = false;
+                middleTime = 0f;
+                middlecount = 0;
+               
+                
             }
         }
     }
@@ -227,48 +231,68 @@ public class BossS : MonoBehaviour
     {
         BulletSpawnPosition = transform.position;
         BulletSpawnRotation = transform.rotation;
-        if (middlecount < 3)
-        {
-            if (LeftOrRight > 0)
+        middleTime += Time.deltaTime;
+
+        if (LeftOrRight > 0)
             {//プレイヤーが左にいる時
+            if (middleTime > 2f)
+            {
+                middleTime = 0f;
+                middlebool = false;
+                randomvalve = Random.Range(1, 100);
+            }
 
-                middleTime += Time.deltaTime;
-
-                if (middlebool == false)
+            if (middlebool == false)
                 {
                     BulletSpawnPosition.x = transform.position.x - 0.3f;
+                if (randomvalve < 50)
+                {
                     BulletSpawnRotation.z = transform.rotation.z - 180;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z - 210;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                }
+                else
+                {
+                    BulletSpawnRotation.z = transform.rotation.z - 195;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    BulletSpawnRotation.z = transform.rotation.z - 170;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                }
                     middlecount++;
                     middlebool = true;
                 }
-
-                if (middleTime > 1.5f)
-                {
-                    middleTime = 0f;
-                    middlebool = false;
-                }
-
-
-
-
             }
-
-
-
-
-
 
             else if (LeftOrRight < 0)//プレイヤーが右にいる時
             {
-                BulletSpawnPosition.x = transform.position.x + 0.3f;
+            if (middleTime > 2f)
+            {
+                middleTime = 0f;
+                middlebool = false;
+                randomvalve = Random.Range(1, 100);
             }
 
+            if (middlebool == false)
+            {
+                BulletSpawnPosition.x = transform.position.x + 0.3f;
+                if (randomvalve < 50)
+                {
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    BulletSpawnRotation.z = transform.rotation.z + 30;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                }
+                else
+                {
+                    BulletSpawnRotation.z = transform.rotation.z + 15;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    BulletSpawnRotation.z = transform.rotation.z - 10;
+                    InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                }
+                middlecount++;
+                middlebool = true;
+            }
         }
-
-           
         Debug.Log("中距離");
         //中距離
     }
