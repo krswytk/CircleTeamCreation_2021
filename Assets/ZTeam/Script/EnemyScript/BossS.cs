@@ -103,7 +103,7 @@ public class BossS : MonoBehaviour
 
         }
 
-        // part1.transform.position = new Vector3(3,0,0);
+        
 
     }
 
@@ -298,6 +298,19 @@ public class BossS : MonoBehaviour
     }
     void longfunc()
     {
+        
+        BulletSpawnPosition.x = transform.position.x;
+        BulletSpawnPosition.y = transform.position.y + 1.0f;
+        BulletSpawnRotation.z = transform.rotation.z + 90;
+       InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+
+        randomvalve = Random.Range(-30, 30);
+        BulletSpawnPosition.x = player.position.x;
+        BulletSpawnPosition.y = player.position.y + 10.0f;
+        BulletSpawnRotation.z = transform.rotation.z - 90+randomvalve;
+        InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+
+
         Debug.Log("遠距離");
         //遠距離
     }
