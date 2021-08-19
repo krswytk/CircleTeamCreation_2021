@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;//会話テロップ用追加点
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ public class PanelManager : MonoBehaviour
     [SerializeField]
     GameObject Telopmanager;
 
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
+
+    String itamename;
     float timer;
     bool item, text;
     // Start is called before the first frame update
@@ -33,8 +38,14 @@ public class PanelManager : MonoBehaviour
     public void itempanel(string name)
     {
         item = true;
-        Telopmanager.SetActive(true);//テロップ表示
+       // Telopmanager.SetActive(true);//テロップ表示 
+
         Telopmanager.transform.Find("Text").gameObject.GetComponent<Text>().text = name + "を手に入れた";//入手したアイテムを表示
+
+         String sendMessage = name;　　　　　　//会話テロップ用追加点
+        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+        Debug.Log(name);
+
         timer = 0;
         //Invoke("panelflag", 2.0f);
     }

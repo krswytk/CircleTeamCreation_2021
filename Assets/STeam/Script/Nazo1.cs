@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Nazo1 : MonoBehaviour
 {
+    public Fungus.Flowchart flowchart = null;
+    public String sendMessage = "";
+
     //出口
     [SerializeField]
     GameObject g;
@@ -30,8 +34,9 @@ public class Nazo1 : MonoBehaviour
         }
         else
         {
-            context.TextActive("閉じ込められた");
+            flowchart.SendFungusMessage(sendMessage);
             g.SetActive(false);
+           
         }
     }
 
@@ -49,11 +54,15 @@ public class Nazo1 : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
+                    String sendMessage = "扉が開いた";
+                    flowchart.SendFungusMessage(sendMessage);
+
+
                     f.nazoflag[0] = true;//謎を解いた
                     manager.useitem();//アイテム消費
                     g.SetActive(true);//出口出現
                     gameObject.SetActive(false);//謎床非表示
-                    context.TextActive("扉が開いた");
+                  
                 }
             }
         }
