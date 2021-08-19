@@ -67,9 +67,9 @@ public class PlayerContact : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
-                        String sendMessage = "底が抜けていて先に進めない。\n何か渡れるようなものがあれば…";//会話テロップ用追加点
+                        String sendMessage = "底が抜けていて先に進めない";//会話テロップ用追加点
                         flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
-
+                        Debug.Log("aaa");
                         //p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
                     }
                 }

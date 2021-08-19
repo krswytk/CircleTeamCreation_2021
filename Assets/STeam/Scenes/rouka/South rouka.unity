@@ -8443,8 +8443,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1239995710}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
