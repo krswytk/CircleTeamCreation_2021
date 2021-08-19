@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;//会話テロップ用追加点
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,11 @@ using UnityEngine;
 
 public class HokenNazo : MonoBehaviour
 {
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
+
+
+
     PanelManager context;
     Menu menu;
     ItemManager manager;
@@ -54,9 +60,11 @@ public class HokenNazo : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Z)&&menu.opcl!= true)
         {
-   
-            context.TextActive("次亜塩素酸だ");
 
+            String sendMessage = "次亜塩素酸だ";
+            flowchart.SendFungusMessage(sendMessage);
+
+           
 
             a = 0;
 

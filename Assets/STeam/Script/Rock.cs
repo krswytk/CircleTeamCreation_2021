@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,11 @@ public class Rock : MonoBehaviour
 {
     //鍵のついたドアなど用のスクリプト
     //ワープするobjに付ける
+
+
+
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
 
     Menu menu;
     ItemManager manager;
@@ -70,7 +76,11 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        // p.TextActive("鍵を開けた");差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[0] = true;//フラグ
                         menu.opcl = false;
@@ -85,7 +95,10 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        // p.TextActive("鍵を開けた");差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[1] = true;//フラグ
 
@@ -102,7 +115,10 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        // p.TextActive("鍵を開けた");差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[2] = true;//フラグ
 
@@ -116,7 +132,10 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        // p.TextActive("鍵を開けた");差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[3] = true;//フラグ
 
@@ -130,7 +149,10 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        p.TextActive("鍵を開けた");//差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[4] = true;//フラグ
 
@@ -144,7 +166,10 @@ public class Rock : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
                         Destroy(gameObject.GetComponent<Rock>());
-                        p.TextActive("鍵を開けた");
+                        String sendMessage = "鍵を開けた";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+                        // p.TextActive("鍵を開けた");差し替え
                         // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[5] = true;//フラグ
 
