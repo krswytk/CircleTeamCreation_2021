@@ -8346,6 +8346,9 @@ GameObject:
   - component: {fileID: 1239995714}
   - component: {fileID: 1239995713}
   - component: {fileID: 1239995715}
+  - component: {fileID: 1239995717}
+  - component: {fileID: 1239995716}
+  - component: {fileID: 1239995718}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -8491,6 +8494,75 @@ MonoBehaviour:
   parentBlock: {fileID: 1239995714}
   suppressBlockAutoSelect: 0
   message: "\u5E95\u304C\u629C\u3051\u3066\u3044\u3066\u5148\u306B\u9032\u3081\u306A\u3044"
+--- !u!114 &1239995716
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 14
+  indentLevel: 0
+  storyText: "\u9375\u304C\u639B\u304B\u3063\u3066\u3044\u308B\u30FB\u30FB\u30FB"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1239995717
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 836.485
+    y: 32.87562
+    width: 122.727264
+    height: 40
+  tint: {r: 0.9056604, g: 0.3972944, b: 0.8864716, a: 1}
+  useCustomTint: 1
+  itemId: 15
+  blockName: "\u9375\u304C\u639B\u304B\u3063\u3066\u3044\u308B"
+  description: "PlayerContact\u30B9\u30AF\u30EA\u30D7\u30C8\u7528\u3000"
+  eventHandler: {fileID: 1239995718}
+  commandList:
+  - {fileID: 1239995716}
+  suppressAllAutoSelections: 0
+--- !u!114 &1239995718
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1239995717}
+  suppressBlockAutoSelect: 0
+  message: "\u9375\u304C\u639B\u304B\u3063\u3066\u3044\u308B"
 --- !u!114 &1239995722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8504,7 +8576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -217.62148, y: 175.53343}
+  scrollPos: {x: -259.66693, y: 199.39706}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 292
@@ -8515,10 +8587,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1239995714}
-  selectedCommands:
-  - {fileID: 1239995713}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
