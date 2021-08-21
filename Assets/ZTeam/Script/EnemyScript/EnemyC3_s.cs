@@ -29,7 +29,7 @@ public class EnemyC3_s : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float step = 0.75f * Time.deltaTime;
         TP = target.position;

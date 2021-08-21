@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6833634}
   - component: {fileID: 6833635}
+  - component: {fileID: 6833637}
   m_Layer: 0
   m_Name: BOSS
   m_TagString: enemy
@@ -254,7 +255,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftOrRight: 0
   bullet: {fileID: 5148780295538065720, guid: 16a1a0eefa8cbdf458deab99fb603194, type: 3}
+  anim: {fileID: 0}
   AttackStateNow: 0
+--- !u!95 &6833637
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc56269866f1ce94085528a852f35963, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &7959123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2854547273621590248, guid: 6728d188411d97d4bafdd405722dc923,
@@ -2101,7 +2122,7 @@ PrefabInstance:
     - target: {fileID: 3559895345899202693, guid: 9e91a62c0ace93445be4e42f2951b0ab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6
+      value: 17.84
       objectReference: {fileID: 0}
     - target: {fileID: 3559895345899202693, guid: 9e91a62c0ace93445be4e42f2951b0ab,
         type: 3}
