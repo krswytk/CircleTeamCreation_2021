@@ -8343,6 +8343,9 @@ GameObject:
   - component: {fileID: 1239995710}
   - component: {fileID: 1239995711}
   - component: {fileID: 1239995712}
+  - component: {fileID: 1239995714}
+  - component: {fileID: 1239995713}
+  - component: {fileID: 1239995715}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -8404,7 +8407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 9
+  itemId: 12
   indentLevel: 0
   storyText: "\u9375\u3092\u958B\u3051\u305F"
   description: 
@@ -8419,6 +8422,75 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1239995713
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  storyText: "\u5E95\u304C\u629C\u3051\u3066\u3044\u3066\u5148\u306B\u9032\u3081\u306A\u3044\u3002\n\u306A\u306B\u304B\u6E21\u308C\u308B\u3082\u306E\u304C\u3042\u308C\u3070\u2026"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1239995714
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 517.62146
+    y: 34.011993
+    width: 171.81818
+    height: 40
+  tint: {r: 0.9056604, g: 0.3972944, b: 0.8864716, a: 1}
+  useCustomTint: 1
+  itemId: 9
+  blockName: "\u5E95\u304C\u629C\u3051\u3066\u3044\u3066\u5148\u306B\u9032\u3081\u306A\u3044"
+  description: "PlayerContact\u30B9\u30AF\u30EA\u30D7\u30C8\u7528\u3000\u7A74\u7248"
+  eventHandler: {fileID: 1239995715}
+  commandList:
+  - {fileID: 1239995713}
+  suppressAllAutoSelections: 0
+--- !u!114 &1239995715
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239995709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1239995714}
+  suppressBlockAutoSelect: 0
+  message: "\u5E95\u304C\u629C\u3051\u3066\u3044\u3066\u5148\u306B\u9032\u3081\u306A\u3044"
 --- !u!114 &1239995722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8443,8 +8515,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1239995714}
+  selectedCommands:
+  - {fileID: 1239995713}
   variables: []
   description: 
   stepPause: 0
@@ -12780,7 +12854,7 @@ PrefabInstance:
     - target: {fileID: 8853788454075699145, guid: 819b70e9ce213b3458f231b16cd364e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.55
+      value: -11.55
       objectReference: {fileID: 0}
     - target: {fileID: 8853788454075699145, guid: 819b70e9ce213b3458f231b16cd364e4,
         type: 3}
