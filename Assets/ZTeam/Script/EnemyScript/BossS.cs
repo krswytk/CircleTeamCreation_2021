@@ -7,7 +7,9 @@ public class BossS : MonoBehaviour
 
     GameObject Canvas;//キャンバスを格納するオブジェクト
     Status Status;//ステータススクリプトを格納する変数
-    Transform player;//プレイヤーの座標を格納する
+    GameObject player;
+    play2d Play2D;
+    Transform playerTrans;//プレイヤーの座標を格納する
     GameObject part1, part2, core;
 
 
@@ -30,6 +32,9 @@ public class BossS : MonoBehaviour
     float Part2Zmovement = -0.25f;
     float Part2Zvariation;
 
+    float BossZmovement = 5f;
+    float BossZvariation = 5f;
+
     //弾のプール化用オブジェクト
     Transform BulletPool;
     [SerializeField] GameObject bullet;
@@ -42,6 +47,8 @@ public class BossS : MonoBehaviour
     float middleTime = 0f;
     int middlecount = 0;
     int randomvalve;
+
+    public Animator anim;
 
 
     enum State
@@ -60,8 +67,12 @@ public class BossS : MonoBehaviour
     {
         Canvas = GameObject.Find("Canvas");//キャンバスを検索
         Status = Canvas.GetComponent<Status>();//キャンバスについているステータススクリプトを取得
+
+        player = GameObject.Find("player");//playerを検索
+        Play2D = Canvas.GetComponent<play2d>();//playerについているスクリプトを取得
+
         StateNow = State.beforebattle;//ステータスを戦闘前に変更
-        player = GameObject.FindGameObjectWithTag("Player").transform;//プレイヤーをタグから取得
+        playerTrans =player.transform;//プレイヤーのトランスフォームを取得
         core = transform.GetChild(0).gameObject;
         part1 = transform.GetChild(1).gameObject;
         part2 = transform.GetChild(2).gameObject;
@@ -72,6 +83,8 @@ public class BossS : MonoBehaviour
         Part1Zvariation = Part1Zmovement / second;
         Part2Zvariation = Part2Zmovement / second;
         StateNow = State.beforebattle;
+        anim = GetComponent<Animator>();
+
 
         //弾を格納するためのゲームオブジェクト生成
         BulletPool = new GameObject("BossBullets").transform;
@@ -82,18 +95,15 @@ public class BossS : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        
-
-        dis = Vector3.Distance(player.position, transform.position);
-        LeftOrRight = Mathf.Sign(transform.position.x - player.position.x);
+        dis = Vector3.Distance(playerTrans.position, transform.position);
+        LeftOrRight = Mathf.Sign(transform.position.x - playerTrans.position.x);
         switch (StateNow)
         {
             case State.beforebattle: beforefunc(); break;
-            case State.wait: waitfunc(); break;
-            case State.attack: attackfunc(); break;
-            case State.rest: restfunc(); break;
-            case State.defeat: defeatfunc(); break;
+            case State.wait: Waitfunc(); break;
+            case State.attack: Attackfunc(); break;
+            case State.rest: Restfunc(); break;
+            case State.defeat: Defeatfunc(); break;
 
         }
 
@@ -146,7 +156,7 @@ public class BossS : MonoBehaviour
     }
 
 
-    void waitfunc()
+    void Waitfunc()
     {
 
     }
@@ -160,16 +170,16 @@ public class BossS : MonoBehaviour
     public AttackState AttackStateNow;
 
 
-    void attackfunc()
+    void Attackfunc()
     {
         switch (AttackStateNow)
         {
             case AttackState.Short:
-                shortfunc(); break;
+                Shortfunc(); break;
             case AttackState.Middle:
-                middlefunc(); break;
+                Middlefunc(); break;
             case AttackState.Long:
-                longfunc(); break;
+                Longfunc(); break;
         }
 
 
@@ -208,26 +218,27 @@ public class BossS : MonoBehaviour
         }
     }
 
-    void restfunc()
+    void Restfunc()
     {
 
     }
-    void defeatfunc()
+    void Defeatfunc()
     {
         //倒された処理
     }
 
 
 
-    void shortfunc()
+    void Shortfunc()
     {
+        anim.Play("BossJumpAnimation");
 
-       
+
         Debug.Log("近距離");
         //近距離
 
     }
-    void middlefunc()
+    void Middlefunc()
     {
         BulletSpawnPosition = transform.position;
         BulletSpawnRotation = transform.rotation;
@@ -296,7 +307,7 @@ public class BossS : MonoBehaviour
         Debug.Log("中距離");
         //中距離
     }
-    void longfunc()
+    void Longfunc()
     {
         
         BulletSpawnPosition.x = transform.position.x;
@@ -305,8 +316,8 @@ public class BossS : MonoBehaviour
        InstBullet(BulletSpawnPosition, BulletSpawnRotation);
 
         randomvalve = Random.Range(-30, 30);
-        BulletSpawnPosition.x = player.position.x;
-        BulletSpawnPosition.y = player.position.y + 10.0f;
+        BulletSpawnPosition.x = playerTrans.position.x;
+        BulletSpawnPosition.y = playerTrans.position.y + 10.0f;
         BulletSpawnRotation.z = transform.rotation.z - 90+randomvalve;
         InstBullet(BulletSpawnPosition, BulletSpawnRotation);
 
