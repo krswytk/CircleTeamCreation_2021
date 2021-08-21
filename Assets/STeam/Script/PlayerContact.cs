@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;//会話テロップ用追加点
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerContact : MonoBehaviour
 {
+
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
+
     PanelManager p;
     Menu m;
     Flag f;
@@ -22,7 +27,10 @@ public class PlayerContact : MonoBehaviour
         {
             if (collision.gameObject.name == "gareki")
             {
-                p.TextActive("瓦礫があって先に進むことができない");
+                String sendMessage = "瓦礫があって先に進むことができない";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+
+               // p.TextActive("瓦礫があって先に進むことができない");差し替え
             }
         }
     }
@@ -37,11 +45,18 @@ public class PlayerContact : MonoBehaviour
                 {
                     if (SceneManager.GetActiveScene().name == "souko")
                     {
-                        p.TextActive("鍵がかかっている…\nよく見ると小さな鍵穴がある");
+
+                        String sendMessage = "鍵がかかっている倉庫";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+                      //  p.TextActive("鍵がかかっている…\nよく見ると小さな鍵穴がある");
                     }
                     else
                     {
-                        p.TextActive("鍵が掛かっている…");
+                        String sendMessage = "鍵が掛かっている";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+                        //p.TextActive("鍵が掛かっている…");
+
+
                     }
                 }
             }
@@ -52,7 +67,10 @@ public class PlayerContact : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Z))
                     {
-                        p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
+                        String sendMessage = "底が抜けていて先に進めない";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+                        Debug.Log("aaa");
+                        //p.TextActive("底が抜けていて先に進めない。\n何か渡れるようなものがあれば…");
                     }
                 }
             }
