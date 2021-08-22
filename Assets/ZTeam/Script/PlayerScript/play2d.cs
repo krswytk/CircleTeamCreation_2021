@@ -20,7 +20,7 @@ public class play2d : MonoBehaviour
 
     private Rigidbody2D rb = null;
 
-    private bool isGround = false;//地面についているかどうか
+    public bool isGround = false;//地面についているかどうか
     private bool isJump = false;//ジャンプしているかどうか
     private bool is2Jump = false;//二段ジャンプしているかどうか
     private bool isVKey = false;

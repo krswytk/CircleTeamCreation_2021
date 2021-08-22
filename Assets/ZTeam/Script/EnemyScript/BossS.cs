@@ -71,7 +71,7 @@ public class BossS : MonoBehaviour
         Status = Canvas.GetComponent<Status>();//キャンバスについているステータススクリプトを取得
 
         player = GameObject.Find("player");//playerを検索
-        Play2D = Canvas.GetComponent<play2d>();//playerについているスクリプトを取得
+        Play2D = player.GetComponent<play2d>();//playerについているスクリプトを取得
 
         StateNow = State.beforebattle;//ステータスを戦闘前に変更
         playerTrans =player.transform;//プレイヤーのトランスフォームを取得
@@ -216,8 +216,10 @@ public class BossS : MonoBehaviour
                 middlebool = false;
                 middleTime = 0f;
                 middlecount = 0;
-               
-                
+                shortbool = false;
+
+
+
             }
         }
     }
@@ -235,10 +237,14 @@ public class BossS : MonoBehaviour
 
     void Shortfunc()
     {
-        
-      
-      
-
+        if (Play2D.isGround == true&&shortbool==false&&time>=2.0f&&time<2.5f)
+        {
+            Status.HP(-10);
+            shortbool = true;
+        }else if (time > 3.0f)
+        {
+            time += 2.0f;
+        }
         Debug.Log("近距離");
         //近距離
 
