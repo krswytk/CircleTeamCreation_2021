@@ -42,12 +42,14 @@ public class BossS : MonoBehaviour
     //攻撃処理
     Vector3 BulletSpawnPosition;
     Quaternion BulletSpawnRotation;
-    //中距離ようの変数たち
+    //中距離用の変数たち
     bool middlebool = false;
     float middleTime = 0f;
     int middlecount = 0;
     int randomvalve;
 
+    //近距離用の変数たち
+    bool shortbool = false;
     public Animator anim;
 
 
@@ -69,7 +71,7 @@ public class BossS : MonoBehaviour
         Status = Canvas.GetComponent<Status>();//キャンバスについているステータススクリプトを取得
 
         player = GameObject.Find("player");//playerを検索
-        Play2D = Canvas.GetComponent<play2d>();//playerについているスクリプトを取得
+        Play2D = player.GetComponent<play2d>();//playerについているスクリプトを取得
 
         StateNow = State.beforebattle;//ステータスを戦闘前に変更
         playerTrans =player.transform;//プレイヤーのトランスフォームを取得
@@ -190,6 +192,8 @@ public class BossS : MonoBehaviour
             if (dis < 3.0f)
             {
                 AttackStateNow = AttackState.Short;
+                anim.Play("BossJumpAnimation");
+                anim.Play("waitAnim");
             }
             else if (dis < 9.0f)
             {
@@ -212,8 +216,10 @@ public class BossS : MonoBehaviour
                 middlebool = false;
                 middleTime = 0f;
                 middlecount = 0;
-               
-                
+                shortbool = false;
+
+
+
             }
         }
     }
@@ -231,9 +237,14 @@ public class BossS : MonoBehaviour
 
     void Shortfunc()
     {
-        anim.Play("BossJumpAnimation");
-
-
+        if (Play2D.isGround == true&&shortbool==false&&time>=2.0f&&time<2.5f)
+        {
+            Status.HP(-10);
+            shortbool = true;
+        }else if (time > 3.0f)
+        {
+            time += 2.0f;
+        }
         Debug.Log("近距離");
         //近距離
 
