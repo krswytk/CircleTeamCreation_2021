@@ -42,12 +42,14 @@ public class BossS : MonoBehaviour
     //攻撃処理
     Vector3 BulletSpawnPosition;
     Quaternion BulletSpawnRotation;
-    //中距離ようの変数たち
+    //中距離用の変数たち
     bool middlebool = false;
     float middleTime = 0f;
     int middlecount = 0;
     int randomvalve;
 
+    //近距離用の変数たち
+    bool shortbool = false;
     public Animator anim;
 
 
@@ -190,6 +192,8 @@ public class BossS : MonoBehaviour
             if (dis < 3.0f)
             {
                 AttackStateNow = AttackState.Short;
+                anim.Play("BossJumpAnimation");
+                anim.Play("waitAnim");
             }
             else if (dis < 9.0f)
             {
@@ -231,8 +235,9 @@ public class BossS : MonoBehaviour
 
     void Shortfunc()
     {
-        anim.Play("BossJumpAnimation");
-
+        
+      
+      
 
         Debug.Log("近距離");
         //近距離
