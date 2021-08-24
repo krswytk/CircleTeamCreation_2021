@@ -24,10 +24,12 @@ public class ItemName : MonoBehaviour
     {
         if (menu.opcl == true)
         {
-            if (manager.itemname[cursor.getcursor()] != "null")
+            this.GetComponent<Text>().enabled=true;
+            if (manager.itemname[cursor.getcursor()] != "map")
             {
                 t.text = manager.itemname[cursor.getcursor()];
             }
+            else this.GetComponent<Text>().enabled = false;
         }
     }
 }

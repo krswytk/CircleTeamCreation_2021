@@ -11,7 +11,7 @@ public class Nazo2 : MonoBehaviour
     Flag f;
 
     [SerializeField]
-    GameObject ita;
+    GameObject ita,ita2;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +56,17 @@ public class Nazo2 : MonoBehaviour
                     ita.SetActive(true);
                     gameObject.SetActive(false);//謎床非表示
                     
+                }
+            }
+            else if (manager.itemkind[cursor.getcursor()] == 10)//種類が０に分類されいているアイテムが選択されたら板3
+            {
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    context.TextActive("渡ることができるようになった");
+                    manager.useitem();//アイテム消費
+                    ita2.SetActive(true);
+                    gameObject.SetActive(false);//謎床非表示
+
                 }
             }
             else
