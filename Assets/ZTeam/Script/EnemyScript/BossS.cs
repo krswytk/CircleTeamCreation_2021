@@ -12,6 +12,8 @@ public class BossS : MonoBehaviour
     Transform playerTrans;//プレイヤーの座標を格納する
     GameObject part1, part2, core;
 
+   
+
 
     float dis;//プレイヤーとの距離
     public float LeftOrRight;//正ならプレイヤーは左にいる　負ならプレイヤーは右にいる
@@ -42,15 +44,21 @@ public class BossS : MonoBehaviour
     //攻撃処理
     Vector3 BulletSpawnPosition;
     Quaternion BulletSpawnRotation;
+
+    //近距離用の変数たち
+    bool shortbool = false;
+    public Animator anim;
+
     //中距離用の変数たち
     bool middlebool = false;
     float middleTime = 0f;
     int middlecount = 0;
     int randomvalve;
 
-    //近距離用の変数たち
-    bool shortbool = false;
-    public Animator anim;
+    //遠距離用の変数たち
+    bool longbool = false;
+    float longTime = 0f;
+
 
 
     enum State
@@ -78,6 +86,8 @@ public class BossS : MonoBehaviour
         core = transform.GetChild(0).gameObject;
         part1 = transform.GetChild(1).gameObject;
         part2 = transform.GetChild(2).gameObject;
+
+       
 
 
         //演出系統
@@ -144,6 +154,7 @@ public class BossS : MonoBehaviour
                 part1.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
                 part2.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
                 StateNow = State.attack;
+                
             }
         }
         else
@@ -215,9 +226,8 @@ public class BossS : MonoBehaviour
                 AttackReady = true;
                 middlebool = false;
                 middleTime = 0f;
-                middlecount = 0;
                 shortbool = false;
-
+                longTime = 0f;
 
 
             }
@@ -281,7 +291,7 @@ public class BossS : MonoBehaviour
                     BulletSpawnRotation.z = transform.rotation.z - 170;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                 }
-                    middlecount++;
+                   // middlecount++;
                     middlebool = true;
                 }
             }
@@ -311,7 +321,7 @@ public class BossS : MonoBehaviour
                     BulletSpawnRotation.z = transform.rotation.z - 10;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                 }
-                middlecount++;
+               // middlecount++;
                 middlebool = true;
             }
         }
@@ -320,18 +330,30 @@ public class BossS : MonoBehaviour
     }
     void Longfunc()
     {
-        
-        BulletSpawnPosition.x = transform.position.x;
-        BulletSpawnPosition.y = transform.position.y + 1.0f;
-        BulletSpawnRotation.z = transform.rotation.z + 90;
-       InstBullet(BulletSpawnPosition, BulletSpawnRotation);
-
-        randomvalve = Random.Range(-30, 30);
-        BulletSpawnPosition.x = playerTrans.position.x;
-        BulletSpawnPosition.y = playerTrans.position.y + 10.0f;
-        BulletSpawnRotation.z = transform.rotation.z - 90+randomvalve;
-        InstBullet(BulletSpawnPosition, BulletSpawnRotation);
-
+        longTime += Time.deltaTime;
+        if (longTime >= 0.1f)
+        {
+            longbool = false;
+            longTime = 0f;
+           
+        }
+        if (time < 2.0f && longbool == false)
+        {
+            BulletSpawnPosition.x = transform.position.x;
+            BulletSpawnPosition.y = transform.position.y + 1.0f;
+            BulletSpawnRotation.z = transform.rotation.z + 90;
+            InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+            longbool = true;
+        }
+        else if (4.0f>time&&time >= 2.0f && longbool == false)
+        {
+            randomvalve = Random.Range(-30, 30);
+            BulletSpawnPosition.x = playerTrans.position.x ; 
+            BulletSpawnPosition.y = playerTrans.position.y + 10.0f;
+            BulletSpawnRotation.z = transform.rotation.z - 90 + randomvalve;
+            InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+            longbool = true;
+        }
 
         Debug.Log("遠距離");
         //遠距離
