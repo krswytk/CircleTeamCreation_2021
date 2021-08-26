@@ -3206,6 +3206,9 @@ GameObject:
   m_Component:
   - component: {fileID: 713109184}
   - component: {fileID: 713109183}
+  - component: {fileID: 713109171}
+  - component: {fileID: 713109172}
+  - component: {fileID: 713109173}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -3213,6 +3216,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &713109171
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713109170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 556.076
+    y: -57.806213
+    width: 107.499954
+    height: 40
+  tint: {r: 0, g: 0, b: 0, a: 1}
+  useCustomTint: 1
+  itemId: 8
+  blockName: "\u30ED\u30C3\u30AB\u30FC (Copy)"
+  description: 
+  eventHandler: {fileID: 713109173}
+  commandList:
+  - {fileID: 713109172}
+  suppressAllAutoSelections: 0
+--- !u!114 &713109172
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713109170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  indentLevel: 0
+  storyText: "\u4E2D\u306B\u306F\u4F55\u3082\u5165\u3063\u3066\u3044\u306A\u3044"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &713109173
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713109170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 713109171}
+  suppressBlockAutoSelect: 0
+  message: "\u30ED\u30C3\u30AB\u30FC"
 --- !u!114 &713109183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3226,18 +3298,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -244.07599, y: 139.80621}
+  scrollPos: {x: 229.63403, y: 479.71805}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 292
-  zoom: 1
+  zoom: 0.40000033
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 713109171}
   selectedCommands: []
   variables: []
   description: 
@@ -3799,6 +3872,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae4988e9e2ba5d41a6bd328ab7421dd, type: 3}
+--- !u!1 &809101639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 6ae4988e9e2ba5d41a6bd328ab7421dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 809101638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &809101640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809101639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76587797516b4e540af2b13766e63903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowchart: {fileID: 713109183}
+  sendMessage: 
+--- !u!65 &809101641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809101639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.51, y: 3.54, z: 1.83}
+  m_Center: {x: 0, y: 0.9176729, z: 0.000008508565}
 --- !u!1 &812417668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1125255547751596, guid: 5112c371a027e5d41800e4e72233bf0b,

@@ -4770,6 +4770,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1123777117}
   - component: {fileID: 1123777116}
+  - component: {fileID: 1123777104}
+  - component: {fileID: 1123777105}
+  - component: {fileID: 1123777106}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -4777,6 +4780,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1123777104
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123777103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 563.076
+    y: -48.806213
+    width: 113
+    height: 40
+  tint: {r: 0, g: 0, b: 0, a: 1}
+  useCustomTint: 1
+  itemId: 8
+  blockName: "\u30ED\u30C3\u30AB\u30FC (Copy)"
+  description: 
+  eventHandler: {fileID: 1123777106}
+  commandList:
+  - {fileID: 1123777105}
+  suppressAllAutoSelections: 0
+--- !u!114 &1123777105
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123777103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  indentLevel: 0
+  storyText: "\u307B\u3053\u308A\u304C\u7A4D\u3082\u3063\u3066\u3044\u308B\n\u5EC3\u6821\u306B\u306A\u308B\u524D\u3082\u6383\u9664\u3055\u308C\u3066\u3044\u306A\u304B\u3063\u305F\u306E\u3060\u308D\u3046"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1123777106
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123777103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1123777104}
+  suppressBlockAutoSelect: 0
+  message: "\u30ED\u30C3\u30AB\u30FC"
 --- !u!114 &1123777116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4793,7 +4865,7 @@ MonoBehaviour:
   scrollPos: {x: -247.07599, y: 135.80621}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 292
+  blockViewHeight: 280
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -4801,8 +4873,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1123777104}
+  selectedCommands:
+  - {fileID: 1123777105}
   variables: []
   description: 
   stepPause: 0
@@ -6337,6 +6411,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae4988e9e2ba5d41a6bd328ab7421dd, type: 3}
+--- !u!1 &1567493529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 6ae4988e9e2ba5d41a6bd328ab7421dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1567493528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1567493530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567493529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76587797516b4e540af2b13766e63903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowchart: {fileID: 1123777116}
+  sendMessage: 
+--- !u!65 &1567493531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567493529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9, y: 2.56, z: 2.4}
+  m_Center: {x: 0, y: 0.9176729, z: 0.000008508565}
 --- !u!1001 &1567994576
 PrefabInstance:
   m_ObjectHideFlags: 0
