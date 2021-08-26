@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;//会話テロップ用追加点
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,11 @@ public class RikaHinto : MonoBehaviour
     PanelManager context;
     public int page;
     public bool a;
+
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,61 +30,15 @@ public class RikaHinto : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyUp(KeyCode.Z) && a == false)
-            {
-                page = 0;
-                Debug.Log(page);
-                Debug.Log(a);
-            }
+            
 
-
-
-            if (Input.GetKeyUp(KeyCode.Z) && a == true)
-            {
-                page++;
-                Debug.Log(page);
-                Debug.Log(a);
-            }
-
-
-
-
-            if (page == 0)
-            {
-                context.TextActive("(1/4)授業プリントのようだ　\n(Z：次のページ)");
-                a = true;
-            }
-
-            if (page == 1)
-            {
-                context.TextActive("(2/4)ーーーという特徴がある。\nちなみに酸性の液体液体は錆取りに使えることもあり、\nそれを利用した工業製品がーーー");
-                a = true;
-            }
-
-            if (page == 2)
-            {
-                context.TextActive("(3/4)ーーー2020年度、授業プリント");
-                a = true;
-            }
-            if (page == 3)
-            {
-                context.TextActive("(4/4)・・・この年代だとすると・・・保健室にあるかもしれない");
-                a = false;
-
-            }
+                String sendMessage = "1";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+               
+            
         }
 
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            a = false;
-            page = 15;
 
-        }
-
-
-    }
 }

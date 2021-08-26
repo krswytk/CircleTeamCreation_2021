@@ -1,9 +1,15 @@
-﻿using System;
+﻿using System;//会話テロップ用追加点
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Tutoriaruinf : MonoBehaviour
 {
     [SerializeField]
+
+
+    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
+    public String sendMessage = "";　　　　　//会話テロップ用追加点
 
     PanelManager context;
     Menu menu;
@@ -13,6 +19,10 @@ public class Tutoriaruinf : MonoBehaviour
     static Flag TF;
 
     int keyput = 0;
+    int huragi =0;//追加フラグ
+    int kaku = 0;//追加フラグ
+    int menyu = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,33 +42,43 @@ public class Tutoriaruinf : MonoBehaviour
     void Update()
     {
 
-
-
-
-
-
-
-
-
-
         if (TF.nazoflag[0] == false)
         {
-            Debug.Log("debug comment");
-            context.TextActive("左右の矢印キーで移動");
+           
+              if (huragi == 0)
+              {
+                String sendMessage = "初め";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
-            if (Input.GetKeyUp(KeyCode.RightArrow) || (Input.GetKeyUp(KeyCode.LeftArrow)))
-            {
-                keyput = 3;
+                if (Input.GetKeyUp(KeyCode.Z))
+                {
+                    huragi++;
 
-                TF.nazoflag[0] = true;
-                Debug.Log(keyput);
+                }
+
 
             }
-        }
+                    else  {
+                       String sendMessage = "移動";//会話テロップ用追加点
+                        flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
+                           if (Input.GetKeyUp(KeyCode.RightArrow) || (Input.GetKeyUp(KeyCode.LeftArrow)))
+                           {
+                                 keyput = 3;
+
+                                   TF.nazoflag[0] = true;
+                                   Debug.Log(keyput);
+
+                           }
+                    }
+        }
+            
+
+        
         if ((TF.nazoflag[0] == true) && (TF.nazoflag[1] == false))
         {
-            context.TextActive("Shift+左右の矢印キーでダッシュ移動");
+            String sendMessage = "ダッシュ";//会話テロップ用追加点
+            flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
             if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
             {
 
@@ -69,7 +89,8 @@ public class Tutoriaruinf : MonoBehaviour
 
         if ((TF.nazoflag[1] == true) && (TF.nazoflag[2] == false))
         {
-            context.TextActive("扉の前で決定キー(Z)で部屋にはいれる");
+            String sendMessage = "扉";//会話テロップ用追加点
+            flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
         }
 
@@ -80,8 +101,8 @@ public class Tutoriaruinf : MonoBehaviour
 
 
 
-
-            context.TextActive("アイテムの前で決定キー(Z)でアイテムを所得できる");
+            String sendMessage = "アイテム";//会話テロップ用追加点
+            flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
             if (f.getflag[8] == true)
             {
 
@@ -92,7 +113,9 @@ public class Tutoriaruinf : MonoBehaviour
         if ((TF.nazoflag[3] == true) && (TF.nazoflag[4] == false))
         {
 
-            context.TextActive("筆記用具を手に入れた\nCキーでアイテムを確認でき,再度Cキーで行動可能　");
+
+            String sendMessage = "メニュー";//会話テロップ用追加点
+            flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
             if (Input.GetKeyUp(KeyCode.C))
             {
@@ -105,8 +128,17 @@ public class Tutoriaruinf : MonoBehaviour
         if ((TF.nazoflag[4] == true) && (TF.nazoflag[5] == false))
         {
 
-            context.TextActive("筆記用具を手に入れた\nCキーでアイテムを確認でき,再度Cキーで行動可能\nメニューを閉じるところまでやってみよう　");
+            if (menyu == 0)
+            {
+                String sendMessage = "閉じる";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+                menyu++;
+            }
 
+
+         
+
+           
             if (Input.GetKey(KeyCode.C))
             {
 
@@ -118,10 +150,16 @@ public class Tutoriaruinf : MonoBehaviour
         if ((TF.nazoflag[5] == true) && (TF.nazoflag[6] == false))
         {
 
-            context.TextActive("ノートに筆記用具で絵をかいてみよう\nノートの前でメニューを開き,Zキーでアイテムを使用できる　");
+            if (kaku==0)
+            {
+                String sendMessage = "書く";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+                kaku++;
 
+            }
+          
 
-
+           
 
 
 
@@ -130,8 +168,8 @@ public class Tutoriaruinf : MonoBehaviour
         if ((TF.nazoflag[6] == true) && (TF.nazoflag[7] == false))
         {
 
-            context.TextActive("チュートリアル終わり\nZキーでタイトルに戻ります");
-
+            String sendMessage = "終わり";//会話テロップ用追加点
+            flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
 
 
