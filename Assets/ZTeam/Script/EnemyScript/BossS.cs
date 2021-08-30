@@ -21,18 +21,15 @@ public class BossS : MonoBehaviour
     bool AttackReady = true;
     float time = 0f;
 
-    //演出の為の変数たち
+    /*演出の為の変数たち
     float second = 3.0f;
     float RotationAngle = 360f;
     float variation;
     float TotalAngle;
-
+    */
     bool StartOfProduction = false;
 
-    float Part1Zmovement = 0.25f;
-    float Part1Zvariation;
-    float Part2Zmovement = -0.25f;
-    float Part2Zvariation;
+   
 
     float BossZmovement = 5f;
     float BossZvariation = 5f;
@@ -87,13 +84,7 @@ public class BossS : MonoBehaviour
         part1 = transform.GetChild(1).gameObject;
         part2 = transform.GetChild(2).gameObject;
 
-       
-
-
-        //演出系統
-        variation = RotationAngle / second;
-        Part1Zvariation = Part1Zmovement / second;
-        Part2Zvariation = Part2Zmovement / second;
+     
         StateNow = State.beforebattle;
         anim = GetComponent<Animator>();
 
@@ -140,22 +131,18 @@ public class BossS : MonoBehaviour
 
         if (StartOfProduction)
         {
-            part1.transform.Rotate(0.0f, variation * Time.deltaTime, 0.0f);
-            part1.transform.Translate(0.0f, Part1Zvariation * Time.deltaTime, 0.0f);
-
-            part2.transform.Rotate(0.0f, -variation * Time.deltaTime, 0.0f);
-            part2.transform.Translate(0.0f, Part2Zvariation * Time.deltaTime, 0.0f);
-
-            TotalAngle += variation * Time.deltaTime;
-            if (TotalAngle >= RotationAngle)
+            
+            if (time == 0f)
             {
+                anim.SetTrigger("StartofProduction");
+            }else if (time>=4.0f)
+            {
+               
                 StartOfProduction = false;
-                TotalAngle = 0f;
-                part1.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-                part2.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+                time = 0f;
                 StateNow = State.attack;
-                
             }
+            time += Time.deltaTime;
         }
         else
         {
@@ -203,8 +190,6 @@ public class BossS : MonoBehaviour
             if (dis < 3.0f)
             {
                 AttackStateNow = AttackState.Short;
-                anim.Play("BossJumpAnimation");
-                anim.Play("waitAnim");
             }
             else if (dis < 9.0f)
             {
@@ -247,11 +232,14 @@ public class BossS : MonoBehaviour
 
     void Shortfunc()
     {
-        if (Play2D.isGround == true&&shortbool==false&&time>=2.0f&&time<2.5f)
+        if (time == 0f)
+        {
+            anim.SetTrigger("shortAttack");
+        }else if (Play2D.isGround == true&&shortbool==false&&time>=2.9f&&time<3.4f)
         {
             Status.HP(-10);
             shortbool = true;
-        }else if (time > 3.0f)
+        }else if (time > 4.0f)
         {
             time += 2.0f;
         }
@@ -261,6 +249,7 @@ public class BossS : MonoBehaviour
     }
     void Middlefunc()
     {
+
         BulletSpawnPosition = transform.position;
         BulletSpawnRotation = transform.rotation;
         middleTime += Time.deltaTime;
@@ -272,17 +261,20 @@ public class BossS : MonoBehaviour
                 middleTime = 0f;
                 middlebool = false;
                 randomvalve = Random.Range(1, 100);
+
             }
 
             if (middlebool == false)
                 {
-                    BulletSpawnPosition.x = transform.position.x - 0.3f;
+                anim.SetTrigger("middleAttack");
+                BulletSpawnPosition.x = transform.position.x - 0.3f;
                 if (randomvalve < 50)
                 {
                     BulletSpawnRotation.z = transform.rotation.z - 180;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z - 210;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    
                 }
                 else
                 {
@@ -290,6 +282,7 @@ public class BossS : MonoBehaviour
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z - 170;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    
                 }
                    // middlecount++;
                     middlebool = true;
@@ -303,16 +296,19 @@ public class BossS : MonoBehaviour
                 middleTime = 0f;
                 middlebool = false;
                 randomvalve = Random.Range(1, 100);
+                
             }
 
             if (middlebool == false)
             {
+                anim.SetTrigger("middleAttack");
                 BulletSpawnPosition.x = transform.position.x + 0.3f;
                 if (randomvalve < 50)
                 {
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z + 30;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                   
                 }
                 else
                 {
@@ -320,6 +316,7 @@ public class BossS : MonoBehaviour
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
                     BulletSpawnRotation.z = transform.rotation.z - 10;
                     InstBullet(BulletSpawnPosition, BulletSpawnRotation);
+                    
                 }
                // middlecount++;
                 middlebool = true;
