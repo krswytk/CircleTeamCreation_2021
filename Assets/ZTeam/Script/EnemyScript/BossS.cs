@@ -217,6 +217,7 @@ public class BossS : MonoBehaviour
 
             }
         }
+         
     }
 
     void Restfunc()
@@ -355,6 +356,13 @@ public class BossS : MonoBehaviour
         Debug.Log("遠距離");
         //遠距離
     }
+
+    public void ChangeHP()
+    {
+        BossHP-= Status.attackP;
+        Debug.Log(BossHP);
+    }
+
 
     void InstBullet(Vector3 pos, Quaternion rotation)
     {

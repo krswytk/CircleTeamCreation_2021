@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BossChildS : MonoBehaviour
 {
+    GameObject Body;
+    BossS BossS;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Body  = GameObject.Find("body");
+        BossS = Body.GetComponent<BossS>();
     }
 
     // Update is called once per frame
@@ -20,9 +23,12 @@ public class BossChildS : MonoBehaviour
         if (this.gameObject.name == "part1")
         {
             Debug.Log("part1に当たった");
+            BossS.ChangeHP();
+
         }else if (this.gameObject.name == "part2")
         {
             Debug.Log("part2に当たった");
+            BossS.ChangeHP();
         }
     }
 }
