@@ -1079,7 +1079,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 727.62146
     y: -32.8062
-    width: 169.2
+    width: 164
     height: 40
   tint: {r: 0, g: 0.9706273, b: 1, a: 1}
   useCustomTint: 1
@@ -1190,7 +1190,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1085.6215
     y: 63.1938
-    width: 123.6
+    width: 122
     height: 40
   tint: {r: 0.9528302, g: 0.46293166, b: 0.7944402, a: 1}
   useCustomTint: 1
@@ -10235,5 +10235,10 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8882852851807822527, guid: 819b70e9ce213b3458f231b16cd364e4,
+        type: 3}
+      propertyPath: flowchart
+      value: 
+      objectReference: {fileID: 270942974}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 819b70e9ce213b3458f231b16cd364e4, type: 3}
