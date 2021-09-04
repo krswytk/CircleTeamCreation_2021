@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerContact : MonoBehaviour
 {
 
-    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
-    public String sendMessage = "";　　　　　//会話テロップ用追加点
+    public Fungus.Flowchart flowchart;//会話テロップ用追加点
+   // public String sendMessage = "";　　　　　//会話テロップ用追加点
 
     PanelManager p;
     Menu m;
@@ -18,6 +18,7 @@ public class PlayerContact : MonoBehaviour
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
         m = this.GetComponent<Menu>();
         f = this.GetComponent<Flag>();
+        flowchart = GameObject.Find("Flowchart").GetComponent<Fungus.Flowchart>();
     }
 
 
@@ -38,7 +39,7 @@ public class PlayerContact : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (m.opcl == false)
-        {
+        {/*
             if (other.GetComponent<Rock>())
             {
                 if (Input.GetKeyDown(KeyCode.Z))
@@ -59,7 +60,7 @@ public class PlayerContact : MonoBehaviour
 
                     }
                 }
-            }
+            }*/
 
             if (other.gameObject.GetComponent<Nazo2>())
             {
