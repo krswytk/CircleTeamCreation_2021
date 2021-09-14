@@ -11,8 +11,8 @@ public class Rock : MonoBehaviour
 
 
 
-    public Fungus.Flowchart flowchart = null;//会話テロップ用追加点
-    public String sendMessage = "";　　　　　//会話テロップ用追加点
+    public Fungus.Flowchart flowchart;//会話テロップ用追加点
+    //public String sendMessage = "";　　　　　//会話テロップ用追加点
 
     Menu menu;
     ItemManager manager;
@@ -29,12 +29,13 @@ public class Rock : MonoBehaviour
         f = GameObject.FindGameObjectWithTag("Player").GetComponent<Flag>();
         cursor = GameObject.Find("Canvas").transform.Find("ItemMenu/Cursor").GetComponent<CursorCtrl>();
         p = GameObject.FindWithTag("PanelManager").GetComponent<PanelManager>();
+        flowchart = GameObject.Find("Flowchart").GetComponent<Fungus.Flowchart>();
 
 
-        switch(n)
+        switch (n)
         {
             case 0:
-                if(f.rockflag[n] == true)Destroy(gameObject.GetComponent<Rock>());
+                if (f.rockflag[n] == true) Destroy(gameObject.GetComponent<Rock>());
                 break;
 
             case 1:
@@ -66,6 +67,7 @@ public class Rock : MonoBehaviour
     //もっと鍵付きなどを増やしていく場合はswitchを使って見やすくする
     private void OnTriggerStay(Collider other)
     {
+
         if (menu.opcl == true)
         {
             //アイテムの種類3番目を使用した時
@@ -153,7 +155,7 @@ public class Rock : MonoBehaviour
                         flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
 
                         p.TextActive("鍵を開けた");//差し替え
-                        // manager.useitem();//鍵を消費しない場合はいらない
+                                              // manager.useitem();//鍵を消費しない場合はいらない
                         f.rockflag[4] = true;//フラグ
 
                         menu.opcl = false;
@@ -178,6 +180,22 @@ public class Rock : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                if (SceneManager.GetActiveScene().name == "souko")
+                {
 
+                    String a = "鍵がかかっている倉庫";//会話テロップ用追加点
+                    flowchart.SendFungusMessage(a);//会話テロップ用追加点
+                                                             //  p.TextActive("鍵がかかっている…\nよく見ると小さな鍵穴がある");
+                }
+
+                Debug.Log("h");
+                String sendMessage = "鍵が掛かっている";//会話テロップ用追加点
+                flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
+            }
+        }
     }
 }

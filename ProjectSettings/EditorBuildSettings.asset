@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/STeam/Scenes/room/hokenn.unity
     guid: c035891a5a45d9d49be0f50d6b45ab21
   - enabled: 1
+    path: Assets/STeam/Scenes/room/Zyunnbi.unity
+    guid: 20671e902ffa3de49a027b250d1bd2c1
+  - enabled: 1
     path: Assets/STeam/Scenes/room/Syoukou.unity
     guid: f90fee917ba2f544da5f81d7735a1b94
   - enabled: 1
