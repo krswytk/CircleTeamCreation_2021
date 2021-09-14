@@ -184,6 +184,14 @@ public class Rock : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
+                if (SceneManager.GetActiveScene().name == "souko")
+                {
+
+                    String a = "鍵がかかっている倉庫";//会話テロップ用追加点
+                    flowchart.SendFungusMessage(a);//会話テロップ用追加点
+                                                             //  p.TextActive("鍵がかかっている…\nよく見ると小さな鍵穴がある");
+                }
+
                 Debug.Log("h");
                 String sendMessage = "鍵が掛かっている";//会話テロップ用追加点
                 flowchart.SendFungusMessage(sendMessage);//会話テロップ用追加点
