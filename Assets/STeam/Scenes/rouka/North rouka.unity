@@ -1658,6 +1658,7 @@ GameObject:
   - component: {fileID: 172393942}
   - component: {fileID: 172393941}
   - component: {fileID: 172393943}
+  - component: {fileID: 172393944}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1696,7 +1697,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 332.676
     y: -73.80621
-    width: 130.90909
+    width: 132.5263
     height: 40
   tint: {r: 0, g: 0.9706273, b: 1, a: 1}
   useCustomTint: 1
@@ -1704,7 +1705,8 @@ MonoBehaviour:
   blockName: "\u9375\u3092\u958B\u3051\u305F (Copy)"
   description: "Rock\u30B9\u30AF\u30EA\u30D7\u30C8\u7528"
   eventHandler: {fileID: 172393938}
-  commandList: []
+  commandList:
+  - {fileID: 172393944}
   suppressAllAutoSelections: 0
 --- !u!114 &172393940
 MonoBehaviour:
@@ -1722,7 +1724,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 628.53723
     y: -0.12613487
-    width: 100.90909
+    width: 100.52632
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 1
@@ -1775,7 +1777,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 714.00977
     y: 92.37383
-    width: 120.90908
+    width: 121.57895
     height: 40
   tint: {r: 0.9056604, g: 0.3972944, b: 0.8864716, a: 1}
   useCustomTint: 1
@@ -1801,6 +1803,33 @@ MonoBehaviour:
   parentBlock: {fileID: 172393942}
   suppressBlockAutoSelect: 0
   message: "\u9375\u304C\u639B\u304B\u3063\u3066\u3044\u308B"
+--- !u!114 &172393944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172393937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 13
+  indentLevel: 0
+  storyText: "\u9375\u3092\u958B\u3051\u305F"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &172393950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,19 +1843,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -189.90092, y: 153.5352}
+  scrollPos: {x: -229.4007, y: 158.58778}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 292
-  zoom: 0.8800001
+  blockViewHeight: 232
+  zoom: 0.7916666
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 172393939}
+  selectedCommands:
+  - {fileID: 172393944}
   variables: []
   description: 
   stepPause: 0
