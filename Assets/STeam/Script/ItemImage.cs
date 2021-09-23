@@ -24,7 +24,7 @@ public class ItemImage : MonoBehaviour
         if (menu.opcl == true)
         {
             
-            if (manager.itemname[cursor.getcursor()] == "map")
+            if (manager.itemname[cursor.getcursor()] == "校内地図")
             {
                 //Debug.Log(cursor.getcursor());
                 this.GetComponent<Image>().enabled = true;
