@@ -25,7 +25,7 @@ public class ItemName : MonoBehaviour
         if (menu.opcl == true)
         {
             this.GetComponent<Text>().enabled=true;
-            if (manager.itemname[cursor.getcursor()] != "map")
+            if (manager.itemname[cursor.getcursor()] != "校内地図")
             {
                 t.text = manager.itemname[cursor.getcursor()];
             }
